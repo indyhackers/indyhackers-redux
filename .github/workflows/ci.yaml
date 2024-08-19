@@ -33,5 +33,6 @@ jobs:
     uses: ./.github/workflows/cd.yaml
     with:
       image: ${{ needs.build.outputs.image }}
+    secrets:
       ssh_key: ${{ secrets.SSH_KEY_DEV }}
       ssh_host: indyhackersdev.highcapacity.net
