@@ -3,6 +3,9 @@ name: CI
 on:
   push
 
+env:
+  IMAGE_NAME: apoland/indyhackers
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,7 +25,6 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          IMAGE_NAME=apoland/indyhackers
           docker build -t $IMAGE_NAME:$IMAGE_TAG .
           docker push $IMAGE_NAME:$IMAGE_TAG
           echo "image=$IMAGE_NAME:$IMAGE_TAG" >> $GITHUB_OUTPUT
@@ -33,7 +35,7 @@ jobs:
     uses: ./.github/workflows/cd.yaml
     with:
       image: ${{ needs.build.outputs.image }}
-      ssh_user: apoland
+      ssh_user: indyhackers
       ssh_host: indyhackersdev.highcapacity.net
     secrets:
       ssh_key: ${{ secrets.SSH_KEY_DEV }}
