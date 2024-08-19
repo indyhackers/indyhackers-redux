@@ -26,3 +26,10 @@ jobs:
           docker build -t $IMAGE_NAME:$IMAGE_TAG .
           docker push $IMAGE_NAME:$IMAGE_TAG
           echo "image=$IMAGE_NAME:$IMAGE_TAG" >> $GITHUB_OUTPUT
+      
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: [build]
+    uses: ./.github/workflows/cd.yml
+    with:
+      image: ${{ needs.build.outputs.image }}
