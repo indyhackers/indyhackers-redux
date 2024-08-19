@@ -29,8 +29,8 @@ jobs:
           ssh-keyscan ${{ inputs.SSH_HOST }} >> ~/.ssh/known_hosts
           
           #stop running containers
-          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker stop `docker ps -a -q`
-          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker rm `docker ps -a -q`
+          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} 'docker stop `docker ps -a -q`'
+          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} 'docker rm `docker ps -a -q`'
           
           #run new image
           ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker run --restart always -p 32768:80 -d ${{ inputs.image }}
