@@ -6,9 +6,12 @@ on:
       image:
         type: string
         required: true
-
-env:
-  SSH_HOST: indyhackersdev.highcapacity.net
+      ssh_host:
+        type: string
+        required: true
+    secrets:
+      ssh_key:
+        required: true
 
 jobs:
   deploy:
@@ -16,15 +19,15 @@ jobs:
     steps:
       - uses: webfactory/ssh-agent@v0.9.0
         with:
-          ssh-private-key: ${{ secrets.SSH_KEY_DEV }}
+          ssh-private-key: ${{ secrets.ssh_key }}
 
       - name: Deploy image on host
         run: |
-          ssh-keyscan ${{ env.SSH_HOST }} >> ~/.ssh/known_hosts
+          ssh-keyscan ${{ inputs.SSH_HOST }} >> ~/.ssh/known_hosts
           
           #stop running containers
-          ssh ${{ env.SSH_HOST }} docker stop `docker ps -a -q`
-          ssh ${{ env.SSH_HOST }} docker rm `docker ps -a -q`
+          ssh ${{ inputs.SSH_HOST }} docker stop `docker ps -a -q`
+          ssh ${{ inputs.SSH_HOST }} docker rm `docker ps -a -q`
           
           #run new image
-          ssh ${{ env.SSH_HOST }} docker run --restart always -p 32768:80 -d ${{ inputs.image }}
+          ssh ${{ inputs.SSH_HOST }} docker run --restart always -p 32768:80 -d ${{ inputs.image }}
