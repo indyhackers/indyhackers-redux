@@ -27,7 +27,7 @@ jobs:
           docker push $IMAGE_NAME:$IMAGE_TAG
           echo "image=$IMAGE_NAME:$IMAGE_TAG" >> $GITHUB_OUTPUT
       
-  deploy:
+  cd:
     if: github.ref == 'refs/heads/main'
     needs: [build]
     uses: ./.github/workflows/cd.yaml
