@@ -30,11 +30,11 @@ jobs:
           
           CONTAINERS=$(ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker ps -a -q)
           
-          if [ ! -z "$CONTAINERS" ]; do
+          if [ ! -z "$CONTAINERS" ]; then
             #stop running containers
             ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker stop $CONTAINERS
             ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker rm $CONTAINERS
-          done
+          fi
           
           #run new image
           ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker run --restart always -p 32768:80 -d ${{ inputs.IMAGE }}
