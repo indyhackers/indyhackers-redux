@@ -14,20 +14,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Add SSH key
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: |
-          mkdir -p /home/runner/.ssh
-          ssh-keyscan ${{ env.SSH_HOST }} >> /home/runner/.ssh/known_hosts
-          # DOKKU_SSH_KEY is the name of the repository secret
-          echo "${{ secrets.SSH_KEY_DEV }}" > /home/runner/.ssh/github_actions
-          chmod 600 /home/runner/.ssh/github_actions
-          ssh-agent -a $SSH_AUTH_SOCK > /dev/null	
-          ssh-add /home/runner/.ssh/github_actions
+      - uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY_DEV }}
 
       - name: Deploy image on host
         run: |
+          ssh-keyscan ${{ env.SSH_HOST }} >> ~/.ssh/known_hosts
+          
           #stop running containers
           ssh ${{ env.SSH_HOST }} docker stop `docker ps -a -q`
           ssh ${{ env.SSH_HOST }} docker rm `docker ps -a -q`
