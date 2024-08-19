@@ -30,6 +30,6 @@ jobs:
   deploy:
     if: github.ref == 'refs/heads/main'
     needs: [build]
-    uses: ./.github/workflows/cd.yml
+    uses: ./.github/workflows/cd.yaml
     with:
       image: ${{ needs.build.outputs.image }}
