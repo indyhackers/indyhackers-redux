@@ -33,4 +33,4 @@ jobs:
           ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} 'docker rm `docker ps -a -q`'
           
           #run new image
-          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker run --restart always -p 32768:80 -d ${{ inputs.image }}
+          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker run --restart always -p 32768:80 -d ${{ inputs.IMAGE }}
