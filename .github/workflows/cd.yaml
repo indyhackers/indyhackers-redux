@@ -37,4 +37,4 @@ jobs:
           fi
           
           #run new image
-          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker run --restart always -p 32768:80 -d ${{ inputs.image }}
+          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker run -e TEST_KEY=foo --restart always -p 32768:80 -d ${{ inputs.image }}
