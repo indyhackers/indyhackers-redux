@@ -22,13 +22,9 @@ jobs:
     steps:
       - name: Deploy image on host
         run: |
-          CONTAINERS=$(ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker ps -a -q)
-          
-          if [ ! -z "$CONTAINERS" ]; then
-            #stop running containers
-            ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker stop $CONTAINERS
-            ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker rm $CONTAINERS
-          fi
+          #stop running containers
+          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker stop indyhackers || true
+          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker rm indyhackers || true
           
           #run new image
-          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker run -e TEST_KEY=foo --restart always -p 32768:80 -d ${{ inputs.image }}
+          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker run --name indyhackers -e TEST_KEY=foo --restart always -p 32768:80 -d ${{ inputs.image }}
