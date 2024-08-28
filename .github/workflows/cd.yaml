@@ -20,14 +20,8 @@ jobs:
   deploy:
     runs-on: self-hosted
     steps:
-      - uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.ssh_key }}
-
       - name: Deploy image on host
         run: |
-          ssh-keyscan ${{ inputs.SSH_HOST }} >> ~/.ssh/known_hosts
-          
           CONTAINERS=$(ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker ps -a -q)
           
           if [ ! -z "$CONTAINERS" ]; then
