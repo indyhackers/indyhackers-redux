@@ -1,0 +1,131 @@
+@import '_variables';
+
+.job h1 a {
+  font-size: 36px;
+}
+
+#single-job h1 {
+  font-size: 36px;
+}
+
+#single-job {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $text-color-black;
+    text-transform: none;
+
+    &:not(:first-child) {
+      margin-top: 0.5em;
+    }
+  }
+}
+
+#single-job a {
+  color: $text-color-black;
+}
+
+#single-job article.job-description h1 {
+  font-size: 24px;
+}
+
+#single-job article.job-description ul {
+  padding-bottom: 15px;
+  line-height: 150%;
+}
+
+table#jobs {
+  width: 100%;
+}
+
+table#jobs {
+  border-spacing: 0;
+
+  tr {
+    margin: 0;
+    padding: 0;
+
+    td {
+      padding: 6px;
+      margin: 0;
+      border-top: 1px solid #000;
+      border-collapse: collapse;
+      overflow: hidden;
+    }
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  td.actions,
+  td.requested,
+  td.published,
+  td.expires,
+  td.views {
+    text-align: center;
+  }
+}
+
+li#jobs-header h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.job-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.job-list li {
+   margin: 0;
+   padding: 20px 20px;
+}
+
+.job-list li a {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.job-list li a:hover {
+  text-decoration: underline;
+  text-decoration-color: $primary-yellow;
+}
+
+.job-list>li:nth-child(even) {
+    background-color: lightgrey;
+}
+
+body.admin.jobs {
+  nav {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  #job-view-filter {
+    float: right;
+    clear: left;
+  }
+}
+
+#live-preview, #single-job {
+  ul {
+    list-style-type: disc;
+  }
+
+  ul, ol {
+    padding-left: 20px;
+
+    li {
+      padding: 0;
+    }
+  }
+}
+
+.salary {
+  text-align: right;
+}

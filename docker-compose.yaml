@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+  pocketbase:
+    image: pocketbase:0.22.0
+    build:
+      context: .
+      args:
+        TARGETOS: linux
+        TARGETARCH: arm64
+        #TARGETARCH: amd64
+        VERSION: 0.22.20
+      platforms:
+        #- "linux/amd64"
+        - 'linux/arm64'
+    container_name: pocketbase
+    environment:
+      NODE_ENV: development
+    restart: unless-stopped
+    ports:
+      - '8090:8090'
+    volumes:
+      - ./pb/data:/pb_data
+      # - ./pb/public:/pb_public
+      - ./pb/hooks:/pb_hooks
+      - ./pb/migrations:/pb_migrations
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:8090/api/health || exit 1
+      interval: 5s
+      timeout: 5s
+      retries: 5

@@ -1,0 +1,67 @@
+@import '_variables';
+
+.content {
+  margin-bottom: 60px;
+
+  > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 30px 20%;
+    }
+  }
+
+  .blm {
+    background-color: $text-color-black;
+    color: $primary-yellow;
+    padding: 30px 10%;
+  }
+
+  .announcements-alt {
+    background-color: $background-blue-dark;
+    color: $primary-yellow;
+    padding: 30px 10%;
+  }
+
+  .holcomb {
+    background-color: rgb(227, 92, 85) !important;
+  }
+
+  .announcements {
+    background-color: $primary-yellow;
+    color: $text-color-black;
+    padding: 30px 10%;
+
+    a.join-slack,
+    a.code-of-conduct {
+      text-decoration-color: $text-color-black;
+    }
+  }
+
+  .hackies {
+    padding: 30px 20% 30px 0;
+
+    a.learn-more {
+      text-decoration-color: $text-color-black;
+    }
+  }
+
+  .wwihd {
+    background-color: $background-blue;
+    margin-bottom: 30px;
+    padding: 30px 10%;
+
+    h3 {
+      font-family: $text-font;
+      text-align: center;
+    }
+  }
+
+  .calendar-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+  }
+}

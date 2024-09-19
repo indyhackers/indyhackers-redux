@@ -1,0 +1,376 @@
+{
+  "jobs": {
+    "collection": {
+      "id": "5o7y83cyhnt62fa",
+      "created": "2024-09-18 13:03:35.517Z",
+      "updated": "2024-09-18 16:03:18.073Z",
+      "name": "jobs",
+      "type": "base",
+      "system": false,
+      "schema": [
+        {
+          "system": false,
+          "id": "dcknfmkr",
+          "name": "user",
+          "type": "relation",
+          "required": true,
+          "presentable": false,
+          "unique": false,
+          "options": {
+            "collectionId": "_pb_users_auth_",
+            "cascadeDelete": false,
+            "minSelect": null,
+            "maxSelect": 1,
+            "displayFields": null
+          }
+        },
+        {
+          "system": false,
+          "id": "zoegggkv",
+          "name": "title",
+          "type": "text",
+          "required": true,
+          "presentable": false,
+          "unique": false,
+          "options": {
+            "min": null,
+            "max": null,
+            "pattern": ""
+          }
+        },
+        {
+          "system": false,
+          "id": "u56j43xm",
+          "name": "company",
+          "type": "text",
+          "required": true,
+          "presentable": false,
+          "unique": false,
+          "options": {
+            "min": null,
+            "max": null,
+            "pattern": ""
+          }
+        },
+        {
+          "system": false,
+          "id": "m98fccc3",
+          "name": "salary_min",
+          "type": "number",
+          "required": true,
+          "presentable": false,
+          "unique": false,
+          "options": {
+            "min": 1,
+            "max": 1000,
+            "noDecimal": false
+          }
+        },
+        {
+          "system": false,
+          "id": "6roz2bhz",
+          "name": "salary_max",
+          "type": "number",
+          "required": true,
+          "presentable": false,
+          "unique": false,
+          "options": {
+            "min": 1,
+            "max": 1000,
+            "noDecimal": false
+          }
+        },
+        {
+          "system": false,
+          "id": "c375cvhs",
+          "name": "description",
+          "type": "editor",
+          "required": false,
+          "presentable": false,
+          "unique": false,
+          "options": {
+            "convertUrls": false
+          }
+        },
+        {
+          "system": false,
+          "id": "fcysx7o7",
+          "name": "approved",
+          "type": "bool",
+          "required": false,
+          "presentable": false,
+          "unique": false,
+          "options": {}
+        }
+      ],
+      "indexes": [],
+      "listRule": "",
+      "viewRule": "",
+      "createRule": "@request.auth.id != '' && @request.auth.id = user.id",
+      "updateRule": "@request.auth.id = user.id && @request.auth.id = user.id",
+      "deleteRule": "@request.auth.id != '' && @request.auth.roles.name ?= 'admin'",
+      "options": {}
+    },
+    "items": [
+      {
+        "approved": true,
+        "collectionId": "5o7y83cyhnt62fa",
+        "collectionName": "jobs",
+        "company": " Knowledge Services",
+        "created": "2024-09-18 15:56:45.162Z",
+        "description": "\u003Cp\u003EKnowledge Services is actively seeking a Data Product Owner for a contract-to-hire client opening in Indianapolis, IN. Applicants must be able to work in a hybrid work schedule of 2-days onsite (Tues and Wed) each week in downtown Indianapolis. Parking is provided!\u003C/p\u003E\r\n\u003Cp\u003EData Product Owner Responsibilities: Product Vision and Strategy: &bull; Develop and communicate a clear vision and strategy for data products, aligning with business goals and objectives.\u003C/p\u003E\r\n\u003Cp\u003EProduct Roadmap and Planning: &bull; Create and maintain a detailed product roadmap, outlining the development journey and key milestones. &bull; Define key performance indicators (KPIs) to measure the success of data products.\u003C/p\u003E\r\n\u003Cp\u003EStakeholder Management: &bull; Act as a bridge between data teams, stakeholders, and end-users, translating complex data concepts into actionable insights. &bull; Collaborate with cross-functional teams to gather feedback and ensure data products meet stakeholder requirements.\u003C/p\u003E\r\n\u003Cp\u003EBacklog Management: &bull; Create, maintain, and prioritize the product backlog, ensuring that the most valuable features are delivered first.\u003C/p\u003E\r\n\u003Cp\u003ECross-Functional Collaboration: &bull; Work closely with data engineers, data analysts, and other cross-functional teams to ensure successful product development and delivery.\u003C/p\u003E\r\n\u003Cp\u003EProject Planning: &bull; Oversee project planning, resource allocation, and timeline management to ensure timely delivery of high-quality data products.\u003C/p\u003E\r\n\u003Cp\u003EQuality Assurance: &bull; Ensure that data products meet quality standards and are delivered within budget.\u003C/p\u003E\r\n\u003Cp\u003EMarket Analysis: &bull; Conduct market research and competitive analysis to identify opportunities for innovation and improvement.\u003C/p\u003E\r\n\u003Cp\u003EUser Feedback: &bull; Gather and analyze user feedback to continuously improve data products and enhance user experience. Focus on the user experience, ensuring data products are intuitive and meet user needs\u003C/p\u003E\r\n\u003Cp\u003EData Governance: &bull; Ensure that data used within the data products is clean, secure, and adheres to company-wide governance policies Ensure data products comply with accepted standards and data governance rules. Provide detailed metadata descriptions and ensure data quality and integrity.\u003C/p\u003E\r\n\u003Cp\u003EData Literacy and Training: &bull; Promote data literacy within the organization, providing training and support to stakeholders. &bull; Foster a culture of data-driven decision-making\u003C/p\u003E\r\n\u003Cp\u003EData Product Owner Requirements: &bull; Bachelor&rsquo;s degree in computer science, Data Science, Business Administration, or a related field. Master&rsquo;s degree preferred. &bull; Minimum of 5 years of experience as a Product Manager/Product Owner, product management, with a focus on data products or data-driven projects. &bull; Strong understanding of the modern data stack, data science, data engineering, and analytics. Proficiency in SQL, Python, or other relevant programming languages. &bull; Ability to translate complex data concepts into actionable business insights. &bull; Excellent verbal and written communication skills, with the ability to effectively communicate with technical and non-technical stakeholders. &bull; Proven ability to lead cross-functional teams and manage multiple projects simultaneously. &bull; Strong analytical and problem-solving skills, with a focus on delivering innovative solutions\u003C/p\u003E\r\n\u003Cp\u003ETo apply, please contact&nbsp;\u003Ca href=\"mailto:pauld@knowledgeservices.com\"\u003EPaul Doray\u003C/a\u003E\u003C/p\u003E",
+        "id": "9jguvjqw6fzjb79",
+        "salary_max": 125,
+        "salary_min": 110,
+        "title": "Data Product Owner",
+        "updated": "2024-09-18 15:56:45.162Z",
+        "user": "p7ysp1yvccn2195"
+      },
+      {
+        "approved": true,
+        "collectionId": "5o7y83cyhnt62fa",
+        "collectionName": "jobs",
+        "company": "Theoris",
+        "created": "2024-09-18 16:16:05.309Z",
+        "description": "\u003Cp\u003EWe have 3 fully remote .NET positions available for long-term, benefited contract to hire. Ideally looking for React experience on the front end.\u003C/p\u003E\r\n\u003Cp\u003EASP.Net, MVC, .NET 4.8, .NET 8 50% is frontend 50% API development\u003C/p\u003E\r\n\u003Cp\u003EPlease reach out if you may want more details.\u003C/p\u003E\r\n\u003Cp\u003E\"To apply, please contact&nbsp;\u003Ca href=\"mailto:mdodson@theoris.com\"\u003EMegan Dodson\u003C/a\u003E\u003C/p\u003E",
+        "id": "vx9r0y79gj419dt",
+        "salary_max": 125,
+        "salary_min": 115,
+        "title": "Senior .NET Developer",
+        "updated": "2024-09-18 16:17:07.547Z",
+        "user": "78e6lprv2po3upi"
+      },
+      {
+        "approved": true,
+        "collectionId": "5o7y83cyhnt62fa",
+        "collectionName": "jobs",
+        "company": "SEP",
+        "created": "2024-09-18 16:16:59.040Z",
+        "description": "\u003Cp\u003EFor more details about the role and to apply for the role, please visit:&nbsp;\u003Ca href=\"https://jobs.lever.co/sep/0eccbd97-a731-4912-8856-a92942897be9\"\u003Ehttps://jobs.lever.co/sep/0eccbd97-a731-4912-8856-a92942897be9\u003C/a\u003E\u003C/p\u003E",
+        "id": "yyfjkp1cxfnbvpy",
+        "salary_max": 105,
+        "salary_min": 100,
+        "title": "Senior/Lead Product Designer",
+        "updated": "2024-09-18 16:17:11.089Z",
+        "user": "p7ysp1yvccn2195"
+      },
+      {
+        "approved": false,
+        "collectionId": "5o7y83cyhnt62fa",
+        "collectionName": "jobs",
+        "company": "Bunk Company",
+        "created": "2024-09-18 16:26:50.409Z",
+        "description": "\u003Cp\u003EYou can make thousands of dollars a month by starting your own fans page, or joining a pyramid scheme... have you heard about Amway? Let me tell you about it. \u003Ca href=\"mailto:john.nefarious@somewhere.else\" target=\"_blank\" rel=\"noopener\"\u003Ejohn.nefarious@somewhere.else\u003C/a\u003E\u003C/p\u003E",
+        "id": "uuzcym8emnjupr1",
+        "salary_max": 450,
+        "salary_min": 300,
+        "title": "Bunk Job Title",
+        "updated": "2024-09-18 16:26:50.409Z",
+        "user": "ufvy8er5x1z8uy8"
+      }
+    ]
+  },
+  "roles": {
+    "collection": {
+      "id": "8w3c1s8vh09ggi7",
+      "created": "2024-09-18 15:43:29.470Z",
+      "updated": "2024-09-18 15:43:29.470Z",
+      "name": "roles",
+      "type": "base",
+      "system": false,
+      "schema": [
+        {
+          "system": false,
+          "id": "vgnkpbzg",
+          "name": "name",
+          "type": "text",
+          "required": false,
+          "presentable": true,
+          "unique": false,
+          "options": {
+            "min": null,
+            "max": null,
+            "pattern": ""
+          }
+        },
+        {
+          "system": false,
+          "id": "ezla1zb8",
+          "name": "description",
+          "type": "editor",
+          "required": false,
+          "presentable": false,
+          "unique": false,
+          "options": {
+            "convertUrls": false
+          }
+        }
+      ],
+      "indexes": [],
+      "listRule": null,
+      "viewRule": null,
+      "createRule": null,
+      "updateRule": null,
+      "deleteRule": null,
+      "options": {}
+    },
+    "items": [
+      {
+        "collectionId": "8w3c1s8vh09ggi7",
+        "collectionName": "roles",
+        "created": "2024-09-18 15:43:56.427Z",
+        "description": "\u003Cp\u003ERole for Employers (grants access to create/modify job postings)\u003C/p\u003E",
+        "id": "c4zs8dywx1b4oum",
+        "name": "employer",
+        "updated": "2024-09-18 15:43:56.427Z"
+      },
+      {
+        "collectionId": "8w3c1s8vh09ggi7",
+        "collectionName": "roles",
+        "created": "2024-09-18 15:45:05.731Z",
+        "description": "\u003Cp\u003ERole for Website Admins (grants access to Admin UI)\u003C/p\u003E",
+        "id": "dvd8qcpwdva72z0",
+        "name": "admin",
+        "updated": "2024-09-18 15:45:05.731Z"
+      },
+      {
+        "collectionId": "8w3c1s8vh09ggi7",
+        "collectionName": "roles",
+        "created": "2024-09-18 15:52:30.362Z",
+        "description": "\u003Cp\u003ERole for IndyHackers members (joined via Slack)\u003C/p\u003E",
+        "id": "po8xycl3w2b6h0o",
+        "name": "member",
+        "updated": "2024-09-18 15:52:30.362Z"
+      }
+    ]
+  },
+  "users": {
+    "collection": {
+      "id": "_pb_users_auth_",
+      "created": "2024-09-18 13:03:35.270Z",
+      "updated": "2024-09-18 15:45:44.947Z",
+      "name": "users",
+      "type": "auth",
+      "system": false,
+      "schema": [
+        {
+          "system": false,
+          "id": "users_name",
+          "name": "name",
+          "type": "text",
+          "required": false,
+          "presentable": false,
+          "unique": false,
+          "options": {
+            "min": null,
+            "max": null,
+            "pattern": ""
+          }
+        },
+        {
+          "system": false,
+          "id": "users_avatar",
+          "name": "avatar",
+          "type": "file",
+          "required": false,
+          "presentable": false,
+          "unique": false,
+          "options": {
+            "mimeTypes": ["image/jpeg", "image/png", "image/svg+xml", "image/gif", "image/webp"],
+            "thumbs": null,
+            "maxSelect": 1,
+            "maxSize": 5242880,
+            "protected": false
+          }
+        },
+        {
+          "system": false,
+          "id": "dwlnv8zh",
+          "name": "roles",
+          "type": "relation",
+          "required": false,
+          "presentable": false,
+          "unique": false,
+          "options": {
+            "collectionId": "8w3c1s8vh09ggi7",
+            "cascadeDelete": false,
+            "minSelect": null,
+            "maxSelect": null,
+            "displayFields": null
+          }
+        }
+      ],
+      "indexes": [],
+      "listRule": "id = @request.auth.id",
+      "viewRule": "id = @request.auth.id",
+      "createRule": "",
+      "updateRule": "id = @request.auth.id",
+      "deleteRule": "id = @request.auth.id",
+      "options": {
+        "allowEmailAuth": true,
+        "allowOAuth2Auth": true,
+        "allowUsernameAuth": true,
+        "exceptEmailDomains": null,
+        "manageRule": null,
+        "minPasswordLength": 8,
+        "onlyEmailDomains": null,
+        "onlyVerified": false,
+        "requireEmail": false
+      }
+    },
+    "items": [
+      {
+        "avatar": "",
+        "collectionId": "_pb_users_auth_",
+        "collectionName": "users",
+        "created": "2024-09-18 15:10:05.765Z",
+        "emailVisibility": false,
+        "id": "0yi0op6wkn5olcd",
+        "name": "Joe Public",
+        "roles": ["po8xycl3w2b6h0o"],
+        "updated": "2024-09-18 15:52:48.852Z",
+        "username": "joe_public",
+        "verified": true
+      },
+      {
+        "avatar": "",
+        "collectionId": "_pb_users_auth_",
+        "collectionName": "users",
+        "created": "2024-09-18 15:18:10.128Z",
+        "emailVisibility": false,
+        "id": "78e6lprv2po3upi",
+        "name": "Jack Employer",
+        "roles": ["c4zs8dywx1b4oum", "po8xycl3w2b6h0o"],
+        "updated": "2024-09-18 15:53:02.056Z",
+        "username": "jack_employer",
+        "verified": true
+      },
+      {
+        "avatar": "",
+        "collectionId": "_pb_users_auth_",
+        "collectionName": "users",
+        "created": "2024-09-18 15:18:52.023Z",
+        "emailVisibility": false,
+        "id": "p7ysp1yvccn2195",
+        "name": "Sally Employer",
+        "roles": ["c4zs8dywx1b4oum"],
+        "updated": "2024-09-18 15:46:02.794Z",
+        "username": "sally_employer",
+        "verified": true
+      },
+      {
+        "avatar": "",
+        "collectionId": "_pb_users_auth_",
+        "collectionName": "users",
+        "created": "2024-09-18 16:24:32.490Z",
+        "emailVisibility": false,
+        "id": "ufvy8er5x1z8uy8",
+        "name": "John Nefarious",
+        "roles": ["c4zs8dywx1b4oum"],
+        "updated": "2024-09-18 16:24:32.490Z",
+        "username": "john_nefarious",
+        "verified": false
+      }
+    ]
+  }
+}
