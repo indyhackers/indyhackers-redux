@@ -9,6 +9,7 @@ services:
         TARGETARCH: arm64
         #TARGETARCH: amd64
         VERSION: 0.22.20
+        PB_ENV: development
       platforms:
         #- "linux/amd64"
         - 'linux/arm64'

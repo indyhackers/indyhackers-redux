@@ -26,10 +26,14 @@ RUN npm i && npm run build
 FROM alpine:3
 RUN apk update && apk add ca-certificates && rm -rf /var/cache/apk/*
 
+ARG NODE_ENV=production
+ENV NODE_ENV=$NODE_ENV
+
 COPY public/images /pb_public/images
 COPY public/favicon.ico /pb_public/.
 COPY pb/hooks /pb_hooks
 COPY pb/migrations /pb_migrations
+COPY src/mocks/mocks.json /.
 
 EXPOSE 8090
 
