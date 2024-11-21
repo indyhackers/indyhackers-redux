@@ -7,8 +7,6 @@ services:
         TARGETOS: linux
         TARGETARCH: amd64
         VERSION: 0.22.20
-      platforms:
-        - "linux/amd64"
     container_name: indyhackers
     environment:
       NODE_ENV: production

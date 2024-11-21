@@ -9,9 +9,6 @@ services:
         #TARGETARCH: amd64
         VERSION: 0.22.20
         PB_ENV: development
-      platforms:
-        #- "linux/amd64"
-        - 'linux/arm64'
     container_name: pocketbase
     environment:
       NODE_ENV: development
