@@ -27,4 +27,4 @@ jobs:
           ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker rm indyhackers || true
           
           #run new image
-          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker run --name indyhackers -e NODE_ENV=production --restart always -p 8090:80 -v ./pb/data:/pb_data -v ./pb/hooks:/pb_hooks -d ${{ inputs.image }}
+          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker run --name indyhackers -e NODE_ENV=production --restart always -p 32768:8090 -v ./pb/data:/pb_data -v ./pb/hooks:/pb_hooks -d ${{ inputs.image }}
