@@ -1,0 +1,18 @@
+services:
+  pocketbase:
+    image: ${IMAGE_NAME}:${IMAGE_TAG}
+    build:
+      context: .
+      args:
+        TARGETOS: linux
+        TARGETARCH: amd64
+        VERSION: 0.22.20
+      platforms:
+        - "linux/amd64"
+    container_name: indyhackers
+    environment:
+      NODE_ENV: production
+    volumes:
+      - ./pb/data:/pb_data
+      # - ./pb/public:/pb_public
+      - ./pb/hooks:/pb_hooks
