@@ -1,7 +1,5 @@
 FROM alpine:3 as downloader
 
-RUN apk upgrade --no-cache
-
 ARG TARGETOS
 ARG TARGETARCH
 ARG TARGETVARIANT
@@ -26,7 +24,7 @@ RUN npm i && npm run build
 # --------
 
 FROM alpine:3
-RUN apk update && apk add ca-certificates && rm -rf /var/cache/apk/*
+RUN apk update && apk upgrade && apk add ca-certificates && rm -rf /var/cache/apk/*
 
 ARG NODE_ENV=production
 ENV NODE_ENV=$NODE_ENV
