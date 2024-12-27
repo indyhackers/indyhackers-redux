@@ -1,13 +1,13 @@
 services:
   pocketbase:
-    image: pocketbase:0.22.27
+    image: pocketbase:0.22.29
     build:
       context: .
       args:
         TARGETOS: linux
         TARGETARCH: arm64
         #TARGETARCH: amd64
-        VERSION: 0.22.27
+        VERSION: 0.22.29
         PB_ENV: development
     container_name: pocketbase
     environment:
