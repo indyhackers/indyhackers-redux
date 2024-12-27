@@ -6,7 +6,7 @@ services:
       args:
         TARGETOS: linux
         TARGETARCH: amd64
-        VERSION: 0.22.27
+        VERSION: 0.22.29
     container_name: indyhackers
     environment:
       NODE_ENV: production
