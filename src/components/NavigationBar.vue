@@ -11,7 +11,7 @@
       <BNavItem right><RouterLink to="/newsletter">Newsletter</RouterLink></BNavItem>
       <BNavItem right><RouterLink to="/jobs">Jobs</RouterLink></BNavItem>
       <BNavItem right><RouterLink to="/events">Events</RouterLink></BNavItem>
-      <BNavItem right><RouterLink to="/about">About</RouterLink></BNavItem>
+      <BNavItem right><RouterLink to="/about">About Us</RouterLink></BNavItem>
     </BNavbarNav>
   </BNavbar>
   <!-- </BNav> -->
