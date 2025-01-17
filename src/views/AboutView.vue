@@ -92,7 +92,7 @@ h2 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 32px;
   justify-content: space-around;
 }
 </style>
