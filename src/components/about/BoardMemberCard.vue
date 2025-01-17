@@ -26,18 +26,19 @@ export default {
     firstName: String,
     lastName: String,
     linkedin: String,
-  }
+  },
 }
 </script>
 
 <style scoped>
 .board-member-card {
   border-radius: 16px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   display: flex;
   flex-direction: row;
-  min-width: 380px;
+  min-width: 500px;
   overflow: hidden;
+  transition: all 0.5s ease;
 }
 .avatar {
   border-top-left-radius: 16px;
@@ -54,12 +55,13 @@ export default {
 }
 .board-member-first-name {
   font-family: monospace;
-  font-size: 2rem;
+  font-size: 2.1rem;
+  font-weight: 900;
   line-height: 28px;
 }
 .board-member-last-name {
   font-family: monospace;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .spacer {
   flex-grow: 1;

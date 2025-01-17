@@ -93,6 +93,6 @@ h2 {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 32px;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 </style>
