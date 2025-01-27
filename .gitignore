@@ -8,6 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 pb/data/*
 pb/hooks/mocks.json
+0*-*.patch
 
 node_modules
 .DS_Store
