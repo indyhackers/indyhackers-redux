@@ -2,6 +2,11 @@
   <div id="app">
     <NavigationBar />
     <RouterView />
+    <!-- 
+      This footer-spacer will flex-grow to take up the rest of the vertical space of the window, 
+      up to the min-height:100vh #app has.
+    -->
+    <div class="footer-spacer" />
     <BottomLinkTree />
   </div>
 </template>
@@ -35,5 +40,13 @@ export default {
     Arial,
     sans-serif;
   font-weight: 400;
+}
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.footer-spacer {
+  flex-grow: 1;
 }
 </style>
