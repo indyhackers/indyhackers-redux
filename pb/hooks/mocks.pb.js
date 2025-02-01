@@ -1,11 +1,5 @@
 /// <reference path="../pb_data/types.d.ts" />
 
-// routerAdd('GET', '/api/snapshot', async (c) => {
-//   const snapshot = mocks.exportMocks()
-//   // Return the combined collection data as JSON
-//   return c.json(200, snapshot)
-// })
-
 $app.rootCmd.addCommand(
   new Command({
     use: 'apply-mocks',

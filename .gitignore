@@ -9,6 +9,7 @@ lerna-debug.log*
 pb/data/*
 pb/hooks/mocks.json
 0*-*.patch
+nohup.out
 
 node_modules
 .DS_Store

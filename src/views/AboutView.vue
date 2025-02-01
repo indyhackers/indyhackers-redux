@@ -3,91 +3,102 @@
     <b-card>
       <h2>Our Mission</h2>
       <p>
-        IndyHackers strives to help tech people in Indiana grow by fostering community connections and celebrating
-        individual successes.
+        IndyHackers strives to help tech people in Indiana grow by fostering community connections
+        and celebrating individual successes.
       </p>
       <h2>Board Members</h2>
       <div class="board-members">
-        <BoardMemberCard 
+        <BoardMemberCard
           email="mailto:zach@indyhackers.org"
           firstName="Zach"
-          imageUrl="/images/zachcardwell.jpeg"
+          imageUrl="/images/board/zachcardwell.jpeg"
           lastName="Cardwell"
-          linkedin="https://www.linkedin.com/in/zachcardwell271828" />
+          linkedin="https://www.linkedin.com/in/zachcardwell271828"
+        />
         <BoardMemberCard
           email="mailto:amrutha@indyhackers.org"
           firstName="Amrutha"
-          imageUrl="/images/amrutha.jpeg"
-          lastName="Pulikottil" 
-          linkedin="https://www.linkedin.com/in/amruthap" />
+          imageUrl="/images/board/amrutha.jpeg"
+          lastName="Pulikottil"
+          linkedin="https://www.linkedin.com/in/amruthap"
+        />
         <BoardMemberCard
           email="mailto:andrew@indyhackers.org"
           firstName="Andrew"
-          imageUrl="/images/ajr3.jpeg"
+          imageUrl="/images/board/ajr3.jpeg"
           lastName="Robinson III"
-          linkedin="https://linkedin.com/in/arthree" />
+          linkedin="https://linkedin.com/in/arthree"
+        />
         <BoardMemberCard
           email="mailto:erik@indyhackers.org"
           firstName="Erik"
-          imageUrl="/images/erik.jpeg"
-          lastName="Mudrak" 
-          linkedin="https://www.linkedin.com/in/ejmudrak" />
+          imageUrl="/images/board/erik.jpeg"
+          lastName="Mudrak"
+          linkedin="https://www.linkedin.com/in/ejmudrak"
+        />
         <BoardMemberCard
           email="mailto:katie@indyhackers.org"
           firstName="Katie"
-          imageUrl="/images/katiehughes.jpg"
+          imageUrl="/images/board/katiehughes.jpg"
           lastName="Hughes"
-          linkedin="https://www.linkedin.com/in/katiehughes" />
+          linkedin="https://www.linkedin.com/in/katiehughes"
+        />
         <BoardMemberCard
           email="mailto:cameron@indyhackers.org"
           firstName="Cameron"
-          imageUrl="/images/cameron.jpeg"
+          imageUrl="/images/board/cameron.jpeg"
           lastName="Mueller"
-          linkedin="https://www.linkedin.com/in/cameronamueller" />
+          linkedin="https://www.linkedin.com/in/cameronamueller"
+        />
+        <BoardMemberCard
+          email="mailto:ben@indyhackers.org"
+          firstName="Ben"
+          imageUrl="/images/board/ben.jpg"
+          lastName="Cochran"
+          linkedin="https://www.linkedin.com/in/cochranb"
+        />
         <BoardMemberCard
           firstName="Stanton"
-          imageUrl="/images/stantonsievers.jpeg"
+          imageUrl="/images/board/stantonsievers.jpeg"
           lastName="Sievers"
-          linkedin="https://www.linkedin.com/in/stantonsievers" />
+          linkedin="https://www.linkedin.com/in/stantonsievers"
+        />
         <BoardMemberCard
           firstName="Michael"
-          imageUrl="/images/michaelwelling.jpg"
+          imageUrl="/images/board/michaelwelling.jpg"
           lastName="Welling"
-          linkedin="https://www.linkedin.com/in/mewelling" />
+          linkedin="https://www.linkedin.com/in/mewelling"
+        />
         <BoardMemberCard
           firstName="Josh"
-          imageUrl="/images/joshhurst.jpg"
+          imageUrl="/images/board/joshhurst.jpg"
           lastName="Hurst"
-          linkedin="https://www.linkedin.com/in/josh-hurst42" />
-        <BoardMemberCard
-          firstName="Ben"
-          imageUrl="/images/ben.jpg"
-          lastName="Cochran"
-          linkedin="https://www.linkedin.com/in/cochranb" />
+          linkedin="https://www.linkedin.com/in/josh-hurst42"
+        />
         <BoardMemberCard
           firstName="Mike"
-          imageUrl="/images/mikehockerman.png"
+          imageUrl="/images/board/mikehockerman.png"
           lastName="Hockerman"
-          linkedin="https://www.linkedin.com/in/mhoc" />
+          linkedin="https://www.linkedin.com/in/mhoc"
+        />
         <BoardMemberCard
           firstName="Andrew"
-          imageUrl="/images/andrew.jpeg"
+          imageUrl="/images/board/andrew.jpeg"
           lastName="Poland"
-          linkedin="https://www.linkedin.com/in/polandandrew" />
+          linkedin="https://www.linkedin.com/in/polandandrew"
+        />
         <BoardMemberCard
           firstName="Chris"
-          imageUrl="/images/chris.jpeg"
+          imageUrl="/images/board/chris.jpeg"
           lastName="Vannoy"
-          linkedin="https://www.linkedin.com/in/cvannoy" />
+          linkedin="https://www.linkedin.com/in/cvannoy"
+        />
       </div>
     </b-card>
   </div>
 </template>
 
 <style scoped>
-h2 {
-  font-family: 'Space Mono', monospace;
-}
 .board-members {
   display: flex;
   flex-direction: row;

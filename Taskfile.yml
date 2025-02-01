@@ -1,0 +1,58 @@
+version: '3'
+
+vars:
+  VERSION: 'v0.0' # Define the variable directly as a key-value pair
+
+tasks:
+  default:
+    cmds:
+      #- task: update-version
+      - task: docker-build
+      - task: docker-push
+      - task: publish-dev
+
+  # update-version:
+  #   desc: "Update the image version in docker-compose.yml and pocketbase.yaml"
+  #   cmds:
+  #     - ./update-version.sh {{.VERSION}}
+
+  docker-build:
+    desc: 'Build the Docker images'
+    cmds:
+      - docker-compose build
+
+  docker-push:
+    desc: 'Push the Docker images'
+    cmds:
+      - docker-compose push
+
+  docker-run:
+    desc: 'Run the Docker images'
+    cmds:
+      - docker-compose run
+
+  dispatch-watches:
+    desc: 'dispatch lingering processes from npm watch'
+    cmds:
+      - lsof | grep nohup.out | awk '{ print $2 }' | xargs kill -9
+
+  publish-dev:
+    desc: 'Apply the updated polyhedron.dev.yaml to the Kubernetes cluster'
+    cmds:
+      - echo "Applying pocketbase.dev.yaml to Kubernetes cluster"
+      - envsubst < infra/polyhedron.dev.yaml | kubectl apply -f -
+
+  build-dev:
+    desc: 'build a dev version in a locally supported architecture'
+    cmds:
+      - TARGETARCH=arm64 VERSION=dev docker-compose build
+
+  run-dev:
+    desc: 'Run a dev version in a locally supported architecture'
+    cmds:
+      - task: dispatch-watches
+      - bash -c 'nohup npm run watch &'
+      - tail -f nohup.out &
+      - TARGETARCH=arm64 VERSION=dev docker-compose up
+      - task: dispatch-watches
+      - rm nohup.out

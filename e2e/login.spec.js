@@ -18,3 +18,17 @@ test.describe('Login Page', () => {
     expect(content).toContain('Welcome Back')
   })
 })
+
+test.describe('OAuth Login', () => {
+  test('should allow login with Google', async ({ page }) => {
+    await page.goto('http://localhost:3000/login')
+    await page.click('#btn-google')
+    // Add assertions for Google login flow
+  })
+
+  test('should allow login with GitHub', async ({ page }) => {
+    await page.goto('http://localhost:3000/login')
+    await page.click('#btn-github')
+    // Add assertions for GitHub login flow
+  })
+})

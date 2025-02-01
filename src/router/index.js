@@ -3,7 +3,14 @@ import AboutView from '../views/AboutView.vue'
 import HomeView from '../views/HomeView.vue'
 import OmniView from '../views/OmniView.vue'
 import PlaceholderView from '../views/PlaceholderView.vue'
-
+import AdminLogin from '../components/AdminLogin.vue'
+import LoginPage from '../components/LoginPage.vue'
+import SignupPage from '../components/SignupPage.vue'
+import SponsorsView from '../components/SponsorsView.vue'
+import NewsletterView from '../components/NewsletterView.vue'
+import EventRecommendationForm from '../components/EventRecommendationForm.vue'
+import CalendarView from '../components/CalendarView.vue'
+import CodeOfConduct from '../components/CodeOfConduct.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -12,12 +19,6 @@ const router = createRouter({
       name: 'Home',
       component: HomeView,
       props: { title: 'Home', content: 'Welcome to IndyHackers.' }
-    },
-    {
-      path: '/events',
-      name: 'Events',
-      component: PlaceholderView,
-      props: { title: 'Events', content: 'Upcoming events and meetups.' }
     },
     {
       path: '/jobs',
@@ -58,7 +59,15 @@ const router = createRouter({
       name: 'Support',
       component: PlaceholderView,
       props: { title: 'Support', content: 'Get support.' }
-    }
+    },
+    { path: '/admin', name: 'Admin', component: AdminLogin },
+    { path: '/login', name: 'Login', component: LoginPage },
+    { path: '/signup', name: 'Signup', component: SignupPage },
+    { path: '/sponsors', name: 'Sponsors', component: SponsorsView },
+    { path: '/newsletter', name: 'Newsletter', component: NewsletterView },
+    { path: '/recommend-event', name: 'RecommendEvent', component: EventRecommendationForm },
+    { path: '/events', name: 'Events', component: CalendarView },
+    { path: '/code-of-conduct', name: 'CodeOfConduct', component: CodeOfConduct }
   ]
 })
 

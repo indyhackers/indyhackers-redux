@@ -48,8 +48,8 @@ h4 {
 }
 
 button,
-input[type="submit"] {
-  background-color: #FFC000;
+input[type='submit'] {
+  background-color: #ffc000;
   padding: 12px 16px;
   border: 0px;
   font-size: 18px;
@@ -58,7 +58,7 @@ input[type="submit"] {
 }
 
 a {
-  text-decoration-color: #FFC000;
+  text-decoration-color: #ffc000;
   color: inherit;
   font-weight: bold;
 }
@@ -74,11 +74,11 @@ iframe {
   align-items: center;
 }
 
-.three-columns>* {
+.three-columns > * {
   flex: 1 1 33%;
 }
 
-.two-columns>* {
+.two-columns > * {
   flex: 1 1 50%;
 }
 
@@ -87,7 +87,7 @@ iframe {
     flex-direction: column;
   }
 
-  .three-columns>div {
+  .three-columns > div {
     width: 100%;
   }
 }
@@ -103,4 +103,23 @@ iframe {
   display: block;
   width: 75%;
   margin: 0 auto;
+}
+
+.oauth-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btn-secondary {
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
 }

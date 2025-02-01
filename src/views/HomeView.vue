@@ -100,25 +100,20 @@
       </BCol>
     </BRow>
     <BRow>
-      <BCol>
-        <h2 class="mt-4">Our Calendar</h2>
-        <iframe
-          src="//www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=ig7e0j6v8ub9q6kga256n77048%40group.calendar.google.com&amp;color=%23AB8B00&amp;ctz=America%2FNew_York"
-          style="border-width: 0"
-          width="100%"
-          height="400"
-          frameborder="0"
-          scrolling="no"
-        ></iframe>
-      </BCol>
+      <CalendarView />
     </BRow>
   </BContainer>
   <!-- </div> -->
 </template>
 
 <script>
+import CalendarView from '../components/CalendarView.vue'
+
 export default {
   name: 'HomeView',
+  components: {
+    CalendarView
+  },
   async mounted() {
     const users = await this.pocketbase.collection('users').getList(1, 20, {})
     console.log(users)
@@ -134,13 +129,13 @@ export default {
   max-height: 53rem;
 }
 
-:deep(a) {
+a {
   color: #000;
   text-decoration: none;
   font-weight: bold;
 }
 
-:deep(a:hover) {
+a:hover {
   color: #fff;
 }
 </style>

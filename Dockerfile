@@ -1,14 +1,16 @@
 FROM alpine:3 as downloader
 
+
 ARG TARGETOS
 ARG TARGETARCH
 ARG TARGETVARIANT
-ARG VERSION
+ARG TARGETVARIANT
+ARG PB_VERSION
 
 ENV BUILDX_ARCH="${TARGETOS:-linux}_${TARGETARCH:-amd64}${TARGETVARIANT}"
 
-RUN wget https://github.com/pocketbase/pocketbase/releases/download/v${VERSION}/pocketbase_${VERSION}_${BUILDX_ARCH}.zip \
-    && unzip pocketbase_${VERSION}_${BUILDX_ARCH}.zip \
+RUN wget https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/pocketbase_${PB_VERSION}_${BUILDX_ARCH}.zip \
+    && unzip pocketbase_${PB_VERSION}_${BUILDX_ARCH}.zip \
     && chmod +x /pocketbase
 
 # --------

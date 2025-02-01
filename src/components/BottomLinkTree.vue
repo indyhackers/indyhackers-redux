@@ -1,14 +1,16 @@
 <template>
   <!-- TODO: fixed-bottom -->
-  <footer class="footer mt-auto py-3 bg-dark">
+  <footer class="footer mt-auto py-3 bg-dark w-100">
     <BContainer>
       <BRow>
         <BCol alignSelf="center" class="text-center">
           <ul>
             <li class="mb-3"><b>About</b></li>
             <li class=""><BLink to="/board">Meet our Board</BLink></li>
-            <li class=""><BLink to="/privacy">Privacy Policy</BLink></li>
-            <li class=""><BLink to="/terms">Code of Conduct</BLink></li>
+            <li class=""><BLink to="/code-of-conduct">Code of Conduct</BLink></li>
+            <li class="">
+              <BLink to="https://donate.stripe.com/bIY17XcYL77c0HSdQQ">Donate</BLink>
+            </li>
           </ul>
         </BCol>
         <BCol alignSelf="center" class="text-center">

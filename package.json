@@ -10,7 +10,8 @@
     "test:unit": "vitest",
     "test:e2e": "playwright test",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "watch": "watch 'npm run build' src/"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
@@ -21,11 +22,12 @@
     "bootstrap-vue-next": "^0.24.2",
     "jquery": "^3.7.1",
     "pinia": "^2.1.7",
-    "pocketbase": "^0.21.4",
+    "pocketbase": "^0.25.1",
     "shards-ui": "^3.0.0",
     "tiny-emitter": "2.0.2",
     "vue": "^3.4.29",
-    "vue-router": "^4.3.3"
+    "vue-router": "^4.3.3",
+    "watch": "^1.0.2"
   },
   "devDependencies": {
     "@playwright/test": "^1.44.1",
@@ -43,7 +45,11 @@
     "unplugin-vue-components": "^0.27.4",
     "vite": "^5.4.7",
     "vite-plugin-vue-devtools": "^7.3.1",
-    "vitest": "^1.6.0"
+    "vitest": "^1.6.0",
+    "@iconify-json/carbon": "^1.2.5",
+    "@iconify-json/fa": "^1.2.1",
+    "@iconify-json/mdi": "^1.2.3",
+    "unplugin-icons": "^22.0.0"
   },
   "msw": {
     "workerDirectory": [

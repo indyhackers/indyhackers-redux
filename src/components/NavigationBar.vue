@@ -1,37 +1,79 @@
 <template>
-  <!-- <b-navbar theme="primary"> -->
-  <!-- <BNav variant="warning" class="mb-4"> -->
-  <BNavbar toggleable="lg" variant="warning" v-b-color-mode="'dark'">
-    <BNavbarBrand href="#"
-      ><a href="/"><img src="/images/ih-logo-black.png" height="35px" class="mt-1" /></a
-    ></BNavbarBrand>
-
-    <!-- Right aligned nav items -->
-    <BNavbarNav class="ms-auto mb-2 mb-lg-0">
-      <BNavItem right><RouterLink to="/newsletter">Newsletter</RouterLink></BNavItem>
-      <BNavItem right><RouterLink to="/jobs">Jobs</RouterLink></BNavItem>
-      <BNavItem right><RouterLink to="/events">Events</RouterLink></BNavItem>
-      <BNavItem right><RouterLink to="/about">About Us</RouterLink></BNavItem>
+  <BNavbar variant="warning" toggleable="lg">
+    <BNavbarNav class="d-flex flex-row align-items-center w-100">
+      <BNavbarBrand href="/" class="d-flex align-items-center">
+        <img
+          src="/images/ih-logo-black.png"
+          class="img-fluid me-2"
+          style="max-height: 35px"
+          alt="IndyHackersLogo"
+        />
+      </BNavbarBrand>
+      <BNavbarToggle class="ms-auto d-lg-none" target="navbar-collapse" />
     </BNavbarNav>
+    <BCollapse id="navbar-collapse" is-nav>
+      <BNavbarNav>
+        <BNavItem right><RouterLink to="/newsletter">Newsletter</RouterLink></BNavItem>
+        <BNavItem right><RouterLink to="/jobs">Jobs</RouterLink></BNavItem>
+        <BNavItem right><RouterLink to="/events">Events</RouterLink></BNavItem>
+        <BNavItem right><RouterLink to="/sponsors">Sponsors</RouterLink></BNavItem>
+        <BNavItem right><RouterLink to="/about">About</RouterLink></BNavItem>
+      </BNavbarNav>
+    </BCollapse>
+    <UserProfileDropdown />
   </BNavbar>
-  <!-- </BNav> -->
 </template>
 
 <script>
+import UserProfileDropdown from './UserProfileDropdown.vue'
+
 export default {
-  name: 'NavigationBar'
+  name: 'NavigationBar',
+  components: {
+    UserProfileDropdown
+  },
+  data() {
+    return {
+      expanded: false
+    }
+  }
 }
 </script>
 
 <style scoped>
-/* Additional styles if needed */
+:deep(.container-fluid) {
+  background-image: linear-gradient(to bottom, #1a1a2e, #2e2e44, var(--color-dark-20)) !important;
+  background-color: var(--color-dark-15) !important;
+}
+
 :deep(a, [class^='nav-'], [class*=' nav-']) {
-  font-size: 1.2rem;
-  color: #000 !important;
+  font-size: 1.4rem !important;
+  color: var(--color-text-light-1) !important;
   text-decoration: none;
+
+  font-family: 'Dosis', serif;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
 }
 
 a:hover {
-  color: #fff !important;
+  color: var(--color-text-light-6) !important;
+}
+
+li.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+@media (min-width: 992px) {
+  .navbar-nav {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    padding-right: 36px !important;
+  }
 }
 </style>

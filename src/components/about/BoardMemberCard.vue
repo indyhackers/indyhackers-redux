@@ -8,10 +8,10 @@
     <div class="spacer" />
     <div class="board-member-contact-icons">
       <a class="icon-container" :href="email" target="_blank" v-if="email">
-        <IconMail />
+        <IFaEnvelope />
       </a>
       <a class="icon-container" :href="linkedin" target="_blank" v-if="linkedin">
-        <IconLinkedin />
+        <IFaLinkedin />
       </a>
     </div>
   </div>
@@ -25,8 +25,8 @@ export default {
     imageUrl: String,
     firstName: String,
     lastName: String,
-    linkedin: String,
-  },
+    linkedin: String
+  }
 }
 </script>
 
@@ -81,6 +81,10 @@ export default {
   transition: all 0.5s ease;
 }
 .icon-container:hover {
-  background-color: #FEBE0A;
+  background-color: #febe0a;
+}
+
+:deep(path) {
+  fill: #000;
 }
 </style>

@@ -4,6 +4,7 @@ import { createBootstrap } from 'bootstrap-vue-next'
 //import { BVToastPlugin } from 'bootstrap-vue'
 //import { jQuery } from 'jQuery'
 import PocketBase from 'pocketbase'
+import mitt from 'mitt'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
@@ -22,15 +23,17 @@ async function prepareApp() {
   return worker.start()
 }
 
-let pbURL = 'http://127.0.0.1:8090'
-if (import.meta.env.DEV) {
-  pbURL = '/'
-}
+const pbURL = import.meta.env.DEV ? '/' : window.location.origin
 const pocketbase = new PocketBase(pbURL)
+const emitter = mitt()
 //const toaster = useToast()
 
 const app = createApp(App)
 app.config.globalProperties.pocketbase = pocketbase
+app.config.globalProperties.emitter = emitter
+app.provide('pocketbase', pocketbase)
+app.provide('router', router)
+app.provide('emitter', emitter)
 //app.config.globalProperties.$bvToast = toaster
 
 //window.jQuery = jQuery
