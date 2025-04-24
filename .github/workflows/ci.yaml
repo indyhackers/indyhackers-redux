@@ -1,7 +1,6 @@
 name: CI
 
-on:
-  push
+on: push
 
 env:
   IMAGE_NAME: apoland/indyhackers
@@ -25,12 +24,12 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          IMAGE_TAG: ${{ github.sha }}
+          VERSION: ${{ github.sha }}
         run: |
           docker compose -f docker-compose.yaml -f docker-compose_production.yaml build
-          docker push $IMAGE_NAME:$IMAGE_TAG
-          echo "image=$IMAGE_NAME:$IMAGE_TAG" >> $GITHUB_OUTPUT
-      
+          docker push $IMAGE_NAME:$VERSION
+          echo "image=$IMAGE_NAME:$VERSION" >> $GITHUB_OUTPUT
+
   cd:
     if: github.ref == 'refs/heads/main'
     needs: [build]

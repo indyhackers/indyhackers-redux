@@ -1,6 +1,6 @@
 services:
   pocketbase:
-    image: ${IMAGE_NAME}:${IMAGE_TAG}
+    image: ${IMAGE_NAME}:${VERSION}
     build:
       context: .
       args:
