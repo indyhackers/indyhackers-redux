@@ -9,7 +9,9 @@
             <li class=""><BLink to="/board">Meet our Board</BLink></li>
             <li class=""><BLink to="/code-of-conduct">Code of Conduct</BLink></li>
             <li class="">
-              <BLink to="https://donate.stripe.com/bIY17XcYL77c0HSdQQ">Donate</BLink>
+              <BLink href="https://donate.stripe.com/bIY17XcYL77c0HSdQQ" target="_blank"
+                >Donate</BLink
+              >
             </li>
           </ul>
         </BCol>

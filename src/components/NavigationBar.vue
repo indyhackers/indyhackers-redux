@@ -20,17 +20,17 @@
         <BNavItem right><RouterLink to="/about">About</RouterLink></BNavItem>
       </BNavbarNav>
     </BCollapse>
-    <UserProfileDropdown />
+    <!-- <UserProfileDropdown /> -->
   </BNavbar>
 </template>
 
 <script>
-import UserProfileDropdown from './UserProfileDropdown.vue'
+// import UserProfileDropdown from './UserProfileDropdown.vue'
 
 export default {
   name: 'NavigationBar',
   components: {
-    UserProfileDropdown
+    // UserProfileDropdown
   },
   data() {
     return {
