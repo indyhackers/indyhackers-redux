@@ -18,10 +18,11 @@ migrate(
     let usersCollection = app.findCollectionByNameOrId('users')
     usersCollection.fields.push(
       new RelationField({
-        name: 'role',
+        name: 'roles',
         required: false,
         collectionId: rolesCollection.id,
         options: {
+          maxSelect: null,
           cascadeDelete: false
         }
       })
