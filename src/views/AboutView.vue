@@ -16,13 +16,6 @@
           linkedin="https://www.linkedin.com/in/zachcardwell271828"
         />
         <BoardMemberCard
-          email="mailto:amrutha@indyhackers.org"
-          firstName="Amrutha"
-          imageUrl="/images/board/amrutha.jpeg"
-          lastName="Pulikottil"
-          linkedin="https://www.linkedin.com/in/amruthap"
-        />
-        <BoardMemberCard
           email="mailto:andrew@indyhackers.org"
           firstName="Andrew"
           imageUrl="/images/board/ajr3.jpeg"
