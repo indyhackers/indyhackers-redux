@@ -9,18 +9,10 @@
       <h2>Board Members</h2>
       <div class="board-members">
         <BoardMemberCard
-          email="mailto:zach@indyhackers.org"
-          firstName="Zach"
-          imageUrl="/images/board/zachcardwell.jpeg"
-          lastName="Cardwell"
-          linkedin="https://www.linkedin.com/in/zachcardwell271828"
-        />
-        <BoardMemberCard
-          email="mailto:andrew@indyhackers.org"
-          firstName="Andrew"
-          imageUrl="/images/board/ajr3.jpeg"
-          lastName="Robinson III"
-          linkedin="https://linkedin.com/in/arthree"
+          firstName="Chris"
+          imageUrl="/images/board/chris.jpeg"
+          lastName="Vannoy"
+          linkedin="https://www.linkedin.com/in/cvannoy"
         />
         <BoardMemberCard
           email="mailto:erik@indyhackers.org"
@@ -81,10 +73,11 @@
           linkedin="https://www.linkedin.com/in/polandandrew"
         />
         <BoardMemberCard
-          firstName="Chris"
-          imageUrl="/images/board/chris.jpeg"
-          lastName="Vannoy"
-          linkedin="https://www.linkedin.com/in/cvannoy"
+          email="mailto:zach@indyhackers.org"
+          firstName="Zach"
+          imageUrl="/images/board/zachcardwell.jpeg"
+          lastName="Cardwell"
+          linkedin="https://www.linkedin.com/in/zachcardwell271828"
         />
       </div>
     </b-card>
