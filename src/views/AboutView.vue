@@ -15,13 +15,6 @@
           linkedin="https://www.linkedin.com/in/cvannoy"
         />
         <BoardMemberCard
-          email="mailto:erik@indyhackers.org"
-          firstName="Erik"
-          imageUrl="/images/board/erik.jpeg"
-          lastName="Mudrak"
-          linkedin="https://www.linkedin.com/in/ejmudrak"
-        />
-        <BoardMemberCard
           email="mailto:katie@indyhackers.org"
           firstName="Katie"
           imageUrl="/images/board/katiehughes.jpg"
