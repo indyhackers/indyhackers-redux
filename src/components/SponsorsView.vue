@@ -65,7 +65,7 @@ const silverSponsors = ref([
   },
   {
     id: 2,
-    name: 'Made Labs',
+    name: 'MadeLabs',
     link: 'https://www.madelabs.io/?utm_campaign=indy_hackers',
     logo: '/images/sponsors/madelabs.png'
   }

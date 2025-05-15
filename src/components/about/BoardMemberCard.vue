@@ -62,6 +62,7 @@ export default {
 .board-member-last-name {
   font-family: monospace;
   font-size: 0.9rem;
+  padding-left: 2px;
 }
 .spacer {
   flex-grow: 1;
