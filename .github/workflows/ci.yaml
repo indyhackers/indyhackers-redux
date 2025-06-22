@@ -37,6 +37,6 @@ jobs:
     with:
       image: ${{ needs.build.outputs.image }}
       ssh_user: indyhackers
-      ssh_host: prod.highcapacity.net
+      ssh_host: prod.indyhackers.org
     secrets:
       ssh_key: ${{ secrets.SSH_KEY_DEV }}
