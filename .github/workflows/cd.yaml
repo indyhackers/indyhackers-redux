@@ -23,11 +23,11 @@ jobs:
       - name: Deploy image on host
         run: |
           #stop running containers
-          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker stop indyhackers || true
-          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker rm indyhackers || true
+          ssh -o StrictHostKeyChecking=accept-new ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker stop indyhackers || true
+          ssh -o StrictHostKeyChecking=accept-new ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker rm indyhackers || true
           
           #run new image
-          ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker run --name indyhackers -e NODE_ENV=production --restart always -p 32768:8090 -v ./pb/data:/pb_data -v ./pb/hooks:/pb_hooks -d ${{ inputs.image }}
+          ssh -o StrictHostKeyChecking=accept-new ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker run --name indyhackers -e NODE_ENV=production --restart always -p 32768:8090 -v ./pb/data:/pb_data -v ./pb/hooks:/pb_hooks -d ${{ inputs.image }}
 
           curl -X POST -H 'Content-type: application/json' \
             --data '{"text":"New image deployed to indyhackers.org: `${{ inputs.image }}`"}' \
