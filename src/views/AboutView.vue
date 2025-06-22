@@ -22,13 +22,6 @@
           linkedin="https://www.linkedin.com/in/katiehughes"
         />
         <BoardMemberCard
-          email="mailto:cameron@indyhackers.org"
-          firstName="Cameron"
-          imageUrl="/images/board/cameron.jpeg"
-          lastName="Mueller"
-          linkedin="https://www.linkedin.com/in/cameronamueller"
-        />
-        <BoardMemberCard
           email="mailto:ben@indyhackers.org"
           firstName="Ben"
           imageUrl="/images/board/ben.jpg"
@@ -66,11 +59,11 @@
           linkedin="https://www.linkedin.com/in/polandandrew"
         />
         <BoardMemberCard
-          email="mailto:zach@indyhackers.org"
-          firstName="Zach"
-          imageUrl="/images/board/zachcardwell.jpeg"
-          lastName="Cardwell"
-          linkedin="https://www.linkedin.com/in/zachcardwell271828"
+          email="mailto:nichole@indyhackers.org"
+          firstName="Nichole"
+          imageUrl="/images/board/nichole.jpeg"
+          lastName="Dobias"
+          linkedin="https://www.linkedin.com/in/nicole-dobias"
         />
       </div>
     </b-card>
@@ -86,3 +79,5 @@
   justify-content: space-evenly;
 }
 </style>
+<script setup lang="ts">
+</script>

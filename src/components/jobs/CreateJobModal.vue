@@ -2,7 +2,7 @@ i
 <template>
   <div>
     <!-- Button to trigger modal -->
-    <b-button variant="primary" @click="showModal = true">Add New Job</b-button>
+    <b-button variant="primary" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfQ0gw1NBJbf5X5njAklea2dJlFkN-B7dst69Iwl879QNOVPA/viewform?usp=dialog">Add New Job</b-button>
 
     <!-- Modal for Job Creation -->
     <b-modal v-model="showModal" title="Find Your Next Hire" size="lg">

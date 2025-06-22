@@ -28,3 +28,7 @@ jobs:
           
           #run new image
           ssh ${{ inputs.SSH_USER }}@${{ inputs.SSH_HOST }} docker run --name indyhackers -e NODE_ENV=production --restart always -p 32768:8090 -v ./pb/data:/pb_data -v ./pb/hooks:/pb_hooks -d ${{ inputs.image }}
+
+          curl -X POST -H 'Content-type: application/json' \
+            --data '{"text":"New image deployed to indyhackers.org: `${{ inputs.image }}`"}' \
+            https://hooks.slack.com/services/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
