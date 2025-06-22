@@ -73,12 +73,6 @@ const silverSponsors = ref([
 
 const bronzeSponsors = ref([
   {
-    id: 3,
-    name: 'Data 317',
-    link: 'https://www.data317.com/?utm_campaign=indy_hackers',
-    logo: '/images/sponsors/data317.png'
-  },
-  {
     id: 4,
     name: 'Stellar AI',
     link: 'https://www.getstellar.ai/?utm_campaign=indy_hackers',
