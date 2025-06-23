@@ -18,7 +18,7 @@
                 <BCardText>
                   Our Slack group brings hackers, programmers, makers, and tech folks of all kinds
                   together.<br /><br />You're invited - don't forget to check out our
-                  <BLink to="/conduct">Code of Conduct</BLink> first!
+                  <BLink to="/code-of-conduct">Code of Conduct</BLink> first!
                   <p class="mt-4">
                     <BLink href="https://slack.indyhackers.org/">Slack it to me!</BLink>
                   </p>
