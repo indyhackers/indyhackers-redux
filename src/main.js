@@ -8,7 +8,7 @@ import mitt from 'mitt'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
-import 'popper.js/dist/umd/popper.min.js'
+import '@popperjs/core/dist/umd/popper.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
 import App from './App.vue'
