@@ -23,7 +23,6 @@ jobs:
       - name: Build, tag, and push image to Dockerhub
         id: build-image
         env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           VERSION: ${{ github.sha }}
         run: |
           docker compose -f docker-compose.yaml -f docker-compose_production.yaml build
