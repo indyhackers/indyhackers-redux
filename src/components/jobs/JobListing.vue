@@ -7,7 +7,7 @@
             <h2 class="job-title">{{ job.title }}</h2>
             <p class="company-name">{{ job.company }}</p>
             <div class="salary-info">
-              <b-badge class="salary-badge">{{ salary }}</b-badge>
+              <b-badge v-if="job.salary_min > 0" class="salary-badge">{{ salary }}</b-badge>
             </div>
 
             <!-- Render the description with markup support -->

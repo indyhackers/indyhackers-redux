@@ -20,7 +20,7 @@
         <b-col v-for="job in jobs" :key="job.id" cols="12" class="mb-3">
           <b-card :title="job.title" class="job-card" @click="viewJob(job)">
             <p class="company">{{ job.company }}</p>
-            <b-badge v-if="salary > 0" class="salary-badge">{{ salary(job) }}</b-badge>
+            <b-badge v-if="job.salary_min > 0" class="salary-badge">{{ salary(job) }}</b-badge>
           </b-card>
         </b-col>
       </b-row>
