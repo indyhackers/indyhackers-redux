@@ -9,6 +9,8 @@
             <div class="salary-info">
               <b-badge v-if="job.salary_min > 0" class="salary-badge">{{ salary }}</b-badge>
             </div>
+            <p class="subtitle">Posted at </p>
+
 
             <!-- Render the description with markup support -->
             <div class="job-description" v-html="job.description"></div>
