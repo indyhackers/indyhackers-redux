@@ -30,7 +30,6 @@ jobs:
         with:
           oauth-client-id: ${{ secrets.ts_oauth_client_id }}
           oauth-secret: ${{ secrets.ts_oauth_secret }}
-          tags: tag:ci
 
       - name: SSH Agent
         uses: webfactory/ssh-agent@v0.9.0
