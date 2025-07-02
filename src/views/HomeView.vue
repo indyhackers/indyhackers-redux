@@ -115,8 +115,6 @@ export default {
     CalendarView
   },
   async mounted() {
-    const users = await this.pocketbase.collection('users').getList(1, 20, {})
-    console.log(users)
   }
 }
 </script>
