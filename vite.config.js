@@ -7,6 +7,7 @@ import Components from 'unplugin-vue-components/vite'
 import { BootstrapVueNextResolver } from 'bootstrap-vue-next'
 import Icons from 'unplugin-icons/vite'
 import IconsResolve from 'unplugin-icons/resolver'
+import { VitePluginRadar } from 'vite-plugin-radar'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,6 +20,12 @@ export default defineConfig({
     Icons({
       compiler: 'vue3',
       autoInstall: true
+    }),
+    VitePluginRadar({
+      // Google Analytics tag injection
+      analytics: {
+        id: 'G-ZF5Q1C13NM'
+      }
     })
   ],
   resolve: {
