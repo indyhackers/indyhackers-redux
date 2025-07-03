@@ -65,8 +65,8 @@ defineProps({
   padding: 1rem;
   background: white;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.2s ease, border-color 0.2s ease;
   cursor: pointer;
   outline: none;
   width: 450px;
@@ -75,7 +75,7 @@ defineProps({
 
 .sponsor-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  border-color: #b0b0b0;
 }
 
 .sponsor-image-container {
@@ -106,11 +106,12 @@ defineProps({
 @media (max-width: 768px) {
   .sponsor-grid {
     gap: 1rem;
+    padding: 0 0.5rem;
   }
   
   .sponsor-card {
     padding: 1rem;
-    width: 300px;
+    width: 100%;
   }
   
   .sponsor-image-container {
@@ -125,11 +126,12 @@ defineProps({
 @media (max-width: 480px) {
   .sponsor-grid {
     gap: 0.75rem;
+    padding: 0;
   }
   
   .sponsor-card {
     padding: 0.75rem;
-    width: 250px;
+    width: 100%;
   }
   
   .sponsor-image-container {
