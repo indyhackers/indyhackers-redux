@@ -45,7 +45,7 @@ export default defineComponent({
       try {
         const jobs = await this.pocketbase.collection('jobs').getList(
           1, 100,{
-            sort: '-created',
+            sort: '-created_at',
             where: { approved: true }
         })
         this.jobs = jobs.items
