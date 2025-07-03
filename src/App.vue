@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="yggdrasil">
+  <div id="app">
     <NavigationBar class="top" />
     <RouterView class="content" />
     <BottomLinkTree class="bottom" />
@@ -26,21 +26,6 @@ export default {
       return this.pocketbase.authStore.model
     }
   },
-  async mounted() {
-    const yggdrasilContainer = document.querySelector('.yggdrasil')
-    const contentContainer = document.querySelector('.content')
-
-    if (yggdrasilContainer && contentContainer) {
-      yggdrasilContainer.addEventListener('scroll', () => {
-        contentContainer.scrollTop = yggdrasilContainer.scrollTop
-      })
-    }
-  },
-  methods: {
-    scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
-  }
 }
 </script>
 
@@ -128,7 +113,7 @@ a {
 }
 
 .bottom {
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   z-index: 1;
   max-height: 30vh;

@@ -25,6 +25,7 @@
     "pocketbase": "^0.26.1",
     "shards-ui": "^1.1.2",
     "tiny-emitter": "2.0.2",
+    "vite-plugin-radar": "^0.10.0",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3",
     "watch": "^0.13.0"

@@ -20,7 +20,7 @@
         <b-col v-for="job in jobs" :key="job.id" cols="12" class="mb-3">
           <b-card :title="job.title" class="job-card" @click="viewJob(job)">
             <p class="company">{{ job.company }}</p>
-            <b-badge v-if="salary" class="salary-badge">{{ salary(job) }}</b-badge>
+            <b-badge v-if="job.salary_min > 0" class="salary-badge">{{ salary(job) }}</b-badge>
           </b-card>
         </b-col>
       </b-row>
@@ -43,7 +43,11 @@ export default defineComponent({
   methods: {
     async fetchJobs() {
       try {
-        const jobs = await this.pocketbase.collection('jobs').getList()
+        const jobs = await this.pocketbase.collection('jobs').getList(
+          1, 100,{
+            sort: '-created_at',
+            where: { approved: true }
+        })
         this.jobs = jobs.items
       } catch (error) {
         console.error('Error fetching jobs:', error)

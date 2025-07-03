@@ -13,13 +13,30 @@ on:
         type: string
         required: true
     secrets:
+      ts_oauth_client_id:
+        required: true
+      ts_oauth_secret:
+        required: true
       ssh_key:
         required: true
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
+
+      - name: Tailscale
+        uses: tailscale/github-action@v3
+        with:
+          oauth-client-id: ${{ secrets.ts_oauth_client_id }}
+          oauth-secret: ${{ secrets.ts_oauth_secret }}
+          tags: "tag:ci"
+
+      - name: SSH Agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.ssh_key }}
+
       - name: Deploy image on host
         run: |
           #stop running containers
