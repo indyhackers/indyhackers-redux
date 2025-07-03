@@ -1,14 +1,14 @@
 <template>
   <!-- TODO: fixed-bottom -->
   <footer class="footer mt-auto py-3 bg-dark w-100">
-    <BContainer>
+    <BContainer class="container-sm footer-container">
       <BRow>
-        <BCol alignSelf="center" class="text-center">
+        <BCol alignSelf="center" class="text-start">
           <ul>
-            <li class="mb-3"><b>About</b></li>
-            <li class=""><BLink to="/about">Meet our Board</BLink></li>
-            <li class=""><BLink to="/code-of-conduct">Code of Conduct</BLink></li>
-            <li class="">
+            <li class="mb-0"><b>About</b></li>
+            <li class="mb-0"><BLink to="/about">Meet our Board</BLink></li>
+            <li class="mb-0"><BLink to="/code-of-conduct">Code of Conduct</BLink></li>
+            <li class="mb-0">
               <BLink href="https://donate.stripe.com/bIY17XcYL77c0HSdQQ" target="_blank"
                 >Donate</BLink
               >
@@ -16,18 +16,18 @@
           </ul>
         </BCol>
         <BCol alignSelf="center" class="text-center">
-          <img src="/images/yellow-sq-ih-logo.png" class="mb-3" width="80px" />
+          <img src="/images/yellow-sq-ih-logo.png" class="mb-3 rounded" width="60px" />
           <br />
           <span>Made with 🤍 by the Indy Hackers Board</span>
         </BCol>
-        <BCol alignSelf="center" class="text-center">
+        <BCol alignSelf="center" class="text-end">
           <ul>
-            <li class="mb-3"><b>Contact</b></li>
-            <li class="">
+            <li class="mb-0"><b>Contact</b></li>
+            <li class="mb-0">
               <BLink href="https://twitter.com/indyhackersorg">@indyhackersorg</BLink>
             </li>
-            <li class=""><BLink href="https://slack.indyhackers.org/">Slack Community</BLink></li>
-            <li class="">
+            <li class="mb-0"><BLink href="https://slack.indyhackers.org/">Slack Community</BLink></li>
+            <li class="mb-0">
               <BLink href="https://github.com/indyhackers/indyhackers.org">GitHub</BLink>
             </li>
           </ul>
@@ -46,7 +46,7 @@ export default {
 
 <style scoped>
 .bg-dark {
-  background-color: grey !important;
+  background-color: oklch(26.8% 0.007 34.298) !important;
 }
 
 span {
@@ -57,11 +57,13 @@ span {
 }
 
 :deep(a) {
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
+  font-weight: normal;
 }
 :deep(a:hover) {
   text-decoration: underline;
+  color: white;
 }
 li {
   list-style-type: none;
@@ -69,6 +71,10 @@ li {
 }
 :deep(footer),
 :deep(div) {
-  background-color: grey !important;
+  background-color: oklch(26.8% 0.007 34.298) !important;
+}
+
+.footer-container {
+  max-width: 1000px !important;
 }
 </style>

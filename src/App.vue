@@ -86,6 +86,12 @@ a {
   font-weight: 400;
 }
 
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .yggdrasil {
   display: flex;
   flex-direction: column;
@@ -108,15 +114,27 @@ a {
   flex: 1;
   overflow-y: auto;
   padding: 1rem;
+  padding-bottom: 3rem;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
+/* Ensure adequate spacing on smaller screens */
+@media screen and (max-width: 768px) {
+  .content {
+    padding-bottom: 4rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content {
+    padding-bottom: 5rem;
+  }
+}
+
 .bottom {
-  /* position: absolute; */
-  bottom: 0;
+  margin-top: auto;
   z-index: 1;
-  max-height: 30vh;
 }
 </style>
 
