@@ -1,5 +1,5 @@
 <template>
-  <div class="content clear-fix">
+  <BContainer class="content clear-fix">
     <h1>Sponsors</h1>
     <p>
       Indy Hackers is built on the incredible spirit and generosity of our community. Whether you're
@@ -8,6 +8,8 @@
       partner with sponsors who share our vision of growing the tech scene in Indiana. Every
       sponsorship directly fuels better events, new opportunities, and more resources for our
       members.
+    </p>
+    <p>
       <em
         >Thank you for believing in this community and helping us grow—together, we're making a real
         difference.</em
@@ -18,42 +20,14 @@
       the builders, please contact
       <a href="mailto:sponsors@indyhackers.org">sponsors@indyhackers.org.</a>
     </p>
-    <h2>Silver Sponsors</h2>
-    <b-row>
-      <b-col v-for="sponsor in silverSponsors" :key="sponsor.id" cols="12" md="6" lg="4">
-        <b-card :title="sponsor.name" class="mb-4 sponsor-card">
-          <a :href="sponsor.link" target="_blank">
-            <b-card-img
-              :src="sponsor.logo"
-              :alt="sponsor.name"
-              top
-              class="sponsor-image"
-            ></b-card-img>
-          </a>
-        </b-card>
-      </b-col>
-    </b-row>
-    <h2>Bronze Sponsors</h2>
-    <b-row>
-      <b-col v-for="sponsor in bronzeSponsors" :key="sponsor.id" cols="12" md="6" lg="4">
-        <b-card :title="sponsor.name" class="mb-4 sponsor-card">
-          <a :href="sponsor.link" target="_blank">
-            <b-card-img
-              :src="sponsor.logo"
-              :alt="sponsor.name"
-              top
-              class="sponsor-image"
-            ></b-card-img>
-          </a>
-        </b-card>
-      </b-col>
-    </b-row>
-  </div>
+    <SponsorList :sponsors="silverSponsors" title="Silver Sponsors" />
+    <SponsorList :sponsors="bronzeSponsors" title="Bronze Sponsors" />
+  </BContainer>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { BRow, BCol, BCard, BCardImg } from 'bootstrap-vue-next'
+import SponsorList from './sponsors/SponsorList.vue'
 
 // Stub data for sponsors, to be replaced with data from PocketBase
 const silverSponsors = ref([

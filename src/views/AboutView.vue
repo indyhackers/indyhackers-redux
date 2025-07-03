@@ -15,11 +15,10 @@
           linkedin="https://www.linkedin.com/in/cvannoy"
         />
         <BoardMemberCard
-          email="mailto:katie@indyhackers.org"
-          firstName="Katie"
-          imageUrl="/images/board/katiehughes.jpg"
-          lastName="Hughes"
-          linkedin="https://www.linkedin.com/in/katiehughes"
+          firstName="Andrew"
+          imageUrl="/images/board/andrew.jpeg"
+          lastName="Poland"
+          linkedin="https://www.linkedin.com/in/polandandrew"
         />
         <BoardMemberCard
           email="mailto:ben@indyhackers.org"
@@ -29,10 +28,17 @@
           linkedin="https://www.linkedin.com/in/cochranb"
         />
         <BoardMemberCard
-          firstName="Stanton"
-          imageUrl="/images/board/stantonsievers.jpeg"
-          lastName="Sievers"
-          linkedin="https://www.linkedin.com/in/stantonsievers"
+          firstName="Josh"
+          imageUrl="/images/board/joshhurst.jpg"
+          lastName="Hurst"
+          linkedin="https://www.linkedin.com/in/josh-hurst42"
+        />
+        <BoardMemberCard
+          email="mailto:katie@indyhackers.org"
+          firstName="Katie"
+          imageUrl="/images/board/katiehughes.jpg"
+          lastName="Hughes"
+          linkedin="https://www.linkedin.com/in/katiehughes"
         />
         <BoardMemberCard
           firstName="Michael"
@@ -41,22 +47,10 @@
           linkedin="https://www.linkedin.com/in/mewelling"
         />
         <BoardMemberCard
-          firstName="Josh"
-          imageUrl="/images/board/joshhurst.jpg"
-          lastName="Hurst"
-          linkedin="https://www.linkedin.com/in/josh-hurst42"
-        />
-        <BoardMemberCard
           firstName="Mike"
           imageUrl="/images/board/mikehockerman.png"
           lastName="Hockerman"
           linkedin="https://www.linkedin.com/in/mhoc"
-        />
-        <BoardMemberCard
-          firstName="Andrew"
-          imageUrl="/images/board/andrew.jpeg"
-          lastName="Poland"
-          linkedin="https://www.linkedin.com/in/polandandrew"
         />
         <BoardMemberCard
           email="mailto:nichole@indyhackers.org"
@@ -64,6 +58,12 @@
           imageUrl="/images/board/nichole.jpeg"
           lastName="Dobias"
           linkedin="https://www.linkedin.com/in/nicole-dobias"
+        />
+        <BoardMemberCard
+          firstName="Stanton"
+          imageUrl="/images/board/stantonsievers.jpeg"
+          lastName="Sievers"
+          linkedin="https://www.linkedin.com/in/stantonsievers"
         />
       </div>
     </b-card>
