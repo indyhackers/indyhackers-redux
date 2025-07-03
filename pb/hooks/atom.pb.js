@@ -17,10 +17,11 @@ routerAdd("get", "/jobs_test.atom", (e) => {
 
   const entries = records.map((r) => ({
     title:   r.getString("title"),
+    author:  r.getString("company"),
     link:    `https://indyhackers.org/posts/${r.id}`,
     id:      `tag:indyhackers.org,2025:post/${r.id}`,
-    updated: r.getDateTime("created").toString(),
-    summary: r.getString("summary") || "",
+    updated: new Date(r.getDateTime("created")).toISOString(),
+    summary: r.getString("description") || "",
   }));
 
   const xml = template.render({
