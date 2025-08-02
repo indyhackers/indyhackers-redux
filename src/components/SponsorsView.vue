@@ -22,12 +22,14 @@
     </p>
     <SponsorList :sponsors="silverSponsors" title="Silver Sponsors" />
     <SponsorList :sponsors="bronzeSponsors" title="Bronze Sponsors" />
+    <CommunitySponsors :sponsors="communitySponsors" title="Community Sponsors" />
   </BContainer>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import SponsorList from './sponsors/SponsorList.vue'
+import CommunitySponsors from './sponsors/CommunitySponsors.vue'
 
 // Stub data for sponsors, to be replaced with data from PocketBase
 const silverSponsors = ref([
@@ -58,6 +60,23 @@ const bronzeSponsors = ref([
     link: 'https://www.otava.com/?utm_campaign=indy_hackers',
     logo: '/images/sponsors/otava.png'
   }
+])
+
+/**
+ * The email address provided here is used with Gravatar (https://gravatar.com/) to
+ * fetch the user's profile image. 
+ * 
+ * Please include in a comment the date at which the user last renewed their sponsorship
+ * so we can manually remove them from this list upon non-renewal.
+ */
+const communitySponsors = ref([
+  {
+    // sponsorship began "2025-08-02"
+    name: 'Alex Correa',
+    email: "correa.alexanderj@gmail.com",
+    jobTitle: 'Senior Product Manager, ThirtyMadison',
+    link: 'https://www.linkedin.com/in/alex-j-correa/',
+  },
 ])
 
 // Future implementation: Fetch sponsors from PocketBase
