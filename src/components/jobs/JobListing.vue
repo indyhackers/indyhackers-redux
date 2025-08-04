@@ -9,7 +9,7 @@
             <div class="salary-info">
               <b-badge v-if="job.salary_min > 0" class="salary-badge">{{ salary }}</b-badge>
             </div>
-            <p class="subtitle">Posted at </p>
+            <p class="subtitle">Posted {{ formattedDate }}</p>
 
 
             <!-- Render the description with markup support -->
@@ -51,6 +51,17 @@ export default defineComponent({
     }
   },
   computed: {
+    formattedDate() {
+      const job = this.job
+      if (job.created != null) {
+        const date = new Date(job.created)
+        return new Intl.DateTimeFormat('en-US', {
+          dateStyle: "medium"
+        }).format(date)
+      } else {
+        return ''
+      }
+    },
     salary() {
       const j = this.job
       if (j.salary_max != null && j.salary_min != null) {
