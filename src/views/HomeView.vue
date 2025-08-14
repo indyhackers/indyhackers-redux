@@ -11,7 +11,7 @@
             style="background-color: black; color: white;"
           >
             <BCardText style="background-color: black; color: yellow">
-              You're invited to take the annual <a href="" style="text-decoration: underline; color: white">Indy Hacker Community Survey</a>. The 2-minute survey is fully anonymous and helps us understand how we can best serve this community over the coming year.
+              You're invited to take the annual <a href="https://docs.google.com/forms/d/e/1FAIpQLSd4u8u2GdVyF-SuE2idwYx6Cp-PR7elwx6RfQYjW60tNQiiOg/viewform" target="_blank" style="text-decoration: underline; color: white">Indy Hacker Community Survey</a>. The 2-minute survey is fully anonymous and helps us understand how we can best serve this community over the coming year.
               This information helps us set priorities and shape Indy Hackers based on what matters most to you.
               <br/><br/>
               Thanks in advance for those who participate!
