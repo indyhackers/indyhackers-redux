@@ -69,9 +69,6 @@
                   A network for all tech folks in Indiana. Fostering community connections and
                   celebrating individual successes.
                 </BCardText>
-
-
-
               </BCardBody>
             </BCol>
             <BCol md="4">
