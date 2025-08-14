@@ -5,6 +5,23 @@
   <BContainer gutter-x="40px">
     <BRow>
       <BCol>
+        <BCard no-body class="overflow-hidden mt-2 mb-2" style="background-color: #00000">
+          <BCardBody
+            title="Community Survey is Live!"
+            style="background-color: black; color: white;"
+          >
+            <BCardText style="background-color: black; color: yellow">
+              You're invited to take the annual <a href="https://docs.google.com/forms/d/e/1FAIpQLSd4u8u2GdVyF-SuE2idwYx6Cp-PR7elwx6RfQYjW60tNQiiOg/viewform" target="_blank" style="text-decoration: underline; color: white">Indy Hacker Community Survey</a>. The 2-minute survey is fully anonymous and helps us understand how we can best serve this community over the coming year.
+              This information helps us set priorities and shape Indy Hackers based on what matters most to you.
+              <br/><br/>
+              Thanks in advance for those who participate!
+            </BCardText>
+          </BCardBody>
+        </BCard>
+      </BCol>
+    </BRow>
+    <BRow>
+      <BCol>
         <BCard no-body class="overflow-hidden mt-2 mb-2" style="background-color: #808080">
           <BRow class="g-0">
             <BCol md="8">
