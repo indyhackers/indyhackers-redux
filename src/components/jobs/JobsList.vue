@@ -20,7 +20,7 @@
         <b-col v-for="job in jobs" :key="job.id" cols="12" class="mb-3">
           <b-card :title="job.title" class="job-card" @click="viewJob(job)">
             <p class="company">{{ job.company }}</p>
-            <b-badge v-if="job.salary_min > 0" class="salary-badge">{{ salary(job) }}</b-badge>
+            <b-badge class="salary-badge">{{ salary(job) }}</b-badge>
           </b-card>
         </b-col>
       </b-row>
@@ -46,7 +46,7 @@ export default defineComponent({
         const jobs = await this.pocketbase.collection('jobs').getList(
           1, 100,{
             sort: '-created',
-            where: { approved: true }
+            filter: 'approved = true'
         })
         this.jobs = jobs.items
       } catch (error) {
@@ -55,12 +55,12 @@ export default defineComponent({
     },
     salary(j) {
       //TODO: to locale string? probably not necessary
-      if (j.salary_max != null && j.salary_min != null) {
+      if (j.salary_max != 0 && j.salary_min != 0) {
         return `$${j.salary_min}-${j.salary_max}K`
-      } else if (j.salary_min != null && j.salary_max == null) {
+      } else if (j.salary_min != 0 && j.salary_max == 0) {
         return `$${j.salary_min}K (min)`
-      } else if (j.salary_min == null && j.salary_max != null) {
-        return `$${j.salary_min}K (max)`
+      } else if (j.salary_min == 0 && j.salary_max != 0) {
+        return `$${j.salary_max}K (max)`
       } else {
         return null
       }

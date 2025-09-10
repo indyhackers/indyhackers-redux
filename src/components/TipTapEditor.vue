@@ -1,5 +1,5 @@
 <template>
-  <editor-content :editor="editor" />
+  <editor-content :editor="editor" class="tiptap-editor" />
 </template>
 
 <script>
@@ -11,6 +11,15 @@ export default {
     EditorContent
   },
 
+  props: {
+    modelValue: {
+      type: String,
+      default: ''
+    }
+  },
+
+  emits: ['update:modelValue'],
+
   data() {
     return {
       editor: null
@@ -19,13 +28,24 @@ export default {
 
   mounted() {
     this.editor = new Editor({
-      content: ' ',
-      extensions: [StarterKit]
+      content: this.modelValue,
+      extensions: [StarterKit],
+      onUpdate: ({ editor }) => {
+        this.$emit('update:modelValue', editor.getHTML())
+      }
     })
   },
 
+  watch: {
+    modelValue(newValue) {
+      if (this.editor && newValue !== this.editor.getHTML()) {
+        this.editor.commands.setContent(newValue, false)
+      }
+    }
+  },
+
   beforeUnmount() {
-    this.editor.destroy()
+    this.editor?.destroy()
   }
 }
 </script>

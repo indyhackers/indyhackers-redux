@@ -7,13 +7,17 @@
             <h2 class="job-title">{{ job.title }}</h2>
             <p class="company-name">{{ job.company }}</p>
             <div class="salary-info">
-              <b-badge v-if="job.salary_min > 0" class="salary-badge">{{ salary }}</b-badge>
+              <b-badge class="salary-badge">{{ salary }}</b-badge>
             </div>
             <p class="subtitle">Posted {{ formattedDate }}</p>
 
+            <!-- Render the description and how to apply with markup support -->
+            <div class="job-description" v-html="sanitizedDescription"></div>
+            <div class="how-to-apply">
+              <p class="how-to-apply-title">How to apply:</p>
+              <div class="job-how-to-apply" v-html="sanitizedHowToApply"></div>
+            </div>
 
-            <!-- Render the description with markup support -->
-            <div class="job-description" v-html="job.description"></div>
           </b-card>
         </b-col>
       </b-row>
@@ -23,6 +27,7 @@
 
 <script>
 import { defineComponent } from 'vue'
+import DOMPurify from 'dompurify'
 
 export default defineComponent({
   name: 'JobView',
@@ -33,9 +38,10 @@ export default defineComponent({
       job: {
         title: '',
         company: '',
-        salary_min: null,
-        salary_max: null,
-        description: ''
+        salary_min: 0,
+        salary_max: 0,
+        description: '',
+        how_to_apply: ''
       }
     }
   },
@@ -64,15 +70,21 @@ export default defineComponent({
     },
     salary() {
       const j = this.job
-      if (j.salary_max != null && j.salary_min != null) {
+      if (j.salary_max != 0 && j.salary_min != 0) {
         return `$${j.salary_min}-${j.salary_max}K`
-      } else if (j.salary_min != null && j.salary_max == null) {
+      } else if (j.salary_min != 0 && j.salary_max == 0) {
         return `$${j.salary_min}K (min)`
-      } else if (j.salary_min == null && j.salary_max != null) {
-        return `$${j.salary_min}K (max)`
+      } else if (j.salary_min == 0 && j.salary_max != 0) {
+        return `$${j.salary_max}K (max)`
       } else {
-        return ''
+        return null
       }
+    },
+    sanitizedDescription() {
+      return DOMPurify.sanitize(this.job.description)
+    },
+    sanitizedHowToApply() {
+      return DOMPurify.sanitize(this.job.how_to_apply)
     }
   },
   mounted() {
@@ -127,10 +139,18 @@ export default defineComponent({
   border-radius: 5px;
 }
 
-.job-description {
+.job-description,
+.job-how-to-apply {
   font-size: 1rem;
   color: #333;
   line-height: 1.6;
   white-space: pre-wrap; /* Support for long text with line breaks */
+}
+
+.how-to-apply-title {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 </style>
