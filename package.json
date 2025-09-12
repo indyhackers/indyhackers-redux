@@ -20,6 +20,7 @@
     "@tiptap/vue-3": "^2.6.6",
     "bootstrap": "^5.3.3",
     "bootstrap-vue-next": "^0.24.2",
+    "dompurify": "^3.2.6",
     "jquery": "^3.7.1",
     "pinia": "^2.1.7",
     "pocketbase": "^0.26.1",
