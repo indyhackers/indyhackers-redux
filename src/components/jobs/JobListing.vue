@@ -13,7 +13,7 @@
 
             <!-- Render the description and how to apply with markup support -->
             <div class="job-description" v-html="sanitizedDescription"></div>
-            <div class="how-to-apply">
+            <div class="how-to-apply" v-if="job.how_to_apply">
               <p class="how-to-apply-title">How to apply:</p>
               <div class="job-how-to-apply" v-html="sanitizedHowToApply"></div>
             </div>
