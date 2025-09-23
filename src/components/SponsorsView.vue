@@ -22,6 +22,7 @@
     </p>
     <SponsorList :sponsors="silverSponsors" title="Silver Sponsors" />
     <SponsorList :sponsors="bronzeSponsors" title="Bronze Sponsors" />
+    <SponsorList :sponsors="meetupSponsors" title="Meetup Sponsors" />
   </BContainer>
 </template>
 
@@ -57,6 +58,15 @@ const bronzeSponsors = ref([
     name: 'Otava',
     link: 'https://www.otava.com/?utm_campaign=indy_hackers',
     logo: '/images/sponsors/otava.png'
+  }
+])
+
+const meetupSponsors = ref([
+  {
+    id: 6,
+    name: 'Java House',
+    link: 'https://www.javahouse.com/?utm_campaign=indy_hackers',
+    logo: '/images/sponsors/java_house.png'
   }
 ])
 
