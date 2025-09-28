@@ -30,14 +30,27 @@ jobs:
           docker push $IMAGE_NAME:$VERSION
           echo "image=$IMAGE_NAME:$VERSION" >> $GITHUB_OUTPUT
 
-  cd:
+  cd-prod:
     if: github.ref == 'refs/heads/main'
     needs: [build]
     uses: ./.github/workflows/cd.yaml
     with:
       image: ${{ needs.build.outputs.image }}
       ssh_user: indyhackers
-      ssh_host: prod.indyhackers.org
+      ssh_host: prod-vm.indyhackers.org
+    secrets:
+      ssh_key: ${{ secrets.SSH_KEY_PROD }}
+      ts_oauth_client_id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+      ts_oauth_secret: ${{ secrets.TS_OAUTH_SECRET }}
+
+  cd-dev:
+    if: github.ref == 'refs/heads/dev'
+    needs: [ build ]
+    uses: ./.github/workflows/cd.yaml
+    with:
+      image: ${{ needs.build.outputs.image }}
+      ssh_user: indyhackers
+      ssh_host: dev-vm.indyhackers.org
     secrets:
       ssh_key: ${{ secrets.SSH_KEY_PROD }}
       ts_oauth_client_id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
