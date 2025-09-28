@@ -19,6 +19,8 @@ on:
         required: true
       ssh_key:
         required: true
+      slack_webhook:
+        required: true
 
 jobs:
   deploy:
@@ -48,4 +50,4 @@ jobs:
 
           curl -X POST -H 'Content-type: application/json' \
             --data '{"text":"New image deployed to ${{ inputs.SSH_HOST }}: `${{ inputs.image }}`"}' \
-            https://hooks.slack.com/services/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
+            ${{ secrets.slack_webhook }}
