@@ -42,6 +42,7 @@ jobs:
       ssh_key: ${{ secrets.SSH_KEY_PROD }}
       ts_oauth_client_id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
       ts_oauth_secret: ${{ secrets.TS_OAUTH_SECRET }}
+      slack_webhook: ${{secrets.SLACK_NOTIFY_WEBHOOK }}
 
   cd-dev:
     if: github.ref == 'refs/heads/dev'
