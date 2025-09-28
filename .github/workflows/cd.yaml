@@ -48,4 +48,4 @@ jobs:
 
           curl -X POST -H 'Content-type: application/json' \
             --data '{"text":"New image deployed to ${{ inputs.SSH_HOST }}: `${{ inputs.image }}`"}' \
-            https://hooks.slack.com/services/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
+            https://hooks.slack.com/services/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
