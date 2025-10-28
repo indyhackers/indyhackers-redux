@@ -53,8 +53,8 @@
           linkedin="https://www.linkedin.com/in/mhoc"
         />
         <BoardMemberCard
-          email="mailto:nichole@indyhackers.org"
-          firstName="Nichole"
+          email="mailto:nicole@indyhackers.org"
+          firstName="Nicole"
           imageUrl="/images/board/nichole.jpeg"
           lastName="Dobias"
           linkedin="https://www.linkedin.com/in/nicole-dobias"
