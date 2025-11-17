@@ -5,6 +5,26 @@
   <BContainer gutter-x="40px">
     <BRow>
       <BCol>
+        <BCard no-body class="overflow-hidden mt-2 mb-2" style="background-color: #00000">
+          <BCardBody
+            title="Holiday Social 2025!"
+            style="background-color: black; color: white;"
+          >
+            <BCardText style="background-color: black; color: yellow">
+              Our largest event of the year brings everyone together for a night of celebration!
+              Join us — a bunch of programmers, nerds, geeks, and hackers — to celebrate the year with food, drink, and friends, both old and new!
+              <br /><br />
+              There are no other agenda items–just drinks, community, and fun!
+              <p class="mt-4">
+                <BButton style="color:white" target="_blank" href="https://www.eventbrite.com/e/2025-indy-hackers-holiday-social-tickets-1788837012659">Register Today!</BButton>
+              </p>
+            </BCardText>
+          </BCardBody>
+        </BCard>
+      </BCol>
+    </BRow>
+    <BRow>
+      <BCol>
         <BCard no-body class="overflow-hidden mt-2 mb-2" style="background-color: #808080">
           <BRow class="g-0">
             <BCol md="8">
@@ -20,7 +40,7 @@
                   together.<br /><br />You're invited - don't forget to check out our
                   <BLink to="/code-of-conduct">Code of Conduct</BLink> first!
                   <p class="mt-4">
-                    <BLink href="https://slack.indyhackers.org/">Slack it to me!</BLink>
+                    <BButton style="color:white; background: black" href="https://slack.indyhackers.org/">Slack it to me!</BButton>
                   </p>
                 </BCardText>
               </BCardBody>
