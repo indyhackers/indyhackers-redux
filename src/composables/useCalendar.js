@@ -10,10 +10,10 @@ export function useCalendar() {
 
   // Google Calendar API key from environment variables
   // For public calendars, you can get a free API key from Google Cloud Console
-  const API_KEY = import.meta.env.GOOGLE_CALENDAR_API_KEY
+  const API_KEY = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY
 
   if (!API_KEY) {
-    console.warn('GOOGLE_CALENDAR_API_KEY is not set in environment variables')
+    console.warn('VITE_GOOGLE_CALENDAR_API_KEY is not set in environment variables')
   }
 
   const fetchEvents = async () => {
