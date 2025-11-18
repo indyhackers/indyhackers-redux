@@ -10,6 +10,8 @@ import SponsorsView from '../components/SponsorsView.vue'
 import NewsletterView from '../components/NewsletterView.vue'
 import EventRecommendationForm from '../components/EventRecommendationForm.vue'
 import CalendarView from '../components/CalendarView.vue'
+import EventsMarkdown from '../components/EventsMarkdown.vue'
+import JobsMarkdown from '../components/jobs/JobsMarkdown.vue'
 import CodeOfConduct from '../components/CodeOfConduct.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,15 +34,14 @@ const router = createRouter({
       props: { currentComponent: 'JobListing' }
     },
     {
+      path: '/jobs-markdown',
+      name: 'JobsMarkdown',
+      component: JobsMarkdown
+    },
+    {
       path: '/about',
       name: 'About',
       component: AboutView
-    },
-    {
-      path: '/newsletter',
-      name: 'Newsletter',
-      component: PlaceholderView,
-      props: { title: 'Newsletter', content: 'Subscribe to our newsletter.' }
     },
     {
       path: '/privacy',
@@ -66,7 +67,8 @@ const router = createRouter({
     { path: '/sponsors', name: 'Sponsors', component: SponsorsView },
     { path: '/newsletter', name: 'Newsletter', component: NewsletterView },
     { path: '/recommend-event', name: 'RecommendEvent', component: EventRecommendationForm },
-    { path: '/events', name: 'Events', component: CalendarView },
+    { path: '/calendar', name: 'Calendar', component: CalendarView },
+    { path: '/events-markdown', name: 'EventsMarkdown', component: EventsMarkdown },
     { path: '/code-of-conduct', name: 'CodeOfConduct', component: CodeOfConduct }
   ]
 })

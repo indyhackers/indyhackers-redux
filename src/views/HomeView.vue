@@ -27,10 +27,11 @@
       <BCol>
         <BCard no-body class="overflow-hidden mt-2 mb-2" style="background-color: #808080">
           <BRow class="g-0">
-            <BCol md="8">
+            <!--<BCol md="8">
               <BCardImg src="images/ih-welcome-carousel.png" alt="Image" class="rounded-0" />
             </BCol>
-            <BCol md="4" variant="warning">
+            -->
+            <BCol md="12" variant="warning">
               <BCardBody
                 title="Join us on Slack!"
                 style="background-color: #ffc008; max-height: 100vh"
@@ -62,6 +63,7 @@
         </BCard>
       </BCol>
     </BRow>
+    <!--
     <BRow>
       <BCol>
         <BCard no-body class="overflow-hidden mt-2 mb-2">
@@ -119,9 +121,11 @@
         </BCardGroup>
       </BCol>
     </BRow>
+       -->
     <BRow>
-      <CalendarView />
+      <EventsView />
     </BRow>
+
   </BContainer>
   <!-- </div> -->
 </template>
