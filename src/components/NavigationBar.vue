@@ -13,9 +13,10 @@
     </BNavbarNav>
     <BCollapse id="navbar-collapse" is-nav>
       <BNavbarNav>
+        <BNavItem right><RouterLink to="/">Home</RouterLink></BNavItem>
+        <BNavItem right><RouterLink to="/calendar">Calendar</RouterLink></BNavItem>
         <BNavItem right><RouterLink to="/newsletter">Newsletter</RouterLink></BNavItem>
         <BNavItem right><RouterLink to="/jobs">Jobs</RouterLink></BNavItem>
-        <BNavItem right><RouterLink to="/events">Events</RouterLink></BNavItem>
         <BNavItem right><RouterLink to="/sponsors">Sponsors</RouterLink></BNavItem>
         <BNavItem right><RouterLink to="/about">About</RouterLink></BNavItem>
       </BNavbarNav>
