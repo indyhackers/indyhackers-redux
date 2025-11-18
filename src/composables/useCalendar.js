@@ -8,11 +8,13 @@ export function useCalendar() {
   // Calendar ID from the existing CalendarView
   const CALENDAR_ID = 'ig7e0j6v8ub9q6kga256n77048@group.calendar.google.com'
 
-  // Google Calendar API key - you'll need to set this in your environment variables
+  // Google Calendar API key from environment variables
   // For public calendars, you can get a free API key from Google Cloud Console
-  const API_KEY = 'AIzaSyACexl5Vp2dGxFhoPP4G_hzwrfhDTiuQ_g'
+  const API_KEY = import.meta.env.GOOGLE_CALENDAR_API_KEY
 
-  console.log('API_KEY: ', API_KEY)
+  if (!API_KEY) {
+    console.warn('GOOGLE_CALENDAR_API_KEY is not set in environment variables')
+  }
 
   const fetchEvents = async () => {
     loading.value = true
