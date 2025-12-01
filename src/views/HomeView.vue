@@ -8,15 +8,33 @@
         <BCard no-body class="overflow-hidden mt-2 mb-2" style="background-color: #00000">
           <BCardBody
             title="Holiday Social 2025!"
-            style="background-color: black; color: white;"
+            style="background-color: #960014; color: white;"
           >
-            <BCardText style="background-color: black; color: yellow">
+            <BCardText style="background-color: #960014; color: white">
               Our largest event of the year brings everyone together for a night of celebration!
               Join us — a bunch of programmers, nerds, geeks, and hackers — to celebrate the year with food, drink, and friends, both old and new!
               <br /><br />
-              There are no other agenda items–just drinks, community, and fun!
+              There are no other agenda items&mdash; just drinks, community, and fun!
               <p class="mt-4">
-                <BButton style="color:white" target="_blank" href="https://www.eventbrite.com/e/2025-indy-hackers-holiday-social-tickets-1788837012659">Register Today!</BButton>
+                <BButton style="color:white; background-color: #00873E" target="_blank" href="https://www.eventbrite.com/e/2025-indy-hackers-holiday-social-tickets-1788837012659">Register Today!</BButton>
+              </p>
+            </BCardText>
+          </BCardBody>
+        </BCard>
+      </BCol>
+    </BRow>
+    <BRow>
+      <BCol>
+        <BCard no-body class="overflow-hidden mt-2 mb-2" style="background-color: #00873E">
+          <BCardBody
+            title="IndyHackers Season of Giving"
+            style="background-color: #00873E; color: white;"
+          >
+            <BCardText style="background-color: #00873E; color: white">
+              IndyHackers has always been about bringing people together&mdash;building connections, sharing ideas, and growing the Indiana tech community. If you have found value in what we do, please consider supporting our Season of Giving. Your donation helps us cover costs for our community, fund future programming, and keep growing what we offer. We have big plans for 2026 and every contribution&mdash; big or small, makes a difference!
+
+              <p class="mt-4">
+                <BButton style="color:white; background-color: #960014" target="_blank" href="https://donate.stripe.com/bIY17XcYL77c0HSdQQ">Donate</BButton>
               </p>
             </BCardText>
           </BCardBody>
