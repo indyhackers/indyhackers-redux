@@ -3,7 +3,7 @@
 <template>
   <!-- <div class="centered-container"> -->
   <BContainer gutter-x="40px">
-    <BRow>
+    <!-- <BRow>
       <BCol>
         <BCard no-body class="overflow-hidden mt-2 mb-2" style="background-color: #00000">
           <BCardBody
@@ -41,6 +41,7 @@
         </BCard>
       </BCol>
     </BRow>
+    -->
     <BRow>
       <BCol>
         <BCard no-body class="overflow-hidden mt-2 mb-2" style="background-color: #808080">
@@ -58,7 +59,11 @@
                   together.<br /><br />You're invited - don't forget to check out our
                   <BLink to="/code-of-conduct">Code of Conduct</BLink> first!
                   <p class="mt-4">
-                    <BButton style="color:white; background: black" href="https://slack.indyhackers.org/">Slack it to me!</BButton>
+                    <BButton
+                      style="color: white; background: black"
+                      href="https://slack.indyhackers.org/"
+                      >Slack it to me!</BButton
+                    >
                   </p>
                 </BCardText>
               </BCardBody>
@@ -152,8 +157,7 @@ export default {
   components: {
     CalendarView
   },
-  async mounted() {
-  }
+  async mounted() {}
 }
 </script>
 
