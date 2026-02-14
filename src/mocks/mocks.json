@@ -114,6 +114,7 @@
     "items": [
       {
         "approved": true,
+        "approved_at": "2024-09-18 16:00:00.000Z",
         "collectionId": "5o7y83cyhnt62fa",
         "collectionName": "jobs",
         "company": " Knowledge Services",
@@ -128,6 +129,7 @@
       },
       {
         "approved": true,
+        "approved_at": "2024-09-18 16:17:00.000Z",
         "collectionId": "5o7y83cyhnt62fa",
         "collectionName": "jobs",
         "company": "Theoris",
@@ -142,6 +144,7 @@
       },
       {
         "approved": true,
+        "approved_at": "2024-09-18 16:17:00.000Z",
         "collectionId": "5o7y83cyhnt62fa",
         "collectionName": "jobs",
         "company": "SEP",
@@ -156,6 +159,7 @@
       },
       {
         "approved": false,
+        "approved_at": "",
         "collectionId": "5o7y83cyhnt62fa",
         "collectionName": "jobs",
         "company": "Bunk Company",
