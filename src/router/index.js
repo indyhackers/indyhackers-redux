@@ -68,6 +68,7 @@ const router = createRouter({
     { path: '/newsletter', name: 'Newsletter', component: NewsletterView },
     { path: '/recommend-event', name: 'RecommendEvent', component: EventRecommendationForm },
     { path: '/calendar', name: 'Calendar', component: CalendarView },
+    { path: '/events', redirect: '/calendar' },
     { path: '/events-markdown', name: 'EventsMarkdown', component: EventsMarkdown },
     { path: '/code-of-conduct', name: 'CodeOfConduct', component: CodeOfConduct }
   ]
