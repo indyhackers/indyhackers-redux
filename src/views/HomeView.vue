@@ -86,7 +86,7 @@
         </BCard>
       </BCol>
     </BRow>
-    <!--
+
     <BRow>
       <BCol>
         <BCard no-body class="overflow-hidden mt-2 mb-2">
@@ -99,9 +99,11 @@
                 </BCardText>
               </BCardBody>
             </BCol>
+            <!--
             <BCol md="4">
               <BCardImg src="images/high-five.png" alt="Image" class="rounded-0" />
             </BCol>
+            -->
           </BRow>
         </BCard>
       </BCol>
@@ -144,7 +146,6 @@
         </BCardGroup>
       </BCol>
     </BRow>
-       -->
     <BRow>
       <EventsView />
     </BRow>
