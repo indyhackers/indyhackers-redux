@@ -6,13 +6,15 @@ routerAdd("get", "/jobs_test.atom", (e) => {
   );
 
 
+  const cutoff = new Date(Date.now() - 60 * 24 * 60 * 60 * 1000).toISOString()
+
   let records = $app.findRecordsByFilter(
     "jobs",                                    // collection
-    "", // filter
-    "-created",                                   // sort
-    20,                                            // limit
-    0,                                             // offset
-    { },                        // optional filter params
+    'approved = true && approved_at != "" && approved_at >= {:cutoff}', // filter
+    "-approved_at",                            // sort
+    20,                                        // limit
+    0,                                         // offset
+    { cutoff },                                // filter params
   )
 
   const entries = records.map((r) => ({
@@ -20,7 +22,7 @@ routerAdd("get", "/jobs_test.atom", (e) => {
     author:  r.getString("company"),
     link:    `https://indyhackers.org/posts/${r.id}`,
     id:      `tag:indyhackers.org,2025:post/${r.id}`,
-    updated: new Date(r.getDateTime("created")).toISOString(),
+    updated: new Date(r.getDateTime("approved_at")).toISOString(),
     summary: r.getString("description") || "",
   }));
 
