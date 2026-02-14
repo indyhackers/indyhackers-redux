@@ -99,14 +99,13 @@ describe('JobsList', () => {
     expect(callArgs[0]).toBe(1)
     expect(callArgs[1]).toBe(100)
     expect(callArgs[2].sort).toBe('-approved_at')
-    expect(callArgs[2].filter).toBe(
-      'approved = true && approved_at != "" && approved_at >= {:cutoff}',
-    )
-    expect(callArgs[2].filterParams).toBeDefined()
-    // cutoff should be roughly 60 days ago
-    const cutoff = new Date(callArgs[2].filterParams.cutoff)
-    const sixtyDaysAgo = new Date(Date.now() - 60 * 24 * 60 * 60 * 1000)
-    expect(Math.abs(cutoff - sixtyDaysAgo)).toBeLessThan(5000)
+    // filter should inline the cutoff date directly
+    expect(callArgs[2].filter).toContain('approved = true')
+    expect(callArgs[2].filter).toContain('approved_at != ""')
+    expect(callArgs[2].filter).toContain('approved_at >= "')
+    // no server-side placeholder syntax — client SDK requires inlined values
+    expect(callArgs[2].filter).not.toMatch(/\{:/)
+    expect(callArgs[2].filterParams).toBeUndefined()
   })
 
   it('renders a card for each job with title and company', async () => {
