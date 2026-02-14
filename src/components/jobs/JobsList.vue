@@ -43,10 +43,11 @@ export default defineComponent({
   methods: {
     async fetchJobs() {
       try {
+        const cutoff = new Date(Date.now() - 60 * 24 * 60 * 60 * 1000).toISOString()
         const jobs = await this.pocketbase.collection('jobs').getList(
           1, 100,{
-            sort: '-created',
-            filter: 'approved = true'
+            sort: '-approved_at',
+            filter: `approved = true && approved_at != "" && approved_at >= "${cutoff}"`
         })
         this.jobs = jobs.items
       } catch (error) {

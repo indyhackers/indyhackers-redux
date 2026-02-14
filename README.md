@@ -16,6 +16,34 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 npm install
 ```
 
+### Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+
+```sh
+# Google Calendar API Key
+VITE_GOOGLE_CALENDAR_API_KEY=your_api_key_here
+```
+
+#### Getting a Google Calendar API Key
+
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select an existing one
+3. Enable the Google Calendar API:
+   - Go to "APIs & Services" > "Library"
+   - Search for "Google Calendar API"
+   - Click "Enable"
+4. Create credentials:
+   - Go to "APIs & Services" > "Credentials"
+   - Click "Create Credentials" > "API Key"
+   - Copy the generated API key
+5. (Optional) Restrict the API key:
+   - Click on the API key you just created
+   - Under "API restrictions", select "Restrict key"
+   - Select "Google Calendar API" from the dropdown
+   - Under "Website restrictions", add your domain(s)
+6. Paste the API key into your `.env` file
+
 ### Compile and Hot-Reload for Development
 
 ```sh

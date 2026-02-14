@@ -59,8 +59,8 @@ export default defineComponent({
   computed: {
     formattedDate() {
       const job = this.job
-      if (job.created != null) {
-        const date = new Date(job.created)
+      if (job.approved_at != null && job.approved_at !== '') {
+        const date = new Date(job.approved_at)
         return new Intl.DateTimeFormat('en-US', {
           dateStyle: "medium"
         }).format(date)
