@@ -3,7 +3,7 @@
     <b-card>
       <h2>Our Mission</h2>
       <p>
-        IndyHackers strives to help tech people in Indiana grow by fostering community connections
+        Indy Hackers strives to help tech people in Indiana grow by fostering community connections
         and celebrating individual successes.
       </p>
       <h2>Board Members</h2>
