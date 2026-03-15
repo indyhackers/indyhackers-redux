@@ -20,8 +20,8 @@
       the builders, please contact
       <a href="mailto:sponsors@indyhackers.org">sponsors@indyhackers.org.</a>
     </p>
-    <SponsorList :sponsors="silverSponsors" title="Silver Sponsors" />
-    <SponsorList :sponsors="bronzeSponsors" title="Bronze Sponsors" />
+    <SponsorList :sponsors="sponsors" title="Annual Sponsors" />
+    
     <SponsorList :sponsors="meetupSponsors" title="Meetup Sponsors" />
   </BContainer>
 </template>
@@ -31,7 +31,7 @@ import { ref } from 'vue'
 import SponsorList from './sponsors/SponsorList.vue'
 
 // Stub data for sponsors, to be replaced with data from PocketBase
-const silverSponsors = ref([
+const sponsors = ref([
   {
     id: 1,
     name: 'Pure Insights',
@@ -46,24 +46,10 @@ const silverSponsors = ref([
   }
 ])
 
-const bronzeSponsors = ref([
-  {
-    id: 4,
-    name: 'Stellar AI',
-    link: 'https://www.getstellar.ai/?utm_campaign=indy_hackers',
-    logo: '/images/sponsors/stellar.png'
-  },
-  {
-    id: 5,
-    name: 'Otava',
-    link: 'https://www.otava.com/?utm_campaign=indy_hackers',
-    logo: '/images/sponsors/otava.png'
-  }
-])
 
 const meetupSponsors = ref([
   {
-    id: 6,
+    id: 3,
     name: 'Java House',
     link: 'https://www.javahouse.com/?utm_campaign=indy_hackers',
     logo: '/images/sponsors/java_house.png'
