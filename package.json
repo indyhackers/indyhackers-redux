@@ -11,9 +11,11 @@
     "test:e2e": "playwright test",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "watch": "watch 'npm run build' src/"
+    "watch": "watch 'npm run build' src/",
+    "newsletter": "node --env-file=.env scripts/generate-newsletter.js"
   },
   "dependencies": {
+    "googleapis": "^144.0.0",
     "@popperjs/core": "^2.11.8",
     "@tiptap/pm": "^2.6.6",
     "@tiptap/starter-kit": "^2.6.6",
