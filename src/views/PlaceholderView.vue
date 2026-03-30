@@ -1,10 +1,12 @@
 <template>
-  <div class="container mt-5">
-    <b-card class="bg-dark text-white">
-      <h1>{{ title }}</h1>
-      <p>{{ content }}</p>
-    </b-card>
-  </div>
+  <section class="placeholder-section">
+    <div class="ih-container">
+      <div class="placeholder-card">
+        <h1>{{ title }}</h1>
+        <p>{{ content }}</p>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -18,7 +20,25 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.placeholder-section {
+  padding: 5rem 0;
+}
+
+.placeholder-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 3rem;
   max-width: 800px;
+}
+
+.placeholder-card h1 {
+  margin-bottom: 1rem;
+}
+
+.placeholder-card p {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--muted-foreground);
+  font-size: 1.125rem;
 }
 </style>

@@ -1,186 +1,170 @@
-<script setup></script>
-
 <template>
-  <!-- <div class="centered-container"> -->
-  <BContainer gutter-x="40px">
-    <!-- <BRow>
-      <BCol>
-        <BCard no-body class="overflow-hidden mt-2 mb-2" style="background-color: #00000">
-          <BCardBody
-            title="Holiday Social 2025!"
-            style="background-color: #960014; color: white;"
-          >
-            <BCardText style="background-color: #960014; color: white">
-              Our largest event of the year brings everyone together for a night of celebration!
-              Join us — a bunch of programmers, nerds, geeks, and hackers — to celebrate the year with food, drink, and friends, both old and new!
-              <br /><br />
-              There are no other agenda items&mdash; just drinks, community, and fun!
-              <p class="mt-4">
-                <BButton style="color:white; background-color: #00873E" target="_blank" href="https://www.eventbrite.com/e/2025-indy-hackers-holiday-social-tickets-1788837012659">Register Today!</BButton>
-              </p>
-            </BCardText>
-          </BCardBody>
-        </BCard>
-      </BCol>
-    </BRow>
-    <BRow>
-      <BCol>
-        <BCard no-body class="overflow-hidden mt-2 mb-2" style="background-color: #00873E">
-          <BCardBody
-            title="IndyHackers Season of Giving"
-            style="background-color: #00873E; color: white;"
-          >
-            <BCardText style="background-color: #00873E; color: white">
-              IndyHackers has always been about bringing people together&mdash;building connections, sharing ideas, and growing the Indiana tech community. If you have found value in what we do, please consider supporting our Season of Giving. Your donation helps us cover costs for our community, fund future programming, and keep growing what we offer. We have big plans for 2026 and every contribution&mdash; big or small, makes a difference!
+  <!-- Hero -->
+  <section class="hero">
+    <div class="ih-container">
+      <h1 class="hero__heading">Fostering the Indiana<br />Tech Community</h1>
+      <p class="hero__sub">
+        A network for all tech folks in Indiana. Fostering community connections and celebrating
+        individual successes.
+      </p>
+      <div class="hero__ctas">
+        <a href="https://slack.indyhackers.org/" target="_blank" class="ih-btn-primary">
+          Slack it to me!
+        </a>
+        <RouterLink to="/calendar" class="ih-btn-outline">Upcoming Events</RouterLink>
+      </div>
+    </div>
+  </section>
 
-              <p class="mt-4">
-                <BButton style="color:white; background-color: #960014" target="_blank" href="https://donate.stripe.com/bIY17XcYL77c0HSdQQ">Donate</BButton>
-              </p>
-            </BCardText>
-          </BCardBody>
-        </BCard>
-      </BCol>
-    </BRow>
-    -->
-    <BRow>
-      <BCol>
-        <BCard no-body class="overflow-hidden mt-2 mb-2" style="background-color: #808080">
-          <BRow class="g-0">
-            <!--<BCol md="8">
-              <BCardImg src="images/ih-welcome-carousel.png" alt="Image" class="rounded-0" />
-            </BCol>
-            -->
-            <BCol md="12" variant="warning">
-              <BCardBody
-                title="Join us on Slack!"
-                style="background-color: #ffc008; max-height: 100vh"
-              >
-                <BCardText>
-                  Our Slack group brings hackers, programmers, makers, and tech folks of all kinds
-                  together.<br /><br />You're invited - don't forget to check out our
-                  <BLink to="/code-of-conduct">Code of Conduct</BLink> first!
-                  <p class="mt-4">
-                    <BButton
-                      style="color: white; background: black"
-                      href="https://slack.indyhackers.org/"
-                      >Slack it to me!</BButton
-                    >
-                  </p>
-                </BCardText>
-              </BCardBody>
-              <!-- <BCardBody
-                title="Join us on Slack!"
-                style="background-color: #808080; max-height: 100vh"
-              >
-                <BCardText class="vh-50">
-                  Our Slack group brings hackers, programmers, makers, and tech folks of all kinds
-                  together. <br /><br />You're invited - don't forget to check out our
-                  <BLink to="/conduct">Code of Conduct</BLink> first!
-                  <p class="mt-4">
-                    <BLink href="https://slack.indyhackers.org/">Slack it to me!</BLink>
-                  </p>
-                </BCardText>
-              </BCardBody> -->
-            </BCol>
-          </BRow>
-        </BCard>
-      </BCol>
-    </BRow>
+  <!-- What We Do -->
+  <section class="what-we-do">
+    <div class="ih-container">
+      <h2 class="section-heading">What We Do</h2>
+      <div class="what-we-do__grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <icon-carbon-user-multiple />
+          </div>
+          <h3>Mentorship</h3>
+          <p>Connecting experienced professionals with those growing their careers in tech.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <icon-carbon-calendar />
+          </div>
+          <h3>Events</h3>
+          <p>From workshops to social meetups — something for every kind of hacker.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <icon-carbon-group />
+          </div>
+          <h3>Community</h3>
+          <p>A Slack community of thousands connecting Indiana's tech folks every day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <BRow>
-      <BCol>
-        <BCard no-body class="overflow-hidden mt-2 mb-2">
-          <BRow class="g-0">
-            <BCol md="8" variant="warning">
-              <BCardBody title="Fostering the Indiana Tech Community" style="max-height: 100vh">
-                <BCardText>
-                  A network for all tech folks in Indiana. Fostering community connections and
-                  celebrating individual successes.
-                </BCardText>
-              </BCardBody>
-            </BCol>
-            <!--
-            <BCol md="4">
-              <BCardImg src="images/high-five.png" alt="Image" class="rounded-0" />
-            </BCol>
-            -->
-          </BRow>
-        </BCard>
-      </BCol>
-    </BRow>
-    <BRow>
-      <BCol>
-        <h2 class="mt-4 mb-4">What We Do</h2>
-        <BCardGroup>
-          <BCard
-            title="Mentorship"
-            img-src="images/mentor.png"
-            img-alt="Mentorship"
-            img-top
-            img-height="300px"
-            align="center"
-          >
-            <template #footer></template>
-          </BCard>
-
-          <BCard
-            title="Events"
-            img-src="images/events.png"
-            img-alt="Events"
-            align="center"
-            img-height="300px"
-          >
-            <template #footer></template>
-          </BCard>
-
-          <BCard
-            title="Meetups"
-            img-src="images/meetups.png"
-            img-alt="Meetups"
-            align="center"
-            img-width="100"
-            img-bottom
-          >
-            <template #footer></template>
-          </BCard>
-        </BCardGroup>
-      </BCol>
-    </BRow>
-    <BRow>
+  <!-- Upcoming Events -->
+  <section class="events-section">
+    <div class="ih-container">
       <EventsView />
-    </BRow>
+    </div>
+  </section>
 
-  </BContainer>
-  <!-- </div> -->
 </template>
 
 <script>
-import CalendarView from '../components/CalendarView.vue'
+import EventsView from '../components/EventsView.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    CalendarView
-  },
-  async mounted() {}
+    EventsView
+  }
 }
 </script>
 
 <style scoped>
-.centered-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-height: 53rem;
+/* Hero */
+.hero {
+  padding: 7rem 1.25rem 5rem;
 }
 
-a {
-  color: #000;
-  text-decoration: none;
+.hero__heading {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: bold;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+  max-width: 40rem;
 }
 
-a:hover {
-  color: #fff;
+.hero__sub {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.125rem;
+  color: rgba(18, 18, 18, 0.7);
+  line-height: 1.6;
+  max-width: 32rem;
+  margin-bottom: 2rem;
+}
+
+.hero__ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* What We Do */
+.what-we-do {
+  padding: 5rem 1.25rem;
+}
+
+.section-heading {
+  margin-bottom: 3rem;
+}
+
+.what-we-do__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: box-shadow 0.3s;
+}
+
+.feature-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card__icon {
+  width: 48px;
+  height: 48px;
+  background: var(--background);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  font-family: 'Space Grotesk', sans-serif;
+  color: rgba(18, 18, 18, 0.7);
+  line-height: 1.6;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Events */
+.events-section {
+  padding: 5rem 0;
+}
+
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 5rem 0 3rem;
+  }
+
+  .what-we-do__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .slack-cta__card {
+    padding: 2.5rem 1.5rem;
+  }
 }
 </style>

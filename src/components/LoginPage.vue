@@ -5,7 +5,7 @@
         <div v-for="provider in oauthProviders" :key="provider.name">
           <b-button
             :id="'btn-' + provider.name"
-            class="btn-warning"
+            class="ih-btn-outline oauth-icon-btn"
             @click="loginWithOAuth(provider.name)"
           >
             <template v-if="provider.name === 'github'">
@@ -51,7 +51,7 @@
           <b-form-input id="password" v-model="password" type="password" required></b-form-input>
         </b-form-group>
 
-        <b-button type="submit" variant="warning" block>Login</b-button>
+        <button type="submit" class="ih-btn-primary login-submit">Login</button>
       </b-form>
       <router-link to="/signup">Don't have an account? Sign up here</router-link>
     </AuthPageLayout>
@@ -149,72 +149,38 @@ export default {
 
 <style scoped>
 a {
-  color: #fff;
+  color: var(--foreground);
 }
 
 .login-page {
-  padding: 2rem; /* Match padding from SignupPage.vue */
+  padding: 2rem;
 }
 
 .form-group {
-  margin-bottom: 2rem; /* Match margin from SignupPage.vue */
+  margin-bottom: 2rem;
 }
 
-button {
-  width: 100%;
-  padding: 1rem; /* Increase padding for larger buttons */
-  border: none;
-  border-radius: 8px;
-  font-size: 1.25rem; /* Increase font size for larger text */
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #3700b3;
-}
-
-/* .btn-primary,
-.btn-secondary {
-  background-color: #6200ea;
-} */
-
-.btn-secondary {
-  margin: 0.5rem;
+.oauth-icon-btn {
   width: auto;
-  padding: 0.75rem 1.5rem; /* Increase padding for larger buttons */
-  display: flex;
-  align-items: center;
-}
-
-.icon {
-  width: 24px; /* Increase icon size */
-  height: 24px; /* Increase icon size */
-  margin-right: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin: 0.25rem;
 }
 
 .oauth-section {
   margin-top: 1rem;
   text-align: center;
   display: flex;
-  justify-content: center; /* Center the buttons horizontally */
-  flex-wrap: wrap; /* Allow buttons to wrap if necessary */
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-/* New styles to match SignupPage.vue */
 .form-label {
-  color: #333;
+  color: var(--foreground);
   font-weight: bold;
 }
 
-/* :deep(.form-control) {
-  background-color: #3a3a5a;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-} */
-
-:deep(.form-control::placeholder) {
-  color: #d3d3d3;
+.login-submit {
+  width: 100%;
+  justify-content: center;
 }
 </style>

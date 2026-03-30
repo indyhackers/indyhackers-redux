@@ -8,16 +8,16 @@ body {
 }
 
 /******************************************************************************/
-/*  Base styles                             	                                */
+/*  Base styles                                                                */
 /******************************************************************************/
 html {
-  background-color: #fff;
+  background-color: var(--background);
 }
 
 body {
   margin: 0px;
   padding: 0px;
-  font-family: 'Work Sans', sans-serif;
+  font-family: $text-font;
   color: $text-color-black;
 }
 
@@ -27,44 +27,85 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Space Mono', monospace;
+  font-family: $header-font;
   font-weight: bold;
 }
 
-h1 {
-  font-size: 36px;
-}
-
-h2 {
-  font-size: 28px;
-}
-
-h3 {
-  font-size: 24px;
-}
-
-h4 {
-  font-size: 20px;
-}
-
-button,
-input[type='submit'] {
-  background-color: #ffc000;
-  padding: 12px 16px;
-  border: 0px;
-  font-size: 18px;
-  font-weight: bold;
-  font-family: 'Work Sans', sans-serif;
-}
+h1 { font-size: 36px; }
+h2 { font-size: 28px; }
+h3 { font-size: 24px; }
+h4 { font-size: 20px; }
 
 a {
-  text-decoration-color: #ffc000;
+  text-decoration-color: var(--background);
   color: inherit;
   font-weight: bold;
 }
 
 iframe {
   width: 100%;
+}
+
+/******************************************************************************/
+/*  Buttons                                                                    */
+/******************************************************************************/
+.ih-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-family: $header-font;
+  font-weight: bold;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.9;
+    color: var(--primary-foreground);
+  }
+}
+
+.ih-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--foreground);
+  border: 2px solid var(--foreground);
+  font-family: $header-font;
+  font-weight: bold;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    background: var(--foreground);
+    color: var(--background);
+  }
+}
+
+/******************************************************************************/
+/*  Layout utilities                                                           */
+/******************************************************************************/
+.ih-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .ih-container {
+    padding: 0 1.5rem;
+  }
 }
 
 .three-columns,

@@ -87,26 +87,29 @@ export default defineComponent({
 }
 .subtitle {
   font-size: 1.2rem;
-  color: #666;
+  color: var(--muted-foreground);
 }
 .job-card {
   border-radius: 8px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border) !important;
+  background: var(--card) !important;
   padding: 1rem;
   transition: box-shadow 0.3s ease-in-out;
 }
 .job-card:hover {
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
 }
 .company {
   font-size: 1.1rem;
-  color: #333;
+  color: var(--muted-foreground);
 }
 .salary-badge {
-  background-color: #007bff;
-  color: white;
-  font-size: 1rem;
-  padding: 0.5rem;
-  border-radius: 5px;
+  background-color: var(--foreground) !important;
+  color: var(--primary-foreground) !important;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.375rem 0.75rem;
+  border-radius: 999px;
 }
 </style>

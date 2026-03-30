@@ -1,74 +1,60 @@
 <template>
-  <b-container id="event-calendar" class="w-100">
-    <b-row>
-      <b-col>
-        <div class="text-center mb-4">
-          <h2>Upcoming Events</h2>
-          <p class="text-muted">Join us for exciting tech events and meetups in Indianapolis</p>
-        </div>
+  <div class="events-view">
+    <div class="events-header">
+      <h2>Upcoming Events</h2>
+      <p class="events-subtitle">Join us for exciting tech events and meetups in Indianapolis</p>
+    </div>
 
-        <!-- Loading State -->
-        <div v-if="loading" class="text-center py-5">
-          <b-spinner variant="primary" label="Loading events..."></b-spinner>
-          <p class="mt-3 text-muted">Loading events...</p>
-        </div>
+    <!-- Loading State -->
+    <div v-if="loading" class="events-loading">
+      <b-spinner variant="primary" label="Loading events..."></b-spinner>
+      <p>Loading events...</p>
+    </div>
 
-        <!-- Error State -->
-        <b-alert v-else-if="error" variant="danger" show class="my-4">
-          <h5>Unable to load events</h5>
-          <p>{{ error }}</p>
-          <b-button variant="danger" @click="fetchEvents">Retry</b-button>
-        </b-alert>
+    <!-- Error State -->
+    <b-alert v-else-if="error" variant="danger" show class="my-4">
+      <h5>Unable to load events</h5>
+      <p>{{ error }}</p>
+      <button class="ih-btn-outline" @click="fetchEvents">Retry</button>
+    </b-alert>
 
-        <!-- No Events State -->
-        <b-alert v-else-if="events.length === 0" variant="info" show class="my-4">
-          <h5>No upcoming events</h5>
-          <p>Check back soon for new events, or recommend one below!</p>
-        </b-alert>
+    <!-- No Events State -->
+    <b-alert v-else-if="events.length === 0" variant="info" show class="my-4">
+      <h5>No upcoming events</h5>
+      <p>Check back soon for new events, or recommend one below!</p>
+    </b-alert>
 
-        <!-- Events List -->
-        <div v-else class="events-list">
-          <EventListItem
-            v-for="event in events"
-            :key="event.id"
-            :event="event"
-          />
-        </div>
+    <!-- Events List -->
+    <div v-else class="events-list">
+      <EventListItem
+        v-for="event in events"
+        :key="event.id"
+        :event="event"
+      />
+    </div>
 
-        <!-- Buttons -->
-        <div class="text-center mt-4">
-          <b-button-group>
-            <b-button
-              variant="primary"
-              target="_blank"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdlfIqF42uU8iyoYyqKDFPEYRsNCOCFYpFJwMTvdVOkK3otSg/viewform?usp=sf_link"
-            >
-              Recommend event
-            </b-button>
-            <b-button
-              variant="secondary"
-              href="webcal://calendar.google.com/calendar/ical/ig7e0j6v8ub9q6kga256n77048%40group.calendar.google.com/public/basic.ics"
-            >
-              Subscribe to calendar
-            </b-button>
-          </b-button-group>
-        </div>
-      </b-col>
-    </b-row>
-  </b-container>
+    <!-- Actions -->
+    <div class="events-actions">
+      <a
+        class="ih-btn-primary"
+        target="_blank"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSdlfIqF42uU8iyoYyqKDFPEYRsNCOCFYpFJwMTvdVOkK3otSg/viewform?usp=sf_link"
+      >
+        Recommend an Event
+      </a>
+      <a
+        class="ih-btn-outline"
+        href="webcal://calendar.google.com/calendar/ical/ig7e0j6v8ub9q6kga256n77048%40group.calendar.google.com/public/basic.ics"
+      >
+        Subscribe to Calendar
+      </a>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue'
-import {
-  BContainer,
-  BRow,
-  BCol,
-  BButton,
-  BButtonGroup,
-  BAlert,
-  BSpinner
-} from 'bootstrap-vue-next'
+import { BAlert, BSpinner } from 'bootstrap-vue-next'
 import { useCalendar } from '../composables/useCalendar'
 import EventListItem from './EventListItem.vue'
 
@@ -80,12 +66,37 @@ onMounted(() => {
 </script>
 
 <style scoped>
-#event-calendar {
-  margin-top: 20px;
-  //max-width: 900px;
+.events-view {
+  width: 100%;
+}
+
+.events-header {
+  margin-bottom: 2rem;
+}
+
+.events-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--muted-foreground);
+  margin: 0.5rem 0 0;
+}
+
+.events-loading {
+  text-align: center;
+  padding: 3rem 0;
+  color: var(--muted-foreground);
 }
 
 .events-list {
-  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.events-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
 </style>

@@ -1,80 +1,63 @@
 <template>
-  <!-- TODO: fixed-bottom -->
-  <footer class="footer mt-auto py-3 bg-dark w-100">
-    <BContainer class="container-sm footer-container">
-      <BRow>
-        <BCol alignSelf="center" class="text-start">
-          <ul>
-            <li class="mb-0"><b>About</b></li>
-            <li class="mb-0"><BLink to="/about">Meet our Board</BLink></li>
-            <li class="mb-0"><BLink to="/code-of-conduct">Code of Conduct</BLink></li>
-            <li class="mb-0">
-              <BLink href="https://donate.stripe.com/bIY17XcYL77c0HSdQQ" target="_blank"
-                >Donate</BLink
-              >
-            </li>
-          </ul>
-        </BCol>
-        <BCol alignSelf="center" class="text-center">
-          <img src="/images/yellow-sq-ih-logo.png" class="mb-3 rounded" width="60px" />
-          <br />
-          <span>Made with 🤍 by the Indy Hackers Board</span>
-        </BCol>
-        <BCol alignSelf="center" class="text-end">
-          <ul>
-            <li class="mb-0"><b>Contact</b></li>
-            <li class="mb-0">
-              <BLink href="https://twitter.com/indyhackersorg">@indyhackersorg</BLink>
-            </li>
-            <li class="mb-0"><BLink href="https://slack.indyhackers.org/">Slack Community</BLink></li>
-            <li class="mb-0">
-              <BLink href="https://github.com/indyhackers/indyhackers.org">GitHub</BLink>
-            </li>
-          </ul>
-        </BCol>
-      </BRow>
-    </BContainer>
-    <div class="container text-center"></div>
+  <footer class="ih-footer">
+    <div class="ih-container ih-footer__inner">
+      <p class="ih-footer__copy">&copy; {{ year }} Indy Hackers — made with love by volunteers</p>
+      <RouterLink to="/code-of-conduct" class="ih-footer__coc">Code of Conduct</RouterLink>
+    </div>
   </footer>
 </template>
 
 <script>
 export default {
-  name: 'BottomLinkTree'
+  name: 'BottomLinkTree',
+  computed: {
+    year() {
+      return new Date().getFullYear()
+    }
+  }
 }
 </script>
 
 <style scoped>
-.bg-dark {
-  background-color: oklch(26.8% 0.007 34.298) !important;
+.ih-footer {
+  border-top: 1px solid var(--border);
+  background: var(--background);
+  padding: 1.5rem 0;
 }
 
-span {
+.ih-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ih-footer__copy {
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.8rem;
-  font-weight: 600;
-  font-style: bold;
-  color: white;
+  color: var(--muted-foreground);
+  margin: 0;
+  font-weight: normal;
 }
 
-:deep(a) {
-  color: rgba(255, 255, 255, 0.7);
+.ih-footer__coc {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
   text-decoration: none;
   font-weight: normal;
 }
-:deep(a:hover) {
-  text-decoration: underline;
-  color: white;
-}
-li {
-  list-style-type: none;
-  color: white;
-}
-:deep(footer),
-:deep(div) {
-  background-color: oklch(26.8% 0.007 34.298) !important;
+
+.ih-footer__coc:hover {
+  color: var(--foreground);
+  opacity: 1;
 }
 
-.footer-container {
-  max-width: 1000px !important;
+@media (max-width: 480px) {
+  .ih-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 }
 </style>
