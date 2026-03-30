@@ -129,7 +129,7 @@ export default {
   display: flex;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .ih-navbar__links {
     display: none;
   }

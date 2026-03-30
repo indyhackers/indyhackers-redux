@@ -1,27 +1,23 @@
 <template>
   <div class="job-view">
-    <b-container class="mt-4">
-      <b-row>
-        <b-col cols="12" md="8" offset-md="2">
-          <b-card class="job-card">
-            <h2 class="job-title">{{ job.title }}</h2>
-            <p class="company-name">{{ job.company }}</p>
-            <div class="salary-info">
-              <b-badge class="salary-badge">{{ salary }}</b-badge>
-            </div>
-            <p class="subtitle">Posted {{ formattedDate }}</p>
+    <div class="ih-container">
+      <div class="job-content">
+        <b-card class="job-card">
+          <h2 class="job-title">{{ job.title }}</h2>
+          <p class="company-name">{{ job.company }}</p>
+          <div class="salary-info">
+            <b-badge class="salary-badge">{{ salary }}</b-badge>
+          </div>
+          <p class="subtitle">Posted {{ formattedDate }}</p>
 
-            <!-- Render the description and how to apply with markup support -->
-            <div class="job-description" v-html="sanitizedDescription"></div>
-            <div class="how-to-apply" v-if="job.how_to_apply">
-              <p class="how-to-apply-title">How to apply:</p>
-              <div class="job-how-to-apply" v-html="sanitizedHowToApply"></div>
-            </div>
-
-          </b-card>
-        </b-col>
-      </b-row>
-    </b-container>
+          <div class="job-description" v-html="sanitizedDescription"></div>
+          <div class="how-to-apply" v-if="job.how_to_apply">
+            <p class="how-to-apply-title">How to apply:</p>
+            <div class="job-how-to-apply" v-html="sanitizedHowToApply"></div>
+          </div>
+        </b-card>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -48,7 +44,6 @@ export default defineComponent({
   methods: {
     async fetchJob(jobId) {
       try {
-        // Fetch the job by ID from PocketBase
         const job = await this.pocketbase.collection('jobs').getOne(jobId)
         this.job = job
       } catch (error) {
@@ -88,7 +83,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    const jobId = this.$route.query.id // Get jobId from query parameter
+    const jobId = this.$route.query.id
     if (jobId) {
       this.fetchJob(jobId)
     } else {
@@ -104,16 +99,17 @@ export default defineComponent({
   padding-bottom: 3rem;
 }
 
+.job-content {
+  max-width: 800px;
+  margin: 4rem auto 0;
+}
+
 .job-card {
   border-radius: 12px;
   border: 1px solid var(--border) !important;
   background: var(--card) !important;
   padding: 2rem;
   transition: box-shadow 0.3s ease-in-out;
-}
-
-.row > :last-child {
-  padding-bottom: 20px;
 }
 
 .job-card:hover {

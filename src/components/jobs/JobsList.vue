@@ -1,31 +1,22 @@
 <template>
   <div class="job-board">
-    <b-container>
-      
-      <b-row>
-        <b-col cols="12">
-          <h1 class="title">Indy Tech Jobs</h1>
-          <p class="subtitle">
-            Have an open position at your company? It is completely free to submit a job to our job
-            board! Each job remains published for 60 days, and will be included in our newsletter
-            while published.
-          </p>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col cols="12" class="mt-3 mb-2">
-          <create-job-modal />
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col v-for="job in jobs" :key="job.id" cols="12" class="mb-3 mt-3">
-          <b-card :title="job.title" class="job-card" @click="viewJob(job)">
-            <p class="company">{{ job.company }}</p>
-            <b-badge class="salary-badge">{{ salary(job) }}</b-badge>
-          </b-card>
-        </b-col>
-      </b-row>
-    </b-container>
+    <div class="ih-container">
+      <h1 class="title">Indy Tech Jobs</h1>
+      <p class="subtitle">
+        Have an open position at your company? It is completely free to submit a job to our job
+        board! Each job remains published for 60 days, and will be included in our newsletter
+        while published.
+      </p>
+      <div class="mt-3 mb-2">
+        <create-job-modal />
+      </div>
+      <div v-for="job in jobs" :key="job.id" class="mb-3 mt-3">
+        <b-card :title="job.title" class="job-card" @click="viewJob(job)">
+          <p class="company">{{ job.company }}</p>
+          <b-badge class="salary-badge">{{ salary(job) }}</b-badge>
+        </b-card>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -71,9 +62,6 @@ export default defineComponent({
       this.$router.push({ path: `/job`, query: { id: job.id } })
     }
   },
-  // computed: {
-
-  // },
   mounted() {
     this.fetchJobs()
   }
@@ -83,7 +71,7 @@ export default defineComponent({
 <style scoped>
 .job-board {
   background-color: var(--card);
-    padding: 2rem 0 3rem;
+  padding: 4rem 0 3rem;
 }
 
 .title {
