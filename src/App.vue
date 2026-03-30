@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :style="{ backgroundColor: appBackground }">
     <NavigationBar class="top" />
     <RouterView class="content" />
     <BottomLinkTree class="bottom" />
@@ -24,6 +24,9 @@ export default {
     },
     currentUser() {
       return this.pocketbase.authStore.model
+    },
+    appBackground() {
+      return this.$route?.path.startsWith('/job') ? 'var(--card)' : 'var(--background)'
     }
   },
 }

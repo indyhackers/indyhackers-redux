@@ -97,7 +97,7 @@ li#jobs-header h1 {
 }
 
 .job-list>li:nth-child(even) {
-    background-color: lightgrey;
+    background-color: var(--muted);
 }
 
 body.admin.jobs {

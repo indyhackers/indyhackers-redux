@@ -21,7 +21,7 @@ export default {
 <style scoped>
 .ih-footer {
   border-top: 1px solid var(--border);
-  background: var(--background);
+  background: transparent;
   padding: 1.5rem 0;
 }
 

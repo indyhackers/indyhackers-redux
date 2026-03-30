@@ -21,16 +21,6 @@
       </a>
 
       <!-- Placeholder slots to fill grid to 4 -->
-      <div
-        v-for="n in placeholderCount"
-        :key="`placeholder-${n}`"
-        class="sponsor-card sponsor-card--placeholder"
-      >
-        <div class="sponsor-card__logo sponsor-card__logo--placeholder">
-          <icon-carbon-building class="placeholder-icon" />
-        </div>
-        <p class="sponsor-card__name">Your Company Here</p>
-      </div>
     </div>
   </div>
 </template>
@@ -64,12 +54,15 @@ const handleImageError = (e) => {
 }
 
 .sponsor-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5rem;
 }
 
 .sponsor-card {
+  flex: 0 1 calc(50% - 2.5rem);
+  max-width: 360px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -134,15 +127,9 @@ const handleImageError = (e) => {
   margin: 0;
 }
 
-@media (max-width: 768px) {
-  .sponsor-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 480px) {
-  .sponsor-grid {
-    grid-template-columns: 1fr;
+  .sponsor-card {
+    flex: 1 1 100%;
   }
 }
 </style>

@@ -99,6 +99,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.job-view {
+  background-color: var(--card);
+  padding-bottom: 3rem;
+}
+
 .job-card {
   border-radius: 12px;
   border: 1px solid var(--border) !important;

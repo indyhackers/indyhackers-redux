@@ -21,7 +21,7 @@
       <a href="mailto:sponsors@indyhackers.org">sponsors@indyhackers.org.</a>
     </p>
     <SponsorList :sponsors="sponsors" title="Annual Sponsors" />
-    
+
     <SponsorList :sponsors="meetupSponsors" title="Meetup Sponsors" />
   </BContainer>
 </template>
@@ -45,7 +45,6 @@ const sponsors = ref([
     logo: '/images/sponsors/madelabs.png'
   }
 ])
-
 
 const meetupSponsors = ref([
   {

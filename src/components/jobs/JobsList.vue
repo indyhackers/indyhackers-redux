@@ -1,19 +1,20 @@
 <template>
   <div class="job-board">
     <b-container>
-      <b-row>
-        <b-col cols="12" class="mt-3 mb-2">
-          <create-job-modal />
-        </b-col>
-      </b-row>
+      
       <b-row>
         <b-col cols="12">
-          <h1 class="title">Indianapolis Tech Jobs</h1>
+          <h1 class="title">Indiana Tech Jobs</h1>
           <p class="subtitle">
             Have an open position at your company? It is completely free to submit a job to our job
             board! Each job remains published for 60 days, and will be included in our newsletter
             while published.
           </p>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col cols="12" class="mt-3 mb-2">
+          <create-job-modal />
         </b-col>
       </b-row>
       <b-row>
@@ -80,6 +81,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.job-board {
+  background-color: var(--card);
+  padding: 4rem 0 3rem;
+}
+
 .title {
   font-size: 2.5rem;
   font-weight: bold;

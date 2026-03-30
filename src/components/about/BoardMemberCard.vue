@@ -91,6 +91,6 @@ export default {
 }
 
 :deep(path) {
-  fill: #000;
+  fill: var(--foreground);
 }
 </style>

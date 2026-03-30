@@ -95,5 +95,8 @@ import { BContainer, BRow, BCol } from 'bootstrap-vue-next'
 </script>
 
 <style scoped>
-/* Add any additional styles here */
+.coc-body {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
 </style>

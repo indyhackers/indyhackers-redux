@@ -1,75 +1,90 @@
 <template>
-  <!-- Hero -->
-  <section class="sponsors-hero">
+  <div class="sponsors-page">
     <div class="ih-container">
-      <h1>Our Sponsors</h1>
-      <p class="sponsors-hero__sub">
-        Indy Hackers is free because of the companies and individuals who invest in Indiana's tech
-        community. Here's who makes it happen.
-      </p>
-    </div>
-  </section>
 
-  <!-- Annual Corporate Sponsors -->
-  <section class="sponsors-section">
-    <div class="ih-container">
-      <div class="sponsors-section__heading">
-        <icon-carbon-building class="section-icon" />
-        <h2>Annual Corporate Sponsors</h2>
-      </div>
-
-      <SponsorList :sponsors="annualSponsors" />
-
-      <div class="sponsors-cta-box">
-        <h3>Interested in sponsoring?</h3>
-        <p>
-          Annual corporate sponsorships help fund meetups, events, and community infrastructure
-          across Indiana.
+      <!-- Page title -->
+      <div class="sponsors-title">
+        <h1>Our Sponsors</h1>
+        <p class="sponsors-title__sub">
+          The companies and people who make Indy Hackers possible.
         </p>
-        <div class="sponsors-cta-box__action">
-          <a href="mailto:hello@indyhackers.org" class="ih-btn-primary">LET'S TALK &rarr;</a>
-        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Monthly Backers -->
-  <section class="backers-section">
-    <div class="ih-container">
-      <div class="sponsors-section__heading">
-        <icon-carbon-favorite class="section-icon" />
-        <h2>Monthly Backers</h2>
-      </div>
-      <p class="backers-subtitle">
-        Community members who chip in monthly to keep Indy Hackers running.
-        Small contributions, big impact.
-      </p>
+      <!-- Sponsor sections -->
+      <div class="sponsors-main">
 
-      <div class="backers-card">
-        <div class="backers-pills">
-          <span v-for="backer in monthlyBackers" :key="backer.name" class="backer-pill">
-            <icon-carbon-favorite class="pill-icon" />
-            {{ backer.name }}
-          </span>
-          <span v-if="monthlyBackers.length === 0" class="backers-empty">
-            Be the first monthly backer!
-          </span>
-        </div>
-        <div class="backers-join">
-          <div class="backers-join__copy">
-            <p class="backers-join__heading">Join them.</p>
-            <p class="backers-join__sub">Back Indy Hackers for as little as $5/month.</p>
+        <!-- Annual Corporate Sponsors -->
+        <section class="sponsor-section">
+          <div class="sponsor-section__heading">
+            <icon-carbon-building class="section-icon" />
+            <h2>Annual Corporate Sponsors</h2>
           </div>
-          <a href="mailto:hello@indyhackers.org" class="ih-btn-outline">BECOME A BACKER &rarr;</a>
+          <div class="sponsor-grid">
+            <a
+              v-for="sponsor in annualSponsors"
+              :key="sponsor.id"
+              :href="sponsor.link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="sponsor-card"
+            >
+              <div class="sponsor-card__logo-box">
+                <img
+                  :src="sponsor.logo"
+                  :alt="sponsor.name"
+                  class="sponsor-card__img"
+                  @error="handleImageError"
+                />
+              </div>
+              <p class="sponsor-card__name">{{ sponsor.name }}</p>
+            </a>
+          </div>
+        </section>
+
+        <!-- Meetup Sponsors -->
+        <section class="sponsor-section">
+          <div class="sponsor-section__heading">
+            <icon-carbon-events class="section-icon" />
+            <h2>Meetup Sponsors</h2>
+          </div>
+          <div class="sponsor-grid">
+            <a
+              v-for="sponsor in meetupSponsors"
+              :key="sponsor.id"
+              :href="sponsor.link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="sponsor-card"
+            >
+              <div class="sponsor-card__logo-box">
+                <img
+                  :src="sponsor.logo"
+                  :alt="sponsor.name"
+                  class="sponsor-card__img"
+                  @error="handleImageError"
+                />
+              </div>
+              <p class="sponsor-card__name">{{ sponsor.name }}</p>
+            </a>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Full-width CTA -->
+      <div class="sponsors-cta">
+        <div class="sponsors-cta__copy">
+          <h3>Interested in sponsoring?</h3>
+          <p>Help fund meetups, events, and community infrastructure across Indiana.</p>
         </div>
+        <a href="mailto:hello@indyhackers.org" class="ih-btn-primary">LET'S TALK &rarr;</a>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import SponsorList from '../components/sponsors/SponsorList.vue'
 
 const annualSponsors = ref([
   {
@@ -83,184 +98,204 @@ const annualSponsors = ref([
     name: 'MadeLabs',
     link: 'https://www.madelabs.io/?utm_campaign=indy_hackers',
     logo: '/images/sponsors/madelabs.png'
-  },
-  {
-    id: 3,
-    name: 'Stellar AI',
-    link: 'https://www.getstellar.ai/?utm_campaign=indy_hackers',
-    logo: '/images/sponsors/stellar.png'
-  },
-  {
-    id: 4,
-    name: 'Otava',
-    link: 'https://www.otava.com/?utm_campaign=indy_hackers',
-    logo: '/images/sponsors/otava.png'
   }
 ])
 
-const monthlyBackers = ref([])
+const meetupSponsors = ref([
+  {
+    id: 3,
+    name: 'Java House',
+    link: 'https://www.javahouse.com/?utm_campaign=indy_hackers',
+    logo: '/images/sponsors/java_house.png'
+  }
+])
+
+const handleImageError = (e) => {
+  e.target.style.display = 'none'
+}
 </script>
 
 <style scoped>
-.sponsors-hero {
-  padding: 7rem 0 3rem;
+.sponsors-page {
+  padding: 4rem 0 3rem;
 }
 
-.sponsors-hero h1 {
+/* Title */
+.sponsors-title {
+  margin-bottom: 2.5rem;
+}
+
+.sponsors-title h1 {
   font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-.sponsors-hero__sub {
+.sponsors-title__sub {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.125rem;
   color: rgba(18, 18, 18, 0.7);
   line-height: 1.6;
-  max-width: 38rem;
+  margin: 0;
 }
 
-.sponsors-section,
-.backers-section {
-  padding: 4rem 0;
+.sponsors-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
-.sponsors-section__heading {
+.sponsor-section__heading {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
 }
 
-.sponsors-section__heading h2 {
-  font-size: 1.5rem;
+.sponsor-section__heading h2 {
+  font-size: 1.25rem;
   margin: 0;
 }
 
 .section-icon {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
 }
 
-/* Dashed CTA box */
-.sponsors-cta-box {
-  margin-top: 2rem;
-  border: 2px dashed var(--border);
-  border-radius: 12px;
-  padding: 2.5rem;
-  text-align: center;
-  background: var(--card);
+/* Card grid — 2 columns */
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
-.sponsors-cta-box h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.sponsors-cta-box p {
-  font-family: 'Space Grotesk', sans-serif;
-  color: rgba(18, 18, 18, 0.7);
-  margin-bottom: 0;
-  max-width: 30rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.sponsors-cta-box__action {
-  margin-top: 1.5rem;
-}
-
-/* Monthly Backers */
-.backers-subtitle {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1rem;
-  color: rgba(18, 18, 18, 0.7);
-  line-height: 1.6;
-  margin: -1rem 0 1.5rem;
-  max-width: 40rem;
-}
-
-.backers-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 2rem;
-}
-
-.backers-pills {
+/* Sponsor card — logo box + name caption below */
+.sponsor-card {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-  min-height: 2.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+  color: inherit;
 }
 
-.backer-pill {
-  display: inline-flex;
+.sponsor-card:hover .sponsor-card__logo-box {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.sponsor-card--placeholder .sponsor-card__logo-box {
+  border-style: dashed;
+  border-width: 2px;
+  cursor: default;
+}
+
+.sponsor-card--placeholder:hover .sponsor-card__logo-box {
+  box-shadow: none;
+}
+
+.sponsor-card__logo-box {
+  width: 80%;
+  aspect-ratio: 3 / 2;
+  display: flex;
   align-items: center;
-  gap: 0.375rem;
-  padding: 0.5rem 1rem;
-  background: var(--background);
+  justify-content: center;
+  border-radius: 12px;
+  background: #fff;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.sponsor-card__logo-box--empty {
+  background: #fff;
+}
+
+.placeholder-icon {
+  width: 28px;
+  height: 28px;
+  color: rgba(18, 18, 18, 0.3);
+}
+
+.sponsor-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+}
+
+.sponsor-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.sponsor-card__name {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8125rem;
+  font-weight: bold;
+  color: var(--foreground);
+  text-align: center;
+  margin: 0;
+}
+
+.sponsor-card__tagline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8125rem;
+  color: rgba(18, 18, 18, 0.6);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.placeholder-link {
   font-family: 'Space Mono', monospace;
   font-size: 0.75rem;
   font-weight: bold;
-  letter-spacing: 0.05em;
   color: var(--foreground);
+  text-decoration: none;
+  margin-top: 0.25rem;
 }
 
-.pill-icon {
-  width: 12px;
-  height: 12px;
+.placeholder-link:hover {
+  text-decoration: underline;
 }
 
-.backers-empty {
-  font-family: 'Space Grotesk', sans-serif;
-  color: var(--muted-foreground);
-  font-style: italic;
-  align-self: center;
-}
-
-.backers-join {
-  border-top: 1px solid var(--border);
-  padding-top: 1.5rem;
+/* Full-width CTA bar */
+.sponsors-cta {
+  margin-top: 2.5rem;
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  background: var(--card);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 2rem;
   flex-wrap: wrap;
 }
 
-.backers-join__copy {
+.sponsors-cta__copy {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.backers-join__heading {
-  font-family: 'Space Mono', monospace;
-  font-weight: bold;
-  font-size: 1rem;
+.sponsors-cta h3 {
+  font-size: 1.125rem;
   margin: 0;
-  color: var(--foreground);
 }
 
-.backers-join__sub {
+.sponsors-cta p {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.875rem;
-  color: var(--muted-foreground);
+  font-size: 0.9375rem;
+  color: rgba(18, 18, 18, 0.7);
+  line-height: 1.6;
   margin: 0;
 }
 
-@media (max-width: 768px) {
-  .sponsors-hero {
-    padding: 5rem 0 2rem;
-  }
-
-  .backers-join {
-    flex-direction: column;
-    align-items: flex-start;
+@media (max-width: 560px) {
+  .sponsor-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>
