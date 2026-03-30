@@ -4,7 +4,7 @@
       
       <b-row>
         <b-col cols="12">
-          <h1 class="title">Indiana Tech Jobs</h1>
+          <h1 class="title">Indy Tech Jobs</h1>
           <p class="subtitle">
             Have an open position at your company? It is completely free to submit a job to our job
             board! Each job remains published for 60 days, and will be included in our newsletter
@@ -18,7 +18,7 @@
         </b-col>
       </b-row>
       <b-row>
-        <b-col v-for="job in jobs" :key="job.id" cols="12" class="mb-3">
+        <b-col v-for="job in jobs" :key="job.id" cols="12" class="mb-3 mt-3">
           <b-card :title="job.title" class="job-card" @click="viewJob(job)">
             <p class="company">{{ job.company }}</p>
             <b-badge class="salary-badge">{{ salary(job) }}</b-badge>
@@ -83,7 +83,7 @@ export default defineComponent({
 <style scoped>
 .job-board {
   background-color: var(--card);
-  padding: 4rem 0 3rem;
+    padding: 2rem 0 3rem;
 }
 
 .title {

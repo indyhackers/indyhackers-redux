@@ -73,7 +73,7 @@ export default {
 .ih-navbar__links a,
 .ih-navbar__mobile a {
   font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
+  font-size: 1rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(18, 18, 18, 0.6);

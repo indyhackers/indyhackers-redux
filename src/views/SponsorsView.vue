@@ -8,6 +8,10 @@
         <p class="sponsors-title__sub">
           The companies and people who make Indy Hackers possible.
         </p>
+        <div class="sponsors-intro">
+          <p>Indy Hackers is built on the incredible spirit and generosity of our community. Whether you're helping a fellow hacker, sharing industry insights, or making that key introduction, your contributions have made a real impact. To keep building on this momentum, we're excited to partner with sponsors who share our vision of growing the tech scene in Indiana. Every sponsorship directly fuels better events, new opportunities, and more resources for our members.</p>
+          <p>Thank you for believing in this community and helping us grow—together, we're making a real difference.</p>
+        </div>
       </div>
 
       <!-- Sponsor sections -->
@@ -75,9 +79,9 @@
       <div class="sponsors-cta">
         <div class="sponsors-cta__copy">
           <h3>Interested in sponsoring?</h3>
-          <p>Help fund meetups, events, and community infrastructure across Indiana.</p>
+          <p>If you or your company is interested in sponsoring Indy Hackers and showing your support for the builders, contact us at <a href="mailto:sponsors@indyhackers.org">sponsors@indyhackers.org</a>.</p>
         </div>
-        <a href="mailto:hello@indyhackers.org" class="ih-btn-primary">LET'S TALK &rarr;</a>
+        <a href="mailto:sponsors@indyhackers.org" class="ih-btn-primary">LET'S TALK &rarr;</a>
       </div>
     </div>
   </div>
@@ -117,7 +121,7 @@ const handleImageError = (e) => {
 
 <style scoped>
 .sponsors-page {
-  padding: 4rem 0 3rem;
+   padding: 2rem 0 3rem;
 }
 
 /* Title */
@@ -135,7 +139,22 @@ const handleImageError = (e) => {
   font-size: 1.125rem;
   color: rgba(18, 18, 18, 0.7);
   line-height: 1.6;
-  margin: 0;
+  margin: 0 0 1.5rem;
+}
+
+.sponsors-intro {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+
+  p {
+    margin: 0 0 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .sponsors-main {

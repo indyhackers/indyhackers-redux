@@ -37,7 +37,7 @@
         </div>
         <div class="feature-card">
           <div class="feature-card__icon">
-            <icon-carbon-group />
+            <icon-carbon-cafe />
           </div>
           <h3>Community</h3>
           <p>A Slack community of thousands connecting Indiana's tech folks every day.</p>
@@ -54,14 +54,20 @@
   </section>
 
 </template>
-
+<Cafe />
 <script>
 import EventsView from '../components/EventsView.vue'
+import IconCarbonUserMultiple from '~icons/carbon/user-multiple'
+import IconCarbonCalendar from '~icons/carbon/calendar'
+import IconCarbonCafe from '~icons/carbon/cafe'
 
 export default {
   name: 'HomeView',
   components: {
-    EventsView
+    EventsView,
+    IconCarbonUserMultiple,
+    IconCarbonCalendar,
+    IconCarbonCafe
   }
 }
 </script>
