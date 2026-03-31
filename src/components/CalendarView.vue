@@ -29,7 +29,12 @@
 
 <style scoped>
 .calendar-section {
-  padding: 5rem 0;
+  padding: 3rem 0;
+}
+
+.calendar-section h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
 }
 
 .calendar-section h2 {

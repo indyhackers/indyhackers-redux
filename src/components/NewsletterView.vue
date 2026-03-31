@@ -74,7 +74,7 @@ onMounted(() => {
 
 <style scoped>
 .newsletter-section {
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 
 .newsletter-hero {
@@ -82,7 +82,8 @@ onMounted(() => {
 }
 
 .newsletter-hero h1 {
-  margin-bottom: 0.75rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
 }
 
 .newsletter-hero__sub {

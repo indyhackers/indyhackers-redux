@@ -81,7 +81,7 @@ import BoardMemberCard from '../components/about/BoardMemberCard.vue'
 
 <style scoped>
 .about-hero {
-  padding: 2rem 0 3rem;
+  padding: 3rem 0;
 }
 
 .about-hero h1 {

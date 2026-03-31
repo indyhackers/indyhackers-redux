@@ -11,7 +11,9 @@
         <create-job-modal />
       </div>
       <div v-for="job in jobs" :key="job.id" class="mb-3 mt-3">
-        <b-card :title="job.title" class="job-card" @click="viewJob(job)">
+        <b-card :title="job.title" class="job-card" @click="viewJob(job)"
+          tabindex="0" role="button" :aria-label="job.title"
+          @keydown.enter="viewJob(job)" @keydown.space.prevent="viewJob(job)">
           <p class="company">{{ job.company }}</p>
           <b-badge class="salary-badge">{{ salary(job) }}</b-badge>
         </b-card>
@@ -71,11 +73,11 @@ export default defineComponent({
 <style scoped>
 .job-board {
   background-color: var(--card);
-  padding: 4rem 0 3rem;
+  padding: 3rem 0;
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: bold;
   margin-bottom: 1rem;
 }
@@ -89,9 +91,14 @@ export default defineComponent({
   background: var(--card) !important;
   padding: 1rem;
   transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
 }
 .job-card:hover {
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+}
+.job-card:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
 }
 .company {
   font-size: 1.1rem;

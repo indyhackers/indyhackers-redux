@@ -121,7 +121,7 @@ const handleImageError = (e) => {
 
 <style scoped>
 .sponsors-page {
-   padding: 2rem 0 3rem;
+  padding: 3rem 0;
 }
 
 /* Title */
@@ -131,7 +131,7 @@ const handleImageError = (e) => {
 
 .sponsors-title h1 {
   font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .sponsors-title__sub {
