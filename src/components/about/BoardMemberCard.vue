@@ -1,16 +1,16 @@
 <template>
   <div class="board-member-card">
-    <img class="avatar" :src="imageUrl" />
+    <img class="avatar" :src="imageUrl" :alt="`${firstName} ${lastName}`" />
     <div class="board-member-card-body">
       <span class="board-member-first-name">{{ firstName }}</span>
       <span class="board-member-last-name">{{ lastName }}</span>
     </div>
     <div class="spacer" />
     <div class="board-member-contact-icons">
-      <a class="icon-container" :href="email" target="_blank" v-if="email">
+      <a class="icon-container" :href="email" target="_blank" v-if="email" :aria-label="`Email ${firstName} ${lastName}`">
         <IFaEnvelope />
       </a>
-      <a class="icon-container" :href="linkedin" target="_blank" v-if="linkedin">
+      <a class="icon-container" :href="linkedin" target="_blank" v-if="linkedin" :aria-label="`${firstName} ${lastName} on LinkedIn`">
         <IFaLinkedin />
       </a>
     </div>

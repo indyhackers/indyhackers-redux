@@ -3,6 +3,7 @@
     <div class="ih-container">
       <h1>Indy Tech Event Calendar</h1>
       <iframe
+        title="IndyHackers Tech Event Calendar"
         src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;ctz=America%2FNew_York&amp;src=aWc3ZTBqNnY4dWI5cTZrZ2EyNTZuNzcwNDhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%230B8043"
         width="100%"
         height="800"

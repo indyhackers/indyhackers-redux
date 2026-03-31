@@ -76,15 +76,14 @@ export default {
   font-size: 1rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(18, 18, 18, 0.6);
+  color: var(--foreground);
   font-weight: 400;
   text-decoration: none;
 }
 
 .ih-navbar__links a:hover,
 .ih-navbar__mobile a:hover {
-  color: var(--foreground);
-  opacity: 1;
+  opacity: 0.7;
 }
 
 .ih-navbar__links a.router-link-active {

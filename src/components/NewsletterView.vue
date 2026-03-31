@@ -11,6 +11,7 @@
 
       <div class="newsletter-signup">
         <iframe
+          title="IndyHackers Newsletter Signup"
           scrolling="no"
           style="width: 100%; height: 220px; border: 1px solid var(--border);"
           src="https://buttondown.email/indyhackers?as_embed=true"
@@ -58,10 +59,12 @@ import DOMPurify from 'dompurify'
 const { posts, loading, error, fetchNewsletter } = useNewsletter()
 
 const sanitizeHtml = (html) => {
-  return DOMPurify.sanitize(html, {
+  const clean = DOMPurify.sanitize(html, {
     ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'a', 'ul', 'ol', 'li', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'img'],
     ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'title', 'class']
   })
+  // Mark any images missing alt as decorative
+  return clean.replace(/<img(?![^>]*\balt=)/gi, '<img alt=""')
 }
 
 onMounted(() => {
