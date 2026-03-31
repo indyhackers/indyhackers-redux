@@ -1,30 +1,24 @@
 <template>
   <div class="job-board">
-    <b-container>
-      <b-row>
-        <b-col cols="12" class="mt-3 mb-2">
-          <create-job-modal />
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col cols="12">
-          <h1 class="title">Indianapolis Tech Jobs</h1>
-          <p class="subtitle">
-            Have an open position at your company? It is completely free to submit a job to our job
-            board! Each job remains published for 60 days, and will be included in our newsletter
-            while published.
-          </p>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col v-for="job in jobs" :key="job.id" cols="12" class="mb-3">
-          <b-card :title="job.title" class="job-card" @click="viewJob(job)">
-            <p class="company">{{ job.company }}</p>
-            <b-badge class="salary-badge">{{ salary(job) }}</b-badge>
-          </b-card>
-        </b-col>
-      </b-row>
-    </b-container>
+    <div class="ih-container">
+      <h1 class="title">Indy Tech Jobs</h1>
+      <p class="subtitle">
+        Have an open position at your company? It is completely free to submit a job to our job
+        board! Each job remains published for 60 days, and will be included in our newsletter
+        while published.
+      </p>
+      <div class="mt-3 mb-2">
+        <create-job-modal />
+      </div>
+      <div v-for="job in jobs" :key="job.id" class="mb-3 mt-3">
+        <b-card :title="job.title" class="job-card" @click="viewJob(job)"
+          tabindex="0" role="button" :aria-label="job.title"
+          @keydown.enter="viewJob(job)" @keydown.space.prevent="viewJob(job)">
+          <p class="company">{{ job.company }}</p>
+          <b-badge class="salary-badge">{{ salary(job) }}</b-badge>
+        </b-card>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -70,9 +64,6 @@ export default defineComponent({
       this.$router.push({ path: `/job`, query: { id: job.id } })
     }
   },
-  // computed: {
-
-  // },
   mounted() {
     this.fetchJobs()
   }
@@ -80,33 +71,46 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.job-board {
+  background-color: var(--card);
+  padding: 3rem 0;
+}
+
 .title {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: bold;
   margin-bottom: 1rem;
 }
 .subtitle {
   font-size: 1.2rem;
-  color: #666;
+  color: var(--muted-foreground);
 }
 .job-card {
   border-radius: 8px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border) !important;
+  background: var(--card) !important;
   padding: 1rem;
   transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
 }
 .job-card:hover {
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+}
+.job-card:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
 }
 .company {
   font-size: 1.1rem;
-  color: #333;
+  color: var(--muted-foreground);
 }
 .salary-badge {
-  background-color: #007bff;
-  color: white;
-  font-size: 1rem;
-  padding: 0.5rem;
-  border-radius: 5px;
+  background-color: var(--foreground) !important;
+  color: var(--primary-foreground) !important;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.375rem 0.75rem;
+  border-radius: 999px;
 }
 </style>

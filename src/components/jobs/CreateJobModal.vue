@@ -2,7 +2,7 @@ i
 <template>
   <div>
     <!-- Button to trigger modal -->
-    <b-button variant="primary" @click="showModal = true">Add New Job</b-button>
+    <button class="ih-btn-primary" @click="showModal = true">Add New Job</button>
 
     <!-- Modal for Job Creation -->
     <b-modal v-model="showModal" title="Find Your Next Hire" size="lg" hide-footer>

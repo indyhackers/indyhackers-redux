@@ -1,145 +1,135 @@
 <template>
   <div class="sponsor-list">
-    <h2 class="sponsor-title">{{ title }}</h2>
     <div class="sponsor-grid">
-      <a 
-        v-for="sponsor in sponsors" 
-        :key="sponsor.id" 
+      <a
+        v-for="sponsor in sponsors"
+        :key="sponsor.id"
         :href="sponsor.link"
         target="_blank"
         rel="noopener noreferrer"
         class="sponsor-card"
       >
-        <div class="sponsor-image-container">
-          <img 
-            :src="sponsor.logo" 
+        <div class="sponsor-card__logo">
+          <img
+            :src="sponsor.logo"
             :alt="sponsor.name"
-            class="sponsor-image"
+            class="sponsor-card__img"
             @error="handleImageError"
           />
         </div>
-        <h3 class="sponsor-name">{{ sponsor.name }}</h3>
+        <p class="sponsor-card__name">{{ sponsor.name }}</p>
       </a>
+
+      <!-- Placeholder slots to fill grid to 4 -->
     </div>
   </div>
 </template>
 
 <script setup>
-defineProps({
-  title: {
-    type: String,
-  },
+import { computed } from 'vue'
+
+const props = defineProps({
   sponsors: {
     type: Array,
+    default: () => []
   }
 })
+
+const MIN_GRID_ITEMS = 4
+
+const placeholderCount = computed(() => {
+  const count = props.sponsors.length
+  if (count >= MIN_GRID_ITEMS) return 0
+  return MIN_GRID_ITEMS - count
+})
+
+const handleImageError = (e) => {
+  e.target.style.display = 'none'
+}
 </script>
 
 <style scoped>
 .sponsor-list {
-  padding: 1rem 0;
-}
-
-.sponsor-title {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  font-weight: 600;
-  color: #333;
+  padding: 0;
 }
 
 .sponsor-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
   justify-content: center;
+  gap: 5rem;
 }
 
 .sponsor-card {
+  flex: 0 1 calc(50% - 2.5rem);
+  max-width: 360px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
-  background: white;
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-  cursor: pointer;
-  outline: none;
-  width: 450px;
-  flex-shrink: 0;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  min-height: 180px;
+  transition: box-shadow 0.3s;
+  text-decoration: none;
+  color: inherit;
 }
 
 .sponsor-card:hover {
-  transform: translateY(-4px);
-  border-color: #b0b0b0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.sponsor-image-container {
+.sponsor-card--placeholder {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.sponsor-card--placeholder:hover {
+  box-shadow: none;
+}
+
+.sponsor-card__logo {
   width: 100%;
-  height: 120px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
 }
 
-.sponsor-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 4px;
+.sponsor-card__logo--placeholder {
+  background: var(--muted);
+  border-radius: 8px;
+  width: 64px;
+  height: 64px;
 }
 
-.sponsor-name {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #333;
+.placeholder-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--muted-foreground);
+}
+
+.sponsor-card__img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.sponsor-card__name {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: var(--foreground);
   text-align: center;
   margin: 0;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .sponsor-grid {
-    gap: 1rem;
-    padding: 0 0.5rem;
-  }
-  
-  .sponsor-card {
-    padding: 1rem;
-    width: 100%;
-  }
-  
-  .sponsor-image-container {
-    height: 100px;
-  }
-  
-  .sponsor-title {
-    font-size: 1.5rem;
-  }
-}
-
 @media (max-width: 480px) {
-  .sponsor-grid {
-    gap: 0.75rem;
-    padding: 0;
-  }
-  
   .sponsor-card {
-    padding: 0.75rem;
-    width: 100%;
-  }
-  
-  .sponsor-image-container {
-    height: 80px;
-  }
-  
-  .sponsor-name {
-    font-size: 1rem;
+    flex: 1 1 100%;
   }
 }
 </style>

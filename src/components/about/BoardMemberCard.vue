@@ -1,16 +1,16 @@
 <template>
   <div class="board-member-card">
-    <img class="avatar" :src="imageUrl" />
+    <img class="avatar" :src="imageUrl" :alt="`${firstName} ${lastName}`" />
     <div class="board-member-card-body">
       <span class="board-member-first-name">{{ firstName }}</span>
       <span class="board-member-last-name">{{ lastName }}</span>
     </div>
     <div class="spacer" />
     <div class="board-member-contact-icons">
-      <a class="icon-container" :href="email" target="_blank" v-if="email">
+      <a class="icon-container" :href="email" target="_blank" v-if="email" :aria-label="`Email ${firstName} ${lastName}`">
         <IFaEnvelope />
       </a>
-      <a class="icon-container" :href="linkedin" target="_blank" v-if="linkedin">
+      <a class="icon-container" :href="linkedin" target="_blank" v-if="linkedin" :aria-label="`${firstName} ${lastName} on LinkedIn`">
         <IFaLinkedin />
       </a>
     </div>
@@ -33,12 +33,17 @@ export default {
 <style scoped>
 .board-member-card {
   border-radius: 16px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background: var(--card);
+  border: 1px solid var(--border);
   display: flex;
   flex-direction: row;
-  min-width: 500px;
+  width: 100%;
   overflow: hidden;
-  transition: all 0.5s ease;
+  transition: box-shadow 0.3s ease;
+}
+
+.board-member-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 .avatar {
   border-top-left-radius: 16px;
@@ -82,10 +87,10 @@ export default {
   transition: all 0.5s ease;
 }
 .icon-container:hover {
-  background-color: #febe0a;
+  background-color: var(--background);
 }
 
 :deep(path) {
-  fill: #000;
+  fill: var(--foreground);
 }
 </style>
