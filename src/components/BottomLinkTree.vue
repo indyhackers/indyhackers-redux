@@ -35,7 +35,7 @@ export default {
 .ih-footer__copy {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.8rem;
-  color: var(--muted-foreground);
+  color: var(--foreground);
   margin: 0;
   font-weight: normal;
 }
@@ -43,7 +43,7 @@ export default {
 .ih-footer__coc {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.8rem;
-  color: var(--muted-foreground);
+  color: var(--foreground);
   text-decoration: none;
   font-weight: normal;
 }

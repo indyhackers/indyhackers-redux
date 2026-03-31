@@ -3,7 +3,7 @@ $theme-colors: (
   'secondary': #292f71,
   'success': #28a745,
   'info': #7fcacf,
-  'warning': #FFCC00,
+  'warning': #E2C044,
   'danger': #e35c55,
   'light': #F5EDD6,
   'dark': #121212
@@ -16,18 +16,28 @@ $theme-colors: (
 // 3. Import Bootstrap and Bootstrap-Vue SCSS
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-vue-next/src/styles/styles.scss';
-
+/**
+  │ #D4A017 │ Deep Saffron   │ Warm, rich, slightly orange-leaning │
+  ├─────────┼────────────────┼─────────────────────────────────────┤
+  │ #C9A227 │ Antique Gold   │ Classic museum-gold, muted warmth   │
+  ├─────────┼────────────────┼─────────────────────────────────────┤
+  │ #E6B325 │ Harvest Gold   │ Balanced — not pale, not loud       │
+  ├─────────┼────────────────┼─────────────────────────────────────┤
+  │ #D8971E │ Ochre Gold     │ Earthy, heavier feel                │
+  ├─────────┼────────────────┼─────────────────────────────────────┤
+  │ #B8860B
+*/
 /* Indy Hackers Design Tokens */
 :root {
-  --background: #FFCC00;
+  --background: #eec042;
   --foreground: #121212;
   --primary: #121212;
-  --primary-foreground: #FFCC00;
+  --primary-foreground: #E2C044;
   --surface: #FFFFFF;
   --card: #FFFFFF;
   --muted: #E8DFC8;
   --muted-foreground: #595959;
-  --border: #CFC4A8;
+  --border: #1a1916;
   --secondary: #F5EDD6;
   --destructive: #EB4D4B;
 }

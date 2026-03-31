@@ -76,7 +76,7 @@ onMounted(() => {
 
 .events-subtitle {
   font-family: 'Space Grotesk', sans-serif;
-  color: var(--muted-foreground);
+  color: var(--foreground);
   margin: 0.5rem 0 0;
 }
 
