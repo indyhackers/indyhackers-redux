@@ -27,10 +27,13 @@
     <!-- Events List -->
     <div v-else class="events-list">
       <EventListItem
-        v-for="event in events"
+        v-for="event in visibleEvents"
         :key="event.id"
         :event="event"
       />
+      <div v-if="hasMore" class="load-more">
+        <button class="ih-btn-outline" @click="loadMore">Load More</button>
+      </div>
     </div>
 
     <!-- Actions -->
@@ -58,7 +61,7 @@ import { BAlert, BSpinner } from 'bootstrap-vue-next'
 import { useCalendar } from '../composables/useCalendar'
 import EventListItem from './EventListItem.vue'
 
-const { events, loading, error, fetchEvents } = useCalendar()
+const { events, loading, error, fetchEvents, visibleEvents, hasMore, loadMore } = useCalendar()
 
 onMounted(() => {
   fetchEvents()
@@ -91,6 +94,11 @@ onMounted(() => {
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 2rem;
+}
+
+.load-more {
+  text-align: center;
+  padding-top: 0.5rem;
 }
 
 .events-actions {
