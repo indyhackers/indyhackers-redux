@@ -20,8 +20,8 @@
   }
 
   .announcements-alt {
-    background-color: $background-blue-dark;
-    color: $primary-yellow;
+    background-color: var(--foreground);
+    color: var(--primary-foreground);
     padding: 30px 10%;
   }
 
@@ -49,7 +49,7 @@
   }
 
   .wwihd {
-    background-color: $background-blue;
+    background-color: var(--muted);
     margin-bottom: 30px;
     padding: 30px 10%;
 

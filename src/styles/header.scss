@@ -21,7 +21,7 @@
 
 .logo-gray {
   max-width: 100px;
-  fill: $dark-gray;
+  fill: var(--muted-foreground);
 
   &-text {
     font-family: $header-font;

@@ -3,7 +3,7 @@
     <b-card-body>
       <div class="event-header">
         <h4 class="event-title">{{ event.title }}</h4>
-        <b-badge v-if="event.isAllDay" variant="info">All Day</b-badge>
+        <span v-if="event.isAllDay" class="all-day-pill">All Day</span>
       </div>
 
       <div class="event-time">
@@ -24,22 +24,20 @@
 
       <div v-if="event.description" class="event-description" v-html="sanitizeHtml(event.description)"></div>
 
-      <b-button
+      <a
         v-if="event.link"
-        variant="primary"
-        size="sm"
         :href="event.link"
         target="_blank"
-        class="mt-2"
+        class="ih-btn-outline event-link-btn mt-2"
       >
-        View in Google Calendar
-      </b-button>
+        View in Calendar
+      </a>
     </b-card-body>
   </b-card>
 </template>
 
 <script setup>
-import { BCard, BCardBody, BButton, BBadge } from 'bootstrap-vue-next'
+import { BCard, BCardBody } from 'bootstrap-vue-next'
 import DOMPurify from 'dompurify'
 
 const props = defineProps({
@@ -90,16 +88,18 @@ const sanitizeHtml = (html) => {
 <style scoped>
 .event-card {
   transition: transform 0.2s, box-shadow 0.2s;
-  border-left: 4px solid #0B8043;
+  border-left: 4px solid var(--primary) !important;
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-left: 4px solid var(--primary) !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100%;
 }
 
 .event-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.all-day-event {
-  border-left-color: #4285F4;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
 }
 
 .event-header {
@@ -113,7 +113,7 @@ const sanitizeHtml = (html) => {
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
-  color: #2c3e50;
+  color: var(--foreground);
 }
 
 .event-time,
@@ -122,7 +122,7 @@ const sanitizeHtml = (html) => {
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
-  color: #5f6368;
+  color: var(--muted-foreground);
   font-size: 0.95rem;
 }
 
@@ -135,17 +135,36 @@ const sanitizeHtml = (html) => {
 .event-description {
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid #e9ecef;
-  color: #5f6368;
+  border-top: 1px solid var(--border);
+  color: var(--muted-foreground);
   line-height: 1.6;
 }
 
 .event-description:deep(a) {
-  color: #0B8043;
-  text-decoration: none;
+  color: var(--foreground);
+  text-decoration: underline;
 }
 
 .event-description:deep(a:hover) {
-  text-decoration: underline;
+  opacity: 0.7;
+}
+
+.event-link-btn {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.75rem;
+  display: inline-flex;
+}
+
+.all-day-pill {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  color: var(--foreground);
 }
 </style>

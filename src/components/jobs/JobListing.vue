@@ -1,27 +1,23 @@
 <template>
   <div class="job-view">
-    <b-container class="mt-4">
-      <b-row>
-        <b-col cols="12" md="8" offset-md="2">
-          <b-card class="job-card">
-            <h2 class="job-title">{{ job.title }}</h2>
-            <p class="company-name">{{ job.company }}</p>
-            <div class="salary-info">
-              <b-badge class="salary-badge">{{ salary }}</b-badge>
-            </div>
-            <p class="subtitle">Posted {{ formattedDate }}</p>
+    <div class="ih-container">
+      <div class="job-content">
+        <b-card class="job-card">
+          <h2 class="job-title">{{ job.title }}</h2>
+          <p class="company-name">{{ job.company }}</p>
+          <div class="salary-info">
+            <b-badge class="salary-badge">{{ salary }}</b-badge>
+          </div>
+          <p class="subtitle">Posted {{ formattedDate }}</p>
 
-            <!-- Render the description and how to apply with markup support -->
-            <div class="job-description" v-html="sanitizedDescription"></div>
-            <div class="how-to-apply" v-if="job.how_to_apply">
-              <p class="how-to-apply-title">How to apply:</p>
-              <div class="job-how-to-apply" v-html="sanitizedHowToApply"></div>
-            </div>
-
-          </b-card>
-        </b-col>
-      </b-row>
-    </b-container>
+          <div class="job-description" v-html="sanitizedDescription"></div>
+          <div class="how-to-apply" v-if="job.how_to_apply">
+            <p class="how-to-apply-title">How to apply:</p>
+            <div class="job-how-to-apply" v-html="sanitizedHowToApply"></div>
+          </div>
+        </b-card>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -48,7 +44,6 @@ export default defineComponent({
   methods: {
     async fetchJob(jobId) {
       try {
-        // Fetch the job by ID from PocketBase
         const job = await this.pocketbase.collection('jobs').getOne(jobId)
         this.job = job
       } catch (error) {
@@ -88,7 +83,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    const jobId = this.$route.query.id // Get jobId from query parameter
+    const jobId = this.$route.query.id
     if (jobId) {
       this.fetchJob(jobId)
     } else {
@@ -99,20 +94,26 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.job-view {
+  background-color: var(--card);
+  padding-bottom: 3rem;
+}
+
+.job-content {
+  max-width: 800px;
+  margin: 4rem auto 0;
+}
+
 .job-card {
-  border-radius: 8px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  border: 1px solid var(--border) !important;
+  background: var(--card) !important;
   padding: 2rem;
-  background-color: #fff;
   transition: box-shadow 0.3s ease-in-out;
 }
 
-.row > :last-child {
-  padding-bottom: 20px;
-}
-
 .job-card:hover {
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .job-title {
@@ -123,7 +124,7 @@ export default defineComponent({
 
 .company-name {
   font-size: 1.2rem;
-  color: #555;
+  color: var(--muted-foreground);
   margin-bottom: 1rem;
 }
 
@@ -132,19 +133,21 @@ export default defineComponent({
 }
 
 .salary-badge {
-  background-color: #007bff;
-  color: white;
-  font-size: 1rem;
-  padding: 0.5rem;
-  border-radius: 5px;
+  background-color: var(--foreground) !important;
+  color: var(--primary-foreground) !important;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.375rem 0.75rem;
+  border-radius: 999px;
 }
 
 .job-description,
 .job-how-to-apply {
   font-size: 1rem;
-  color: #333;
+  color: var(--foreground);
   line-height: 1.6;
-  white-space: pre-wrap; /* Support for long text with line breaks */
+  white-space: pre-wrap;
 }
 
 .how-to-apply-title {
