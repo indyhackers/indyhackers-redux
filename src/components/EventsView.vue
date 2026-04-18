@@ -2,7 +2,7 @@
   <div class="events-view">
     <div class="events-header">
       <h2>Upcoming Events</h2>
-      <p class="events-subtitle">Join us for exciting tech events and meetups in Indianapolis</p>
+      <p class="events-subtitle">What's coming up in Indy tech</p>
     </div>
 
     <!-- Loading State -->

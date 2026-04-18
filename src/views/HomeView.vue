@@ -84,7 +84,7 @@ export default {
 .hero__sub {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.125rem;
-  color: rgba(18, 18, 18, 0.7);
+  color: var(--muted-foreground);
   line-height: 1.6;
   max-width: 32rem;
   margin-bottom: 2rem;
@@ -103,7 +103,6 @@ export default {
   border-radius: 12px;
   border: 1px solid var(--border);
 }
-
 
 /* Community Proof */
 .proof {
@@ -132,12 +131,12 @@ export default {
 .proof__label {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.9375rem;
-  color: rgba(18, 18, 18, 0.65);
+  color: var(--muted-foreground);
 }
 
 /* Events */
 .events-section {
-  padding: 5rem 0;
+  padding: 3rem 0 5rem;
 }
 
 

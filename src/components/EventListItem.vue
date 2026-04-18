@@ -87,7 +87,7 @@ const sanitizeHtml = (html) => {
 
 <style scoped>
 .event-card {
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: border-color 0.15s;
   background: var(--card) !important;
   border: 1px solid var(--border) !important;
   margin-left: 0 !important;
@@ -96,8 +96,7 @@ const sanitizeHtml = (html) => {
 }
 
 .event-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+  border-color: var(--foreground) !important;
 }
 
 .event-header {
