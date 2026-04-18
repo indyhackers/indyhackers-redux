@@ -133,8 +133,8 @@ onMounted(() => {
 }
 
 .markdown-output {
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
+  background-color: var(--surface-2);
+  border: 1px solid color-mix(in srgb, var(--border) 30%, var(--surface-1));
   border-radius: 0.375rem;
   padding: 1.5rem;
   max-height: 600px;
@@ -148,6 +148,6 @@ onMounted(() => {
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.9rem;
   line-height: 1.8;
-  color: #2c3e50;
+  color: var(--text-primary);
 }
 </style>

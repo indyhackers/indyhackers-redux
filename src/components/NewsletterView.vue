@@ -87,9 +87,8 @@ onMounted(() => {
 }
 
 .newsletter-hero__sub {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.125rem;
-  color: rgba(18, 18, 18, 0.7);
+  color: var(--text-secondary);
   max-width: 38rem;
   line-height: 1.6;
 }
@@ -103,7 +102,6 @@ onMounted(() => {
 }
 
 .newsletter-archive {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.875rem;
   color: var(--muted-foreground);
   margin: 1rem 0 0;
@@ -115,11 +113,11 @@ onMounted(() => {
 }
 
 .newsletter-error {
-  background: var(--card);
-  border: 1px solid var(--destructive);
+  background: var(--danger-subtle);
+  border: 1px solid var(--danger);
   border-radius: 8px;
   padding: 1rem;
-  color: var(--destructive);
+  color: var(--danger);
   margin-bottom: 2rem;
 }
 
@@ -136,6 +134,7 @@ onMounted(() => {
 }
 
 .newsletter-post h3 {
+  font-family: var(--font-mono);
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
 }
@@ -146,19 +145,17 @@ onMounted(() => {
 }
 
 .newsletter-post h3 a:hover {
-  opacity: 0.7;
+  color: var(--link-hover);
 }
 
 .post-date {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.875rem;
-  color: var(--muted-foreground);
+  color: var(--text-muted);
   margin-bottom: 1rem;
 }
 
 .post-description {
-  font-family: 'Space Grotesk', sans-serif;
-  color: rgba(18, 18, 18, 0.8);
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1.25rem;
 }

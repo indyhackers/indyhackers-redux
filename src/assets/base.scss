@@ -1,60 +1,105 @@
 $theme-colors: (
   'primary': #121212,
-  'secondary': #292f71,
-  'success': #28a745,
-  'info': #7fcacf,
-  'warning': #E2C044,
-  'danger': #e35c55,
+  'secondary': #4a7c7e,
+  'success': #2a7d3f,
+  'info': #2b6d8a,
+  'warning': #b58a0b,
+  'danger': #c0392b,
   'light': #F5EDD6,
   'dark': #121212
 );
 
-// 2. Optional: Override additional variables
-// $body-bg: map-get($theme-colors, map-get($theme-colors, dark));
-// $body-color: #eaeaea;
-
-// 3. Import Bootstrap and Bootstrap-Vue SCSS
+// Import Bootstrap and Bootstrap-Vue SCSS
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-vue-next/src/styles/styles.scss';
-/**
-  │ #D4A017 │ Deep Saffron   │ Warm, rich, slightly orange-leaning │
-  ├─────────┼────────────────┼─────────────────────────────────────┤
-  │ #C9A227 │ Antique Gold   │ Classic museum-gold, muted warmth   │
-  ├─────────┼────────────────┼─────────────────────────────────────┤
-  │ #E6B325 │ Harvest Gold   │ Balanced — not pale, not loud       │
-  ├─────────┼────────────────┼─────────────────────────────────────┤
-  │ #D8971E │ Ochre Gold     │ Earthy, heavier feel                │
-  ├─────────┼────────────────┼─────────────────────────────────────┤
-  │ #B8860B
-*/
-/* Indy Hackers Design Tokens */
+/* ================================================================
+   Indy Hackers Design Tokens
+   ================================================================
+   All UI colors should reference these tokens. New components should
+   pick from this list rather than introducing hardcoded values.
+
+   TOKEN INVENTORY
+   ───────────────
+   Brand:       --background, --foreground, --primary, --primary-foreground
+   Text:        --text-primary, --text-secondary, --text-muted
+   Surfaces:    --surface-0, --surface-1, --surface-2, --surface-hover
+   Status:      --success(-subtle), --warning(-subtle), --info(-subtle), --danger(-subtle)
+   Type:        --font-sans, --font-mono
+   Radius:      --radius-sm, --radius-md, --radius-lg, --radius-full
+   Shadows:     --shadow-sm, --shadow-md, --shadow-lg
+   Accents:     --accent-brand, --accent-warm(-subtle), --accent-deep(-subtle), --accent-cool(-subtle)
+   Interactive: --focus-ring, --btn-primary-hover, --btn-outline-hover-bg/fg, --link-hover
+   Aliases:     --surface, --card, --muted, --muted-foreground, --border, --secondary, --destructive
+   ================================================================ */
 :root {
+  /* --- Brand --- */
   --background: #eec042;
   --foreground: #121212;
   --primary: #121212;
   --primary-foreground: #E2C044;
-  --surface: #FFFFFF;
-  --card: #FFFFFF;
+
+  /* --- Text hierarchy --- */
+  --text-primary: #121212;
+  --text-secondary: #453a22;
+  --text-muted: #595959;
+
+  /* --- Surfaces --- */
+  --surface-0: #eec042;          /* page-level canvas (home)          */
+  --surface-1: #ffffff;          /* cards, elevated panels             */
+  --surface-2: #faf6ee;          /* nested sections, subtle inset bg   */
+  --surface-hover: rgba(18, 18, 18, 0.03);
+
+  /* back-compat aliases (prefer the named tokens above) */
+  --surface: var(--surface-1);
+  --card: var(--surface-1);
   --muted: #E8DFC8;
-  --muted-foreground: #595959;
+  --muted-foreground: var(--text-muted);
   --border: #1a1916;
   --secondary: #F5EDD6;
-  --destructive: #EB4D4B;
+
+  /* --- Semantic status --- */
+  --success: #2a7d3f;
+  --success-subtle: #e9f5ec;
+  --warning: #b58a0b;
+  --warning-subtle: #fdf6e3;
+  --info: #2b6d8a;
+  --info-subtle: #e8f2f7;
+  --danger: #c0392b;
+  --danger-subtle: #fbeae8;
+  --destructive: var(--danger);
+
+  /* --- Typography --- */
+  --font-sans: 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* --- Radius --- */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-full: 999px;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+  /* --- Accents (warm family around the yellow) --- */
+  --accent-brand: #eec042;       /* the yellow — identity marker       */
+  --accent-warm: #d4a24e;        /* muted gold — subtle emphasis       */
+  --accent-warm-subtle: #f5edda; /* warm tint for backgrounds          */
+  --accent-deep: #7a5c2e;        /* dark ochre — premium / emphasis    */
+  --accent-deep-subtle: #f0e8d8; /* deep accent as a bg wash           */
+  --accent-cool: #4a7c7e;        /* muted teal — contrast accent       */
+  --accent-cool-subtle: #e6f0f0; /* teal bg wash                       */
+
+  /* --- Interactive states --- */
+  --focus-ring: var(--accent-cool);
+  --focus-ring-offset: 2px;
+  --btn-primary-hover: var(--accent-deep);
+  --btn-outline-hover-bg: var(--accent-deep);
+  --btn-outline-hover-fg: var(--surface-1);
+  --link-hover: var(--accent-deep);
 }
-
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//     --color-background: var(--vt-c-black);
-//     --color-background-soft: var(--vt-c-black-soft);
-//     --color-background-mute: var(--vt-c-black-mute);
-
-//     --color-border: var(--vt-c-divider-dark-2);
-//     --color-border-hover: var(--vt-c-divider-dark-1);
-
-//     --color-heading: var(--vt-c-text-dark-1);
-//     --color-text: var(--vt-c-text-dark-2);
-//   }
-// }
 
 *,
 *::before,
@@ -65,13 +110,13 @@ $theme-colors: (
 }
 
 html {
-  background-color: var(--background);
+  background-color: var(--surface-1);
 }
 
 body {
   min-height: 100vh;
   color: var(--foreground);
-  background: var(--background);
+  background: var(--surface-1);
   line-height: 1.6;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 16px;

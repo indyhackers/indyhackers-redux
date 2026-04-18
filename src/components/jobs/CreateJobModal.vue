@@ -1,4 +1,3 @@
-i
 <template>
   <div>
     <!-- Button to trigger modal -->
@@ -243,8 +242,6 @@ export default defineComponent({
 }
 
 :deep(.tiptap) {
-  padding: 0.375rem 0.75rem;
-
   display: block;
   width: 100%;
   padding: 0.375rem 0.75rem;

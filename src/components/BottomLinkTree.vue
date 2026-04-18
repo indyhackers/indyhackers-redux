@@ -20,7 +20,7 @@ export default {
 
 <style scoped>
 .ih-footer {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid color-mix(in srgb, var(--border) 15%, transparent);
   background: transparent;
   padding: 1.5rem 0;
 }
@@ -33,24 +33,21 @@ export default {
 }
 
 .ih-footer__copy {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.8rem;
-  color: var(--foreground);
+  color: var(--text-muted);
   margin: 0;
   font-weight: normal;
 }
 
 .ih-footer__coc {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.8rem;
-  color: var(--foreground);
+  color: var(--text-muted);
   text-decoration: none;
   font-weight: normal;
 }
 
 .ih-footer__coc:hover {
-  color: var(--foreground);
-  opacity: 1;
+  color: var(--link-hover);
 }
 
 @media (max-width: 480px) {

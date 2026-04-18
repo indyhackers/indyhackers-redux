@@ -72,42 +72,50 @@ export default defineComponent({
 
 <style scoped>
 .job-board {
-  background-color: var(--card);
+  background-color: var(--surface-2);
   padding: 3rem 0;
 }
 
 .title {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: bold;
+  color: var(--text-primary);
   margin-bottom: 1rem;
 }
 .subtitle {
   font-size: 1.2rem;
-  color: var(--muted-foreground);
+  color: var(--text-secondary);
 }
 .job-card {
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   border: 1px solid var(--border) !important;
-  background: var(--card) !important;
+  background: var(--surface-1) !important;
   padding: 1rem;
-  transition: box-shadow 0.3s ease-in-out;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
   cursor: pointer;
 }
 .job-card:hover {
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+  background-color: var(--surface-hover) !important;
+  box-shadow: var(--shadow-lg);
+}
+.job-card:active {
+  transform: scale(0.995);
 }
 .job-card:focus-visible {
-  outline: 2px solid var(--foreground);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
 }
 .company {
   font-size: 1.1rem;
-  color: var(--muted-foreground);
+  color: var(--text-muted);
 }
 .salary-badge {
-  background-color: var(--foreground) !important;
-  color: var(--primary-foreground) !important;
-  font-family: 'Space Mono', monospace;
+  background-color: var(--accent-deep) !important;
+  color: var(--surface-1) !important;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: bold;
   padding: 0.375rem 0.75rem;

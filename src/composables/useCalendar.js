@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 
-export function useCalendar() {
+export function useCalendar({ initialCount = 5 } = {}) {
   const events = ref([])
   const loading = ref(false)
   const error = ref(null)
@@ -85,7 +85,7 @@ export function useCalendar() {
     return grouped
   })
 
-  const visibleCount = ref(5)
+  const visibleCount = ref(initialCount)
   const visibleEvents = computed(() => events.value.slice(0, visibleCount.value))
   const hasMore = computed(() => visibleCount.value < events.value.length)
 

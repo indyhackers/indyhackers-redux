@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="{ 'inner-page': $route?.path !== '/' }" :style="{ backgroundColor: appBackground }">
+  <div id="app">
     <NavigationBar class="top" />
     <RouterView class="content" />
     <BottomLinkTree class="bottom" />
@@ -24,9 +24,6 @@ export default {
     },
     currentUser() {
       return this.pocketbase.authStore.model
-    },
-    appBackground() {
-      return this.$route?.path === '/' ? 'var(--background)' : 'var(--card)'
     }
   },
 }
@@ -53,7 +50,7 @@ a {
   color: inherit;
   font-weight: bold;
   &:hover {
-    opacity: 0.7;
+    color: var(--link-hover);
   }
 }
 </style>
@@ -63,14 +60,14 @@ a {
   font-size: 1rem;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 400;
-  background-color: var(--background);
+  background-color: var(--surface-1);
 }
 
 #app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--background);
+  background-color: var(--surface-1);
 }
 
 .content {

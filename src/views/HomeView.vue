@@ -44,7 +44,7 @@
   <!-- Upcoming Events -->
   <section class="events-section">
     <div class="ih-container">
-      <EventsView />
+      <EventsView :limit="3" />
     </div>
   </section>
 
@@ -82,9 +82,8 @@ export default {
 }
 
 .hero__sub {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.125rem;
-  color: #453a22;
+  color: var(--text-secondary);
   line-height: 1.6;
   max-width: 32rem;
   margin-bottom: 2rem;
@@ -100,9 +99,9 @@ export default {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  box-shadow: 0 8px 32px rgba(18, 18, 18, 0.1);
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in srgb, var(--border) 15%, transparent);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Community Proof */
@@ -122,7 +121,7 @@ export default {
 }
 
 .proof__number {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-size: clamp(2rem, 3.5vw, 2.75rem);
   font-weight: bold;
   line-height: 1;
@@ -130,16 +129,21 @@ export default {
 }
 
 .proof__label {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.9375rem;
-  color: #453a22;
+  color: var(--text-secondary);
   letter-spacing: 0.01em;
 }
 
 /* Events */
 .events-section {
   padding: 4rem 0 5rem;
-  border-top: 1px solid rgba(18, 18, 18, 0.12);
+  background: var(--surface-2);
+  border-top: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
 }
 
 @media (max-width: 768px) {
