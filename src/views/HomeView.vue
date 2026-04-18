@@ -2,10 +2,10 @@
   <!-- Hero -->
   <section class="hero">
     <div class="ih-container">
-      <h1 class="hero__heading">Fostering the Indiana<br />Tech Community</h1>
+      <h1 class="hero__heading">Indiana's tech community<br />since 2017</h1>
       <p class="hero__sub">
-        A network for all tech folks in Indiana. Fostering community connections and celebrating
-        individual successes.
+        What started as a few devs meeting for coffee is now 3,000 members strong.
+        Come hang out.
       </p>
       <div class="hero__ctas">
         <a href="https://slack.indyhackers.org/" target="_blank" class="ih-btn-primary">
@@ -21,7 +21,7 @@
     <div class="ih-container">
       <div class="proof__strip">
         <div class="proof__item">
-          <span class="proof__number">3,200+</span>
+          <span class="proof__number">3,000+</span>
           <span class="proof__label">members on Slack</span>
         </div>
         <div class="proof__item">
@@ -29,7 +29,7 @@
           <span class="proof__label">meetups a year</span>
         </div>
         <div class="proof__item">
-          <span class="proof__number">2013</span>
+          <span class="proof__number">2017</span>
           <span class="proof__label">and still going</span>
         </div>
       </div>
