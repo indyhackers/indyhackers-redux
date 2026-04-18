@@ -88,10 +88,8 @@ const sanitizeHtml = (html) => {
 <style scoped>
 .event-card {
   transition: transform 0.2s, box-shadow 0.2s;
-  border-left: 4px solid var(--primary) !important;
   background: var(--card) !important;
   border: 1px solid var(--border) !important;
-  border-left: 4px solid var(--primary) !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
   width: 100%;
