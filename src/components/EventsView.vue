@@ -2,7 +2,6 @@
   <div class="events-view">
     <div class="events-header">
       <h2>Upcoming Events</h2>
-      <p class="events-subtitle">What's coming up in Indy tech</p>
     </div>
 
     <!-- Loading State -->
@@ -75,12 +74,6 @@ onMounted(() => {
 
 .events-header {
   margin-bottom: 2rem;
-}
-
-.events-subtitle {
-  font-family: 'Space Grotesk', sans-serif;
-  color: var(--foreground);
-  margin: 0.5rem 0 0;
 }
 
 .events-loading {

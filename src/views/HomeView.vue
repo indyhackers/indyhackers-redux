@@ -63,7 +63,7 @@ export default {
 <style scoped>
 /* Hero */
 .hero {
-  padding: 7rem 1.25rem 5rem;
+  padding: 7rem 0 5rem;
 }
 
 .hero__layout {
@@ -84,7 +84,7 @@ export default {
 .hero__sub {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.125rem;
-  color: var(--muted-foreground);
+  color: #453a22;
   line-height: 1.6;
   max-width: 32rem;
   margin-bottom: 2rem;
@@ -102,11 +102,12 @@ export default {
   object-fit: cover;
   border-radius: 12px;
   border: 1px solid var(--border);
+  box-shadow: 0 8px 32px rgba(18, 18, 18, 0.1);
 }
 
 /* Community Proof */
 .proof {
-  padding: 3rem 1.25rem 4rem;
+  padding: 3rem 0 4rem;
 }
 
 .proof__strip {
@@ -131,14 +132,15 @@ export default {
 .proof__label {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.9375rem;
-  color: var(--muted-foreground);
+  color: #453a22;
+  letter-spacing: 0.01em;
 }
 
 /* Events */
 .events-section {
-  padding: 3rem 0 5rem;
+  padding: 4rem 0 5rem;
+  border-top: 1px solid rgba(18, 18, 18, 0.12);
 }
-
 
 @media (max-width: 768px) {
   .hero {
