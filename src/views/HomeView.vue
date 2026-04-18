@@ -16,31 +16,21 @@
     </div>
   </section>
 
-  <!-- What We Do -->
-  <section class="what-we-do">
+  <!-- Community Proof -->
+  <section class="proof">
     <div class="ih-container">
-      <h2 class="section-heading">What We Do</h2>
-      <div class="what-we-do__grid">
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <icon-carbon-user-multiple />
-          </div>
-          <h3>Mentorship</h3>
-          <p>Connecting experienced professionals with those growing their careers in tech.</p>
+      <div class="proof__strip">
+        <div class="proof__item">
+          <span class="proof__number">3,200+</span>
+          <span class="proof__label">members on Slack</span>
         </div>
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <icon-carbon-calendar />
-          </div>
-          <h3>Events</h3>
-          <p>From workshops to social meetups — something for every kind of hacker.</p>
+        <div class="proof__item">
+          <span class="proof__number">50+</span>
+          <span class="proof__label">meetups a year</span>
         </div>
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <icon-carbon-cafe />
-          </div>
-          <h3>Community</h3>
-          <p>A Slack community of thousands connecting Indiana's tech folks every day.</p>
+        <div class="proof__item">
+          <span class="proof__number">2013</span>
+          <span class="proof__label">and still going</span>
         </div>
       </div>
     </div>
@@ -54,20 +44,13 @@
   </section>
 
 </template>
-<Cafe />
 <script>
 import EventsView from '../components/EventsView.vue'
-import IconCarbonUserMultiple from '~icons/carbon/user-multiple'
-import IconCarbonCalendar from '~icons/carbon/calendar'
-import IconCarbonCafe from '~icons/carbon/cafe'
 
 export default {
   name: 'HomeView',
   components: {
-    EventsView,
-    IconCarbonUserMultiple,
-    IconCarbonCalendar,
-    IconCarbonCafe
+    EventsView
   }
 }
 </script>
@@ -102,56 +85,34 @@ export default {
   flex-wrap: wrap;
 }
 
-/* What We Do */
-.what-we-do {
-  padding: 5rem 1.25rem;
+/* Community Proof */
+.proof {
+  padding: 3rem 1.25rem 4rem;
 }
 
-.section-heading {
-  margin-bottom: 3rem;
-}
-
-.what-we-do__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.feature-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 2rem;
-  transition: box-shadow 0.3s;
-}
-
-.feature-card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.feature-card__icon {
-  width: 48px;
-  height: 48px;
-  background: var(--background);
-  border-radius: 8px;
+.proof__strip {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
+  gap: 4rem;
 }
 
-.feature-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+.proof__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
-.feature-card p {
+.proof__number {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.proof__label {
   font-family: 'Space Grotesk', sans-serif;
-  color: rgba(18, 18, 18, 0.7);
-  line-height: 1.6;
-  font-size: 1rem;
-  margin: 0;
+  font-size: 0.9375rem;
+  color: rgba(18, 18, 18, 0.65);
 }
 
 /* Events */
@@ -165,12 +126,9 @@ export default {
     padding: 5rem 0 3rem;
   }
 
-  .what-we-do__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .slack-cta__card {
-    padding: 2.5rem 1.5rem;
+  .proof__strip {
+    flex-direction: column;
+    gap: 2rem;
   }
 }
 </style>
