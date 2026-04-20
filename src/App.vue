@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <NavigationBar class="top" />
-    <RouterView class="content" />
+    <main>
+      <RouterView class="content" />
+    </main>
     <BottomLinkTree class="bottom" />
   </div>
 </template>
@@ -70,7 +72,7 @@ a {
   background-color: var(--surface-1);
 }
 
-.content {
+main {
   flex: 1;
 }
 

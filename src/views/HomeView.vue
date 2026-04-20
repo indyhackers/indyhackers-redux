@@ -16,7 +16,16 @@
         </div>
       </div>
       <div class="hero__photo">
-        <img src="/images/welcome.jpg" alt="IndyHackers community event" />
+        <picture>
+          <source srcset="/images/welcome.webp" type="image/webp" />
+          <img
+            src="/images/welcome.jpg"
+            alt="IndyHackers community event"
+            fetchpriority="high"
+            width="2048"
+            height="1365"
+          />
+        </picture>
       </div>
     </div>
   </section>
