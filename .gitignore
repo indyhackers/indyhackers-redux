@@ -36,3 +36,4 @@ coverage
 
 test-results/
 playwright-report/
+tmp/
