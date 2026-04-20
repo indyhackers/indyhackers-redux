@@ -11,7 +11,7 @@
   </section>
 
   <!-- Member donations -->
-  <section class="donate">
+  <section class="donate ih-full-bleed">
     <div class="ih-container">
       <h2 class="donate__heading">Chip in monthly</h2>
       <p class="donate__sub">Pick an amount that works for you. Every dollar goes directly to community events and infrastructure.</p>
@@ -84,7 +84,7 @@
   </section>
 
   <!-- Current sponsors -->
-  <section class="sponsors-list">
+  <section class="sponsors-list ih-full-bleed">
     <div class="ih-container">
       <h2 class="sponsors-list__heading">Our sponsors</h2>
       <div class="sponsors-list__grid">
@@ -160,10 +160,6 @@ const handleImageError = (e) => {
 .donate {
   padding: 3rem 0;
   background: var(--surface-2);
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  padding-left: calc(50vw - 50%);
-  padding-right: calc(50vw - 50%);
   border-top: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
   border-bottom: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
 }
@@ -290,10 +286,6 @@ const handleImageError = (e) => {
 .sponsors-list {
   padding: 3rem 0 4rem;
   background: var(--surface-2);
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  padding-left: calc(50vw - 50%);
-  padding-right: calc(50vw - 50%);
   border-top: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
 }
 

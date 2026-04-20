@@ -9,7 +9,7 @@
           Come hang out.
         </p>
         <div class="hero__ctas">
-          <a href="https://slack.indyhackers.org/" target="_blank" class="ih-btn-primary">
+          <a href="https://slack.indyhackers.org/" target="_blank" rel="noopener noreferrer" class="ih-btn-primary">
             Slack it to me!
           </a>
           <RouterLink to="/calendar" class="ih-btn-outline">Upcoming Events</RouterLink>
@@ -53,7 +53,7 @@
   </section>
 
   <!-- Upcoming Events -->
-  <section class="events-section">
+  <section class="events-section ih-full-bleed">
     <div class="ih-container">
       <EventsView :limit="3" />
     </div>
@@ -156,10 +156,6 @@ export default {
   background: var(--surface-2);
   border-top: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
   border-bottom: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  padding-left: calc(50vw - 50%);
-  padding-right: calc(50vw - 50%);
 }
 
 @media (max-width: 768px) {

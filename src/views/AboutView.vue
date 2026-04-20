@@ -34,7 +34,7 @@
   </section>
 
   <!-- Board -->
-  <section class="board">
+  <section class="board ih-full-bleed">
     <div class="ih-container">
       <h2 class="board__heading">Board Members</h2>
       <div class="board__grid">
@@ -173,10 +173,6 @@ import BoardMemberCard from '@/components/about/BoardMemberCard.vue'
 .board {
   padding: 4rem 0 5rem;
   background: var(--surface-2);
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  padding-left: calc(50vw - 50%);
-  padding-right: calc(50vw - 50%);
   border-top: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
   border-bottom: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
 }

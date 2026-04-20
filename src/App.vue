@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NavigationBar class="top" />
+    <NavigationBar />
     <main>
       <RouterView class="content" />
     </main>
@@ -34,29 +34,10 @@ export default {
 <style>
 @import '@/assets/base.scss';
 @import '@/styles/main.scss';
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Space Mono', monospace;
-  font-weight: bold;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: bold;
-  &:hover {
-    color: var(--link-hover);
-  }
-}
 </style>
 
 <style lang="scss">
-:deep(body) {
+body {
   font-size: 1rem;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 400;

@@ -35,6 +35,9 @@ $theme-colors: (
 @import 'bootstrap/scss/tooltip';
 @import 'bootstrap/scss/close';
 @import 'bootstrap/scss/transitions';
+@import 'bootstrap/scss/tables';
+@import 'bootstrap/scss/dropdown';
+@import 'bootstrap/scss/nav';
 
 // Bootstrap utilities API (generates utility classes)
 @import 'bootstrap/scss/utilities/api';
