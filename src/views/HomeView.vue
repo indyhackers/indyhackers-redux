@@ -22,8 +22,6 @@
             src="/images/welcome.jpg"
             alt="IndyHackers community event"
             fetchpriority="high"
-            width="2048"
-            height="1365"
           />
         </picture>
       </div>
@@ -102,6 +100,11 @@ export default {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.hero__photo picture {
+  display: block;
+  width: 100%;
 }
 
 .hero__photo img {
