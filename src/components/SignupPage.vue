@@ -68,8 +68,8 @@ export default {
 }
 
 :deep(.dark-mode) {
-  background-color: #121212;
-  color: #ffffff;
+  background-color: var(--text-primary);
+  color: var(--surface-1);
   /* Add other dark mode styles here */
 }
 
@@ -78,6 +78,6 @@ button {
 }
 
 button:hover {
-  background-color: #3700b3;
+  background-color: var(--accent-deep);
 }
 </style>

@@ -1,6 +1,6 @@
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
-export function useNewsletter() {
+export function useNewsletter({ initialCount = 3 } = {}) {
   const posts = ref([])
   const loading = ref(false)
   const error = ref(null)
@@ -67,8 +67,19 @@ export function useNewsletter() {
     }
   }
 
+  const visibleCount = ref(initialCount)
+  const visiblePosts = computed(() => posts.value.slice(0, visibleCount.value))
+  const hasMore = computed(() => visibleCount.value < posts.value.length)
+
+  function loadMore() {
+    visibleCount.value += initialCount
+  }
+
   return {
     posts,
+    visiblePosts,
+    hasMore,
+    loadMore,
     loading,
     error,
     fetchNewsletter

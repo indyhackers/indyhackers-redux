@@ -95,7 +95,7 @@ export default defineComponent({
 
 <style scoped>
 .job-view {
-  background-color: var(--card);
+  background-color: var(--surface-2);
   padding-bottom: 3rem;
 }
 
@@ -105,27 +105,37 @@ export default defineComponent({
 }
 
 .job-card {
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border) !important;
-  background: var(--card) !important;
+  background: var(--surface-1) !important;
   padding: 2rem;
-  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.2s ease;
 }
 
 .job-card:hover {
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
+}
+
+.job-card:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
 }
 
 .job-title {
   font-size: 2rem;
   font-weight: bold;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 .company-name {
   font-size: 1.2rem;
-  color: var(--muted-foreground);
+  color: var(--text-muted);
   margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
 }
 
 .salary-info {
@@ -133,9 +143,9 @@ export default defineComponent({
 }
 
 .salary-badge {
-  background-color: var(--foreground) !important;
-  color: var(--primary-foreground) !important;
-  font-family: 'Space Mono', monospace;
+  background-color: var(--accent-deep) !important;
+  color: var(--surface-1) !important;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: bold;
   padding: 0.375rem 0.75rem;
@@ -145,7 +155,7 @@ export default defineComponent({
 .job-description,
 .job-how-to-apply {
   font-size: 1rem;
-  color: var(--foreground);
+  color: var(--text-primary);
   line-height: 1.6;
   white-space: pre-wrap;
 }
@@ -155,5 +165,6 @@ export default defineComponent({
   margin-bottom: 0;
   font-weight: bold;
   font-size: 1.2rem;
+  color: var(--text-primary);
 }
 </style>

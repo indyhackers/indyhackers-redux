@@ -70,7 +70,7 @@ const handleImageError = (e) => {
   padding: 1.5rem 1rem;
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   min-height: 180px;
   transition: box-shadow 0.3s;
   text-decoration: none;
@@ -78,7 +78,7 @@ const handleImageError = (e) => {
 }
 
 .sponsor-card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
 }
 
 .sponsor-card--placeholder {
@@ -119,7 +119,7 @@ const handleImageError = (e) => {
 }
 
 .sponsor-card__name {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.875rem;
   font-weight: bold;
   color: var(--foreground);

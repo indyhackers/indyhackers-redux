@@ -50,7 +50,7 @@ export default {
   position: sticky;
   top: 0;
   z-index: 10;
-  padding: 1.25rem 1.25rem;
+  padding: 1.25rem;
 }
 
 .ih-navbar__inner {
@@ -72,7 +72,7 @@ export default {
 
 .ih-navbar__links a,
 .ih-navbar__mobile a {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 1rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -83,14 +83,31 @@ export default {
 
 .ih-navbar__links a:hover,
 .ih-navbar__mobile a:hover {
-  opacity: 0.7;
+  color: var(--link-hover);
+}
+
+.ih-navbar__links a:active {
+  opacity: 0.5;
+}
+
+.ih-navbar__links a {
+  position: relative;
+  padding-bottom: 4px;
 }
 
 .ih-navbar__links a.router-link-active {
   color: var(--foreground);
   font-weight: 700;
-  border-bottom: 2px solid var(--foreground);
-  padding-bottom: 2px;
+}
+
+.ih-navbar__links a.router-link-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--foreground);
 }
 
 .ih-navbar__mobile a.router-link-active {
