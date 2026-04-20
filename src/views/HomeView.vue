@@ -16,7 +16,14 @@
         </div>
       </div>
       <div class="hero__photo">
-        <img src="/images/welcome.jpg" alt="IndyHackers community event" />
+        <picture>
+          <source srcset="/images/welcome.webp" type="image/webp" />
+          <img
+            src="/images/welcome.jpg"
+            alt="IndyHackers community event"
+            fetchpriority="high"
+          />
+        </picture>
       </div>
     </div>
   </section>
@@ -93,6 +100,11 @@ export default {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.hero__photo picture {
+  display: block;
+  width: 100%;
 }
 
 .hero__photo img {

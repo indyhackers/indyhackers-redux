@@ -7,7 +7,7 @@
 
     <div class="event-row__body">
       <div class="event-row__headline">
-        <h4 class="event-row__title">{{ event.title }}</h4>
+        <h3 class="event-row__title">{{ event.title }}</h3>
         <span v-if="event.isAllDay" class="all-day-pill">All Day</span>
       </div>
 
