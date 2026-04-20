@@ -9,8 +9,35 @@ $theme-colors: (
   'dark': #121212
 );
 
-// Import Bootstrap and Bootstrap-Vue SCSS
-@import 'bootstrap/scss/bootstrap';
+// Bootstrap core (required)
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
+
+// Bootstrap base
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/type';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+
+// Bootstrap components (only what we use)
+@import 'bootstrap/scss/forms';
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/card';
+@import 'bootstrap/scss/modal';
+@import 'bootstrap/scss/badge';
+@import 'bootstrap/scss/alert';
+@import 'bootstrap/scss/spinners';
+@import 'bootstrap/scss/tooltip';
+@import 'bootstrap/scss/close';
+@import 'bootstrap/scss/transitions';
+
+// Bootstrap utilities API (generates utility classes)
+@import 'bootstrap/scss/utilities/api';
 @import 'bootstrap-vue-next/src/styles/styles.scss';
 /* ================================================================
    Indy Hackers Design Tokens
