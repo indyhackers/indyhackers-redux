@@ -13,7 +13,7 @@
           <p>
             That group grew. Language-specific meetups spun up, then cross-discipline ones.
             Today, Indy Hackers is 3,000 members strong across Slack, with dozens of
-            meetups a year and a community that goes well beyond any single stack.
+            meetups a year and a community that spans languages and technologies.
           </p>
           <p>
             We're volunteer-run and always will be. If you build things in Indiana,

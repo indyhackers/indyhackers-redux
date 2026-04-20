@@ -30,12 +30,12 @@
           <span class="proof__label">members on Slack</span>
         </div>
         <div class="proof__item">
-          <span class="proof__number">50+</span>
+          <span class="proof__number">42+</span>
           <span class="proof__label">meetups a year</span>
         </div>
         <div class="proof__item">
-          <span class="proof__number">2017</span>
-          <span class="proof__label">and still going</span>
+          <span class="proof__number">&gt;9,000</span>
+          <span class="proof__label">cups of coffee</span>
         </div>
       </div>
     </div>
