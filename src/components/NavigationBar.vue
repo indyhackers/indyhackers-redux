@@ -2,7 +2,10 @@
   <nav class="ih-navbar">
     <div class="ih-navbar__inner ih-container">
       <RouterLink to="/" class="ih-navbar__brand">
-        <img src="/images/ih-logo-black.png" alt="Indy Hackers" />
+        <picture>
+          <source srcset="/images/ih-logo-black.webp" type="image/webp" />
+          <img src="/images/ih-logo-black.png" alt="Indy Hackers" />
+        </picture>
       </RouterLink>
 
       <div class="ih-navbar__links">

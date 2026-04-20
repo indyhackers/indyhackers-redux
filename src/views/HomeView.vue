@@ -17,7 +17,11 @@
       </div>
       <div class="hero__photo">
         <picture>
-          <source srcset="/images/welcome.webp" type="image/webp" />
+          <source
+            srcset="/images/welcome-640.webp 640w, /images/welcome-1024.webp 1024w, /images/welcome.webp 2048w"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            type="image/webp"
+          />
           <img
             src="/images/welcome.jpg"
             alt="IndyHackers community event"
