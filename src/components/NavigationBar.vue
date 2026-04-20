@@ -17,7 +17,7 @@
         <RouterLink to="/about">About</RouterLink>
       </div>
 
-      <button class="ih-navbar__hamburger" @click="open = !open" aria-label="Toggle menu">
+      <button class="ih-navbar__hamburger" @click="open = !open" :aria-expanded="open" aria-label="Toggle menu">
         <span></span>
         <span></span>
         <span></span>

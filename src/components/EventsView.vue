@@ -40,6 +40,7 @@
       <a
         class="ih-btn-primary"
         target="_blank"
+        rel="noopener noreferrer"
         href="https://docs.google.com/forms/d/e/1FAIpQLSdlfIqF42uU8iyoYyqKDFPEYRsNCOCFYpFJwMTvdVOkK3otSg/viewform?usp=sf_link"
       >
         Recommend an Event

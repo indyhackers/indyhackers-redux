@@ -28,7 +28,7 @@
     </div>
   </section>
 
-  <section class="newsletter-content">
+  <section class="newsletter-content ih-full-bleed">
     <div class="ih-container">
       <!-- Loading -->
       <div v-if="loading" class="newsletter-loading">
@@ -215,10 +215,6 @@ onMounted(() => {
 .newsletter-content {
   padding: 3rem 0 4rem;
   background: var(--surface-2);
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  padding-left: calc(50vw - 50%);
-  padding-right: calc(50vw - 50%);
   border-top: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
 }
 

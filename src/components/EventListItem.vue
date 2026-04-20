@@ -1,5 +1,5 @@
 <template>
-  <article class="event-row" :class="{ 'event-row--all-day': event.isAllDay }">
+  <article class="event-row">
     <div class="event-row__date">
       <span class="event-row__month">{{ monthAbbr }}</span>
       <span class="event-row__day">{{ dayNum }}</span>
@@ -36,6 +36,7 @@
         v-if="event.link"
         :href="event.link"
         target="_blank"
+        rel="noopener noreferrer"
         class="event-row__link"
       >
         View in Calendar →
