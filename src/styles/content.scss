@@ -14,29 +14,29 @@
   }
 
   .blm {
-    background-color: $text-color-black;
-    color: $primary-yellow;
+    background-color: var(--text-primary);
+    color: var(--accent-brand);
     padding: 30px 10%;
   }
 
   .announcements-alt {
-    background-color: $background-blue-dark;
-    color: $primary-yellow;
+    background-color: var(--foreground);
+    color: var(--primary-foreground);
     padding: 30px 10%;
   }
 
   .holcomb {
-    background-color: rgb(227, 92, 85) !important;
+    background-color: var(--danger) !important;
   }
 
   .announcements {
-    background-color: $primary-yellow;
-    color: $text-color-black;
+    background-color: var(--accent-brand);
+    color: var(--text-primary);
     padding: 30px 10%;
 
     a.join-slack,
     a.code-of-conduct {
-      text-decoration-color: $text-color-black;
+      text-decoration-color: var(--text-primary);
     }
   }
 
@@ -44,12 +44,12 @@
     padding: 30px 20% 30px 0;
 
     a.learn-more {
-      text-decoration-color: $text-color-black;
+      text-decoration-color: var(--text-primary);
     }
   }
 
   .wwihd {
-    background-color: $background-blue;
+    background-color: var(--muted);
     margin-bottom: 30px;
     padding: 30px 10%;
 

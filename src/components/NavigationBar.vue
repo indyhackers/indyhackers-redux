@@ -1,80 +1,160 @@
 <template>
-  <BNavbar variant="warning" toggleable="lg">
-    <BNavbarNav class="d-flex flex-row align-items-center w-100">
-      <BNavbarBrand href="/" class="d-flex align-items-center">
-        <img
-          src="/images/ih-logo-black.png"
-          class="img-fluid me-2"
-          style="max-height: 35px"
-          alt="IndyHackersLogo"
-        />
-      </BNavbarBrand>
-      <BNavbarToggle class="ms-auto d-lg-none" target="navbar-collapse" />
-    </BNavbarNav>
-    <BCollapse id="navbar-collapse" is-nav>
-      <BNavbarNav>
-        <BNavItem right><RouterLink to="/">Home</RouterLink></BNavItem>
-        <BNavItem right><RouterLink to="/calendar">Calendar</RouterLink></BNavItem>
-        <BNavItem right><RouterLink to="/newsletter">Newsletter</RouterLink></BNavItem>
-        <BNavItem right><RouterLink to="/jobs">Jobs</RouterLink></BNavItem>
-        <BNavItem right><RouterLink to="/sponsors">Sponsors</RouterLink></BNavItem>
-        <BNavItem right><RouterLink to="/about">About</RouterLink></BNavItem>
-      </BNavbarNav>
-    </BCollapse>
-    <!-- <UserProfileDropdown /> -->
-  </BNavbar>
+  <nav class="ih-navbar">
+    <div class="ih-navbar__inner ih-container">
+      <RouterLink to="/" class="ih-navbar__brand">
+        <picture>
+          <source srcset="/images/ih-logo-black.webp" type="image/webp" />
+          <img src="/images/ih-logo-black.png" alt="Indy Hackers" />
+        </picture>
+      </RouterLink>
+
+      <div class="ih-navbar__links">
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/calendar">Calendar</RouterLink>
+        <RouterLink to="/newsletter">Newsletter</RouterLink>
+        <RouterLink to="/jobs">Jobs</RouterLink>
+        <RouterLink to="/sponsors">Sponsors</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+      </div>
+
+      <button class="ih-navbar__hamburger" @click="open = !open" :aria-expanded="open" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="ih-navbar__mobile" :class="{ 'ih-navbar__mobile--open': open }">
+      <RouterLink to="/" @click="open = false">Home</RouterLink>
+      <RouterLink to="/calendar" @click="open = false">Calendar</RouterLink>
+      <RouterLink to="/newsletter" @click="open = false">Newsletter</RouterLink>
+      <RouterLink to="/jobs" @click="open = false">Jobs</RouterLink>
+      <RouterLink to="/sponsors" @click="open = false">Sponsors</RouterLink>
+      <RouterLink to="/about" @click="open = false">About</RouterLink>
+    </div>
+  </nav>
 </template>
 
 <script>
-// import UserProfileDropdown from './UserProfileDropdown.vue'
-
 export default {
   name: 'NavigationBar',
-  components: {
-    // UserProfileDropdown
-  },
   data() {
     return {
-      expanded: false
+      open: false
     }
   }
 }
 </script>
 
 <style scoped>
-:deep(.container-fluid) {
-  background-image: linear-gradient(to bottom, #1a1a2e, #2e2e44, var(--color-dark-20)) !important;
-  background-color: var(--color-dark-15) !important;
+.ih-navbar {
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 1.25rem;
 }
 
-:deep(a, [class^='nav-'], [class*=' nav-']) {
-  font-size: 1.4rem !important;
-  color: var(--color-text-light-1) !important;
-  text-decoration: none;
-
-  font-family: 'Dosis', serif;
-  font-weight: 600;
-  font-style: normal;
-  text-transform: uppercase;
-}
-
-a:hover {
-  color: var(--color-text-light-6) !important;
-}
-
-li.nav-item {
+.ih-navbar__inner {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  justify-content: space-between;
 }
 
-@media (min-width: 992px) {
-  .navbar-nav {
-    flex-direction: row;
-    justify-content: flex-start;
-    width: 100%;
-    padding-right: 36px !important;
+.ih-navbar__brand img {
+  height: 28px;
+  display: block;
+}
+
+.ih-navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.ih-navbar__links a,
+.ih-navbar__mobile a {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.ih-navbar__links a:hover,
+.ih-navbar__mobile a:hover {
+  color: var(--link-hover);
+}
+
+.ih-navbar__links a:active {
+  opacity: 0.5;
+}
+
+.ih-navbar__links a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.ih-navbar__links a.router-link-active {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+.ih-navbar__links a.router-link-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--foreground);
+}
+
+.ih-navbar__mobile a.router-link-active {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+.ih-navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.ih-navbar__hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--foreground);
+  border-radius: 2px;
+}
+
+.ih-navbar__mobile {
+  display: none;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  gap: 1rem;
+}
+
+.ih-navbar__mobile--open {
+  display: flex;
+}
+
+@media (max-width: 1024px) {
+  .ih-navbar__links {
+    display: none;
+  }
+
+  .ih-navbar__hamburger {
+    display: flex;
   }
 }
 </style>

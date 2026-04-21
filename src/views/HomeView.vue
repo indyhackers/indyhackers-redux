@@ -1,186 +1,176 @@
-<script setup></script>
-
 <template>
-  <!-- <div class="centered-container"> -->
-  <BContainer gutter-x="40px">
-    <!-- <BRow>
-      <BCol>
-        <BCard no-body class="overflow-hidden mt-2 mb-2" style="background-color: #00000">
-          <BCardBody
-            title="Holiday Social 2025!"
-            style="background-color: #960014; color: white;"
-          >
-            <BCardText style="background-color: #960014; color: white">
-              Our largest event of the year brings everyone together for a night of celebration!
-              Join us — a bunch of programmers, nerds, geeks, and hackers — to celebrate the year with food, drink, and friends, both old and new!
-              <br /><br />
-              There are no other agenda items&mdash; just drinks, community, and fun!
-              <p class="mt-4">
-                <BButton style="color:white; background-color: #00873E" target="_blank" href="https://www.eventbrite.com/e/2025-indy-hackers-holiday-social-tickets-1788837012659">Register Today!</BButton>
-              </p>
-            </BCardText>
-          </BCardBody>
-        </BCard>
-      </BCol>
-    </BRow>
-    <BRow>
-      <BCol>
-        <BCard no-body class="overflow-hidden mt-2 mb-2" style="background-color: #00873E">
-          <BCardBody
-            title="IndyHackers Season of Giving"
-            style="background-color: #00873E; color: white;"
-          >
-            <BCardText style="background-color: #00873E; color: white">
-              IndyHackers has always been about bringing people together&mdash;building connections, sharing ideas, and growing the Indiana tech community. If you have found value in what we do, please consider supporting our Season of Giving. Your donation helps us cover costs for our community, fund future programming, and keep growing what we offer. We have big plans for 2026 and every contribution&mdash; big or small, makes a difference!
+  <!-- Hero -->
+  <section class="hero">
+    <div class="ih-container hero__layout">
+      <div class="hero__copy">
+        <h1 class="hero__heading">Indiana's tech community<br />since 2017</h1>
+        <p class="hero__sub">
+          What started as a few devs meeting for coffee is now 3,000 members strong.
+          Come hang out.
+        </p>
+        <div class="hero__ctas">
+          <a href="https://slack.indyhackers.org/" target="_blank" rel="noopener noreferrer" class="ih-btn-primary">
+            Slack it to me!
+          </a>
+          <RouterLink to="/calendar" class="ih-btn-outline">Upcoming Events</RouterLink>
+        </div>
+      </div>
+      <div class="hero__photo">
+        <picture>
+          <source
+            srcset="/images/welcome-640.webp 640w, /images/welcome-1024.webp 1024w, /images/welcome.webp 2048w"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            type="image/webp"
+          />
+          <img
+            src="/images/welcome.jpg"
+            alt="IndyHackers community event"
+            fetchpriority="high"
+          />
+        </picture>
+      </div>
+    </div>
+  </section>
 
-              <p class="mt-4">
-                <BButton style="color:white; background-color: #960014" target="_blank" href="https://donate.stripe.com/bIY17XcYL77c0HSdQQ">Donate</BButton>
-              </p>
-            </BCardText>
-          </BCardBody>
-        </BCard>
-      </BCol>
-    </BRow>
-    -->
-    <BRow>
-      <BCol>
-        <BCard no-body class="overflow-hidden mt-2 mb-2" style="background-color: #808080">
-          <BRow class="g-0">
-            <!--<BCol md="8">
-              <BCardImg src="images/ih-welcome-carousel.png" alt="Image" class="rounded-0" />
-            </BCol>
-            -->
-            <BCol md="12" variant="warning">
-              <BCardBody
-                title="Join us on Slack!"
-                style="background-color: #ffc008; max-height: 100vh"
-              >
-                <BCardText>
-                  Our Slack group brings hackers, programmers, makers, and tech folks of all kinds
-                  together.<br /><br />You're invited - don't forget to check out our
-                  <BLink to="/code-of-conduct">Code of Conduct</BLink> first!
-                  <p class="mt-4">
-                    <BButton
-                      style="color: white; background: black"
-                      href="https://slack.indyhackers.org/"
-                      >Slack it to me!</BButton
-                    >
-                  </p>
-                </BCardText>
-              </BCardBody>
-              <!-- <BCardBody
-                title="Join us on Slack!"
-                style="background-color: #808080; max-height: 100vh"
-              >
-                <BCardText class="vh-50">
-                  Our Slack group brings hackers, programmers, makers, and tech folks of all kinds
-                  together. <br /><br />You're invited - don't forget to check out our
-                  <BLink to="/conduct">Code of Conduct</BLink> first!
-                  <p class="mt-4">
-                    <BLink href="https://slack.indyhackers.org/">Slack it to me!</BLink>
-                  </p>
-                </BCardText>
-              </BCardBody> -->
-            </BCol>
-          </BRow>
-        </BCard>
-      </BCol>
-    </BRow>
+  <!-- Community Proof -->
+  <section class="proof">
+    <div class="ih-container">
+      <div class="proof__strip">
+        <div class="proof__item">
+          <span class="proof__number">3,000+</span>
+          <span class="proof__label">members on Slack</span>
+        </div>
+        <div class="proof__item">
+          <span class="proof__number">42+</span>
+          <span class="proof__label">meetups a year</span>
+        </div>
+        <div class="proof__item">
+          <span class="proof__number">&gt;9,000</span>
+          <span class="proof__label">cups of coffee</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <BRow>
-      <BCol>
-        <BCard no-body class="overflow-hidden mt-2 mb-2">
-          <BRow class="g-0">
-            <BCol md="8" variant="warning">
-              <BCardBody title="Fostering the Indiana Tech Community" style="max-height: 100vh">
-                <BCardText>
-                  A network for all tech folks in Indiana. Fostering community connections and
-                  celebrating individual successes.
-                </BCardText>
-              </BCardBody>
-            </BCol>
-            <!--
-            <BCol md="4">
-              <BCardImg src="images/high-five.png" alt="Image" class="rounded-0" />
-            </BCol>
-            -->
-          </BRow>
-        </BCard>
-      </BCol>
-    </BRow>
-    <BRow>
-      <BCol>
-        <h2 class="mt-4 mb-4">What We Do</h2>
-        <BCardGroup>
-          <BCard
-            title="Mentorship"
-            img-src="images/mentor.png"
-            img-alt="Mentorship"
-            img-top
-            img-height="300px"
-            align="center"
-          >
-            <template #footer></template>
-          </BCard>
+  <!-- Upcoming Events -->
+  <section class="events-section ih-full-bleed">
+    <div class="ih-container">
+      <EventsView :limit="3" />
+    </div>
+  </section>
 
-          <BCard
-            title="Events"
-            img-src="images/events.png"
-            img-alt="Events"
-            align="center"
-            img-height="300px"
-          >
-            <template #footer></template>
-          </BCard>
-
-          <BCard
-            title="Meetups"
-            img-src="images/meetups.png"
-            img-alt="Meetups"
-            align="center"
-            img-width="100"
-            img-bottom
-          >
-            <template #footer></template>
-          </BCard>
-        </BCardGroup>
-      </BCol>
-    </BRow>
-    <BRow>
-      <EventsView />
-    </BRow>
-
-  </BContainer>
-  <!-- </div> -->
 </template>
-
 <script>
-import CalendarView from '../components/CalendarView.vue'
+import EventsView from '../components/EventsView.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    CalendarView
+    EventsView
   },
-  async mounted() {}
 }
 </script>
 
 <style scoped>
-.centered-container {
-  display: flex;
-  justify-content: center;
+/* Hero */
+.hero {
+  padding: 7rem 0 5rem;
+}
+
+.hero__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
   align-items: center;
-  max-height: 53rem;
 }
 
-a {
-  color: #000;
-  text-decoration: none;
+.hero__heading {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: bold;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
 }
 
-a:hover {
-  color: #fff;
+.hero__sub {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 32rem;
+  margin-bottom: 2rem;
+}
+
+.hero__ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero__photo picture {
+  display: block;
+  width: 100%;
+}
+
+.hero__photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in srgb, var(--border) 15%, transparent);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Community Proof */
+.proof {
+  padding: 3rem 0 4rem;
+}
+
+.proof__strip {
+  display: flex;
+  gap: 4rem;
+}
+
+.proof__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.proof__number {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.proof__label {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+}
+
+/* Events */
+.events-section {
+  padding: 4rem 0 5rem;
+  background: var(--surface-2);
+  border-top: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 5rem 0 3rem;
+  }
+
+  .hero__layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .proof__strip {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
 </style>

@@ -1,45 +1,51 @@
 <template>
-  <b-card class="event-card mb-3" :class="{ 'all-day-event': event.isAllDay }">
-    <b-card-body>
-      <div class="event-header">
-        <h4 class="event-title">{{ event.title }}</h4>
-        <b-badge v-if="event.isAllDay" variant="info">All Day</b-badge>
+  <article class="event-row">
+    <div class="event-row__date">
+      <span class="event-row__month">{{ monthAbbr }}</span>
+      <span class="event-row__day">{{ dayNum }}</span>
+    </div>
+
+    <div class="event-row__body">
+      <div class="event-row__headline">
+        <h3 class="event-row__title">{{ event.title }}</h3>
+        <span v-if="event.isAllDay" class="all-day-pill">All Day</span>
       </div>
 
-      <div class="event-time">
-        <icon-carbon-time class="icon" />
-        <span v-if="event.isAllDay">
-          {{ formatDate(event.start) }}
+      <div class="event-row__meta">
+        <span class="event-row__time">
+          <icon-carbon-time class="event-row__icon" />
+          <template v-if="event.isAllDay">{{ formatDate(event.start) }}</template>
+          <template v-else>
+            {{ formatTime(event.start) }}
+            <span v-if="event.end"> – {{ formatTime(event.end) }}</span>
+          </template>
         </span>
-        <span v-else>
-          {{ formatDateTime(event.start) }}
-          <span v-if="event.end"> - {{ formatTime(event.end) }}</span>
+        <span v-if="event.location" class="event-row__location">
+          <icon-carbon-location class="event-row__icon" />
+          {{ event.location }}
         </span>
       </div>
 
-      <div v-if="event.location" class="event-location">
-        <icon-carbon-location class="icon" />
-        {{ event.location }}
-      </div>
+      <div
+        v-if="event.description"
+        class="event-row__desc"
+        v-html="sanitizeHtml(event.description)"
+      ></div>
 
-      <div v-if="event.description" class="event-description" v-html="sanitizeHtml(event.description)"></div>
-
-      <b-button
+      <a
         v-if="event.link"
-        variant="primary"
-        size="sm"
         :href="event.link"
         target="_blank"
-        class="mt-2"
+        rel="noopener noreferrer"
+        class="event-row__link"
       >
-        View in Google Calendar
-      </b-button>
-    </b-card-body>
-  </b-card>
+        View in Calendar →
+      </a>
+    </div>
+  </article>
 </template>
 
 <script setup>
-import { BCard, BCardBody, BButton, BBadge } from 'bootstrap-vue-next'
 import DOMPurify from 'dompurify'
 
 const props = defineProps({
@@ -49,31 +55,23 @@ const props = defineProps({
   }
 })
 
+const startDate = new Date(props.event.start)
+const monthAbbr = startDate.toLocaleDateString('en-US', { month: 'short' }).toUpperCase()
+const dayNum = startDate.getDate()
+
 const formatDate = (dateString) => {
   const date = new Date(dateString)
   return date.toLocaleDateString('en-US', {
     weekday: 'long',
-    year: 'numeric',
     month: 'long',
     day: 'numeric'
   })
 }
 
-const formatDateTime = (dateString) => {
+const formatTime = (dateString) => {
   const date = new Date(dateString)
   return date.toLocaleString('en-US', {
     weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit'
-  })
-}
-
-const formatTime = (dateString) => {
-  const date = new Date(dateString)
-  return date.toLocaleTimeString('en-US', {
     hour: 'numeric',
     minute: '2-digit'
   })
@@ -88,64 +86,150 @@ const sanitizeHtml = (html) => {
 </script>
 
 <style scoped>
-.event-card {
-  transition: transform 0.2s, box-shadow 0.2s;
-  border-left: 4px solid #0B8043;
-}
-
-.event-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.all-day-event {
-  border-left-color: #4285F4;
-}
-
-.event-header {
+.event-row {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 0.75rem;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 12%, transparent);
 }
 
-.event-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 0;
-  color: #2c3e50;
+.event-row:last-child {
+  border-bottom: none;
 }
 
-.event-time,
-.event-location {
+/* Date block */
+.event-row__date {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  color: #5f6368;
-  font-size: 0.95rem;
+  min-width: 3.5rem;
+  padding-top: 0.125rem;
 }
 
-.icon {
-  width: 18px;
-  height: 18px;
+.event-row__month {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  color: var(--accent-deep);
+  line-height: 1;
+}
+
+.event-row__day {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: bold;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+/* Body */
+.event-row__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.event-row__headline {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.375rem;
+}
+
+.event-row__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+/* Meta */
+.event-row__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.event-row__time,
+.event-row__location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.event-row__icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+/* Description */
+.event-row__desc {
+  margin-top: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  max-height: 4.8em;
+  overflow: hidden;
+}
+
+.event-row__desc:deep(a) {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
+.event-row__desc:deep(a:hover) {
+  color: var(--link-hover);
+}
+
+/* Calendar link */
+.event-row__link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: bold;
+  color: var(--accent-deep);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.event-row__link:hover {
+  color: var(--text-primary);
+}
+
+/* All day pill */
+.all-day-pill {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  background: var(--accent-warm-subtle);
+  border: 1px solid var(--accent-warm);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  color: var(--accent-deep);
+  white-space: nowrap;
   flex-shrink: 0;
 }
 
-.event-description {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #e9ecef;
-  color: #5f6368;
-  line-height: 1.6;
-}
+@media (max-width: 480px) {
+  .event-row__date {
+    min-width: 2.75rem;
+  }
 
-.event-description:deep(a) {
-  color: #0B8043;
-  text-decoration: none;
-}
+  .event-row__day {
+    font-size: 1.375rem;
+  }
 
-.event-description:deep(a:hover) {
-  text-decoration: underline;
+  .event-row__meta {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
 }
 </style>

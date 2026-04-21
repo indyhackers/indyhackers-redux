@@ -1,16 +1,27 @@
 <template>
-  <div class="board-member-card">
-    <img class="avatar" :src="imageUrl" />
-    <div class="board-member-card-body">
-      <span class="board-member-first-name">{{ firstName }}</span>
-      <span class="board-member-last-name">{{ lastName }}</span>
+  <div class="member">
+    <img class="member__photo" :src="imageUrl" :alt="`${firstName} ${lastName}`" />
+    <div class="member__info">
+      <span class="member__name">{{ firstName }} {{ lastName }}</span>
+      <span v-if="title" class="member__title">{{ title }}</span>
     </div>
-    <div class="spacer" />
-    <div class="board-member-contact-icons">
-      <a class="icon-container" :href="email" target="_blank" v-if="email">
+    <div class="member__links">
+      <a
+        v-if="email"
+        :href="email"
+        target="_blank"
+        class="member__link"
+        :aria-label="`Email ${firstName} ${lastName}`"
+      >
         <IFaEnvelope />
       </a>
-      <a class="icon-container" :href="linkedin" target="_blank" v-if="linkedin">
+      <a
+        v-if="linkedin"
+        :href="linkedin"
+        target="_blank"
+        class="member__link"
+        :aria-label="`${firstName} ${lastName} on LinkedIn`"
+      >
         <IFaLinkedin />
       </a>
     </div>
@@ -25,67 +36,73 @@ export default {
     imageUrl: String,
     firstName: String,
     lastName: String,
-    linkedin: String
+    linkedin: String,
+    title: String
   }
 }
 </script>
 
 <style scoped>
-.board-member-card {
-  border-radius: 16px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+.member {
+  text-align: center;
+}
+
+.member__photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.member__info {
+  margin-top: 1rem;
   display: flex;
-  flex-direction: row;
-  min-width: 500px;
-  overflow: hidden;
-  transition: all 0.5s ease;
+  flex-direction: column;
+  gap: 0.25rem;
 }
-.avatar {
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
-  max-height: 140px;
-  max-width: 140px;
+
+.member__name {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
 }
-.board-member-card-body {
+
+.member__title {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.member__links {
+  display: flex;
   justify-content: center;
+  gap: 0.25rem;
+  margin-top: 0.75rem;
+}
+
+.member__link {
   display: flex;
-  flex-direction: column;
-  margin-right: 32px;
-  padding: 16px;
-}
-.board-member-first-name {
-  font-family: monospace;
-  font-size: 2.1rem;
-  font-weight: 900;
-  line-height: 28px;
-}
-.board-member-last-name {
-  font-family: monospace;
-  font-size: 0.9rem;
-  padding-left: 2px;
-}
-.spacer {
-  flex-grow: 1;
-}
-.board-member-contact-icons {
-  display: flex;
-  flex-direction: column;
-}
-.icon-container {
   align-items: center;
-  cursor: pointer;
-  display: flex;
-  flex-grow: 1;
-  min-height: 28px;
-  min-width: 28px;
-  padding: 16px;
-  transition: all 0.5s ease;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s ease;
+  text-decoration: none;
 }
-.icon-container:hover {
-  background-color: #febe0a;
+
+.member__link:hover {
+  background-color: var(--surface-1);
 }
 
 :deep(path) {
-  fill: #000;
+  fill: var(--text-muted);
+  transition: fill 0.2s ease;
+}
+
+.member__link:hover :deep(path) {
+  fill: var(--text-primary);
 }
 </style>

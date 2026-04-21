@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 
-export function useCalendar() {
+export function useCalendar({ initialCount = 5 } = {}) {
   const events = ref([])
   const loading = ref(false)
   const error = ref(null)
@@ -85,10 +85,13 @@ export function useCalendar() {
     return grouped
   })
 
-  // Get upcoming events (next 5)
-  const upcomingEvents = computed(() => {
-    return events.value.slice(0, 5)
-  })
+  const visibleCount = ref(initialCount)
+  const visibleEvents = computed(() => events.value.slice(0, visibleCount.value))
+  const hasMore = computed(() => visibleCount.value < events.value.length)
+
+  function loadMore() {
+    visibleCount.value += 5
+  }
 
   return {
     events,
@@ -96,6 +99,8 @@ export function useCalendar() {
     error,
     fetchEvents,
     eventsByDate,
-    upcomingEvents
+    visibleEvents,
+    hasMore,
+    loadMore
   }
 }

@@ -1,0 +1,94 @@
+     1 # Design Overhaul Handoff
+       2
+       3 ## What We Did
+       4
+       5 **Goal:** Full visual redesign of IndyHackers Redux based
+         on a "Civic Monospace" spec — yellow canvas, white cards,
+         Space Mono headings/buttons/nav, Space Grotesk body text,
+         warm design tokens throughout.
+       6
+       7 **Stack:** Vue 3 + Bootstrap Vue Next + SCSS. No Tailwind.
+          All styling via CSS custom properties.
+       8
+       9 **Branch:** `design-spike` (all work here, not merged to m
+         ain)
+      10
+      11 ---
+      12
+      13 ## Key Architecture Decisions
+      14
+      15 1. **CSS token system** in `src/assets/base.scss`:
+      16    - `--background: #FFCC00` (yellow canvas)
+      17    - `--foreground: #121212` (near-black text)
+      18    - `--primary: #121212` / `--primary-foreground: #FFCC00
+         ` (button pair)
+      19    - `--card: #FFFFFF` (white cards)
+      20    - `--border: #CFC4A8` (warm border)
+      21    - `--muted-foreground: #595959`
+      22
+      23 2. **Padding rule:** `.ih-container` owns horizontal paddi
+         ng (`0 3rem`), outer elements own vertical only — never st
+         ack both or you get double gutters.
+      24
+      25 3. **`main.scss` must be imported in `App.vue`** — it hold
+         s `.ih-btn-primary`, `.ih-btn-outline`, and `.ih-container
+         `. Was missing early on and caused buttons to render as un
+         styled links.
+      26
+      27 4. **`SponsorsView` lives in `src/views/`** not `src/compo
+         nents/` — router import was updated accordingly.
+      28
+      29 5. **Fonts:** Space Mono (400, 700) for headings/nav/butto
+         ns; Space Grotesk (300–700) for body. Imported in `App.vue
+         `. Dosis and Work Sans removed.
+      30
+      31 ---
+      32
+      33 ## Files Modified
+      34
+      35 | File | What Changed |
+      36 |------|-------------|
+      37 | `src/assets/base.scss` | CSS custom property tokens, `ht
+         ml`/`body` base styles |
+      38 | `src/styles/_variables.scss` | SCSS vars aligned to toke
+         ns |
+      39 | `src/styles/main.scss` | `.ih-container`, `.ih-btn-prima
+         ry`, `.ih-btn-outline`, heading sizes |
+      40 | `src/App.vue` | Font imports, `main.scss` import, remove
+         d content padding |
+      41 | `src/components/NavigationBar.vue` | Full rewrite — plai
+         n `<nav>`, yellow bg, Space Mono links, mobile hamburger |
+      42 | `src/components/BottomLinkTree.vue` | Minimal copyright
+         bar + Code of Conduct link |
+      43 | `src/views/HomeView.vue` | Full rebuild — Hero, What We
+         Do (3-col grid), Events section |
+      44 | `src/views/SponsorsView.vue` | Full rebuild — hero, spon
+         sor grid, dashed CTA box, monthly backers card |
+      45 | `src/components/sponsors/SponsorList.vue` | 4-col grid,
+         warm borders, placeholder cards when < 4 sponsors |
+      46 | `src/components/EventsView.vue` | Removed Bootstrap cont
+         ainer, `ih-btn` classes |
+      47 | `src/components/EventListItem.vue` | `var(--primary)` le
+         ft border, yellow All Day pill |
+      48 | `src/components/CalendarView.vue` | `ih-container` wrapp
+         er, `ih-btn` classes |
+      49 | `src/components/NewsletterView.vue` | White card for ifr
+         ame, design token colors |
+      50 | `src/components/jobs/JobsList.vue` + `JobListing.vue` |
+         Token colors, removed hardcoded hex |
+      51 | `src/components/LoginPage.vue` | `ih-btn` classes |
+      52 | `src/views/PlaceholderView.vue` | Yellow canvas, white c
+         ard |
+      53 | `src/views/AboutView.vue` | Hero section, 2-col board gr
+         id, `BoardMemberCard` mobile fix |
+      54 | `src/router/index.js` | `SponsorsView` import path updat
+         ed to `views/` |
+      55
+      56 ---
+      57
+      58 ## What's Left
+      59
+      60 - Visual QA pass across all pages
+      61 - Events section left-bleed: Bootstrap card gutter behavio
+         r may still cause layout issues on some screen sizes
+      62 - Decide when to merge `design-spike` → `main`

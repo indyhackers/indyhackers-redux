@@ -1,20 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import AboutView from '../views/AboutView.vue'
 import HomeView from '../views/HomeView.vue'
-import OmniView from '../views/OmniView.vue'
-import PlaceholderView from '../views/PlaceholderView.vue'
-import AdminLogin from '../components/AdminLogin.vue'
-import LoginPage from '../components/LoginPage.vue'
-import SignupPage from '../components/SignupPage.vue'
-import SponsorsView from '../components/SponsorsView.vue'
-import NewsletterView from '../components/NewsletterView.vue'
-import EventRecommendationForm from '../components/EventRecommendationForm.vue'
-import CalendarView from '../components/CalendarView.vue'
-import EventsMarkdown from '../components/EventsMarkdown.vue'
-import JobsMarkdown from '../components/jobs/JobsMarkdown.vue'
-import CodeOfConduct from '../components/CodeOfConduct.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior() {
+    return { top: 0 }
+  },
   routes: [
     {
       path: '/',
@@ -25,52 +16,72 @@ const router = createRouter({
     {
       path: '/jobs',
       name: 'Jobs',
-      component: OmniView,
+      component: () => import('../views/OmniView.vue'),
       props: { currentComponent: 'JobsList' }
     },
     {
       path: '/job',
-      component: OmniView,
+      component: () => import('../views/OmniView.vue'),
       props: { currentComponent: 'JobListing' }
     },
     {
       path: '/jobs-markdown',
       name: 'JobsMarkdown',
-      component: JobsMarkdown
+      component: () => import('../components/jobs/JobsMarkdown.vue')
     },
     {
       path: '/about',
       name: 'About',
-      component: AboutView
+      component: () => import('../views/AboutView.vue')
     },
     {
       path: '/privacy',
       name: 'Privacy',
-      component: PlaceholderView,
+      component: () => import('../views/PlaceholderView.vue'),
       props: { title: 'Privacy Policy', content: 'Our privacy policy.' }
     },
     {
       path: '/terms',
       name: 'Terms',
-      component: PlaceholderView,
+      component: () => import('../views/PlaceholderView.vue'),
       props: { title: 'Terms of Service', content: 'Our terms of service.' }
     },
     {
       path: '/support',
       name: 'Support',
-      component: PlaceholderView,
+      component: () => import('../views/PlaceholderView.vue'),
       props: { title: 'Support', content: 'Get support.' }
     },
-    { path: '/admin', name: 'Admin', component: AdminLogin },
-    { path: '/login', name: 'Login', component: LoginPage },
-    { path: '/signup', name: 'Signup', component: SignupPage },
-    { path: '/sponsors', name: 'Sponsors', component: SponsorsView },
-    { path: '/newsletter', name: 'Newsletter', component: NewsletterView },
-    { path: '/recommend-event', name: 'RecommendEvent', component: EventRecommendationForm },
-    { path: '/calendar', name: 'Calendar', component: CalendarView },
+    { path: '/admin', name: 'Admin', component: () => import('../components/AdminLogin.vue') },
+    { path: '/login', name: 'Login', component: () => import('../components/LoginPage.vue') },
+    { path: '/signup', name: 'Signup', component: () => import('../components/SignupPage.vue') },
+    { path: '/sponsors', name: 'Sponsors', component: () => import('../views/SponsorsView.vue') },
+    {
+      path: '/newsletter',
+      name: 'Newsletter',
+      component: () => import('../components/NewsletterView.vue')
+    },
+    {
+      path: '/recommend-event',
+      name: 'RecommendEvent',
+      component: () => import('../components/EventRecommendationForm.vue')
+    },
+    {
+      path: '/calendar',
+      name: 'Calendar',
+      component: () => import('../components/CalendarView.vue')
+    },
     { path: '/events', redirect: '/calendar' },
-    { path: '/events-markdown', name: 'EventsMarkdown', component: EventsMarkdown },
-    { path: '/code-of-conduct', name: 'CodeOfConduct', component: CodeOfConduct }
+    {
+      path: '/events-markdown',
+      name: 'EventsMarkdown',
+      component: () => import('../components/EventsMarkdown.vue')
+    },
+    {
+      path: '/code-of-conduct',
+      name: 'CodeOfConduct',
+      component: () => import('../components/CodeOfConduct.vue')
+    }
   ]
 })
 
