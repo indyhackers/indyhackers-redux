@@ -1,20 +1,14 @@
-@import '_variables';
-
-$notice-danger-color: #ff3838;
-$notice-warning-color: #ffba00;
-$notice-success-color: #2ec946;
-
 .notice {
   width: 100%;
   padding: 16px;
   margin: 8px;
-  background-color: $notice-success-color;
+  background-color: var(--success);
 
   .danger {
-    background-color: $notice-danger-color;
+    background-color: var(--danger);
   }
 
   .warning {
-    background-color: $notice-warning-color;
+    background-color: var(--warning);
   }
 }

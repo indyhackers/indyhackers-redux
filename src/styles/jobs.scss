@@ -1,5 +1,3 @@
-@import '_variables';
-
 .job h1 a {
   font-size: 36px;
 }
@@ -15,7 +13,7 @@
   h4,
   h5,
   h6 {
-    color: $text-color-black;
+    color: var(--text-primary);
     text-transform: none;
 
     &:not(:first-child) {
@@ -25,7 +23,7 @@
 }
 
 #single-job a {
-  color: $text-color-black;
+  color: var(--text-primary);
 }
 
 #single-job article.job-description h1 {
@@ -51,14 +49,14 @@ table#jobs {
     td {
       padding: 6px;
       margin: 0;
-      border-top: 1px solid #000;
+      border-top: 1px solid var(--border);
       border-collapse: collapse;
       overflow: hidden;
     }
   }
 
   tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: var(--surface-2);
   }
 
   td.actions,
@@ -93,7 +91,7 @@ li#jobs-header h1 {
 
 .job-list li a:hover {
   text-decoration: underline;
-  text-decoration-color: $primary-yellow;
+  text-decoration-color: var(--accent-brand);
 }
 
 .job-list>li:nth-child(even) {

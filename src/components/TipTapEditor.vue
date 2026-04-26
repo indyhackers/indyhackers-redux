@@ -55,13 +55,13 @@ export default {
 :deep(.tiptap-editor) {
   border-radius: 5px;
   padding: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid color-mix(in srgb, var(--border) 30%, var(--surface-1));
   box-shadow: none;
   transition: border-color 0.3s ease;
 }
 
 :deep(.tiptap-editor:focus) {
-  border-color: #007bff;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  border-color: var(--focus-ring);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--focus-ring) 20%, transparent);
 }
 </style>

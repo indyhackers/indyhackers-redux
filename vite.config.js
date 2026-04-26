@@ -22,9 +22,10 @@ export default defineConfig({
       autoInstall: true
     }),
     VitePluginRadar({
-      // Google Analytics tag injection
+      // Google Analytics tag injection — load after page renders
       analytics: {
-        id: 'G-ZF5Q1C13NM'
+        id: 'G-ZF5Q1C13NM',
+        injectTo: 'body'
       }
     })
   ],

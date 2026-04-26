@@ -1,81 +1,87 @@
 <template>
   <!-- Hero -->
   <section class="hero">
-    <div class="ih-container">
-      <h1 class="hero__heading">Fostering the Indiana<br />Tech Community</h1>
-      <p class="hero__sub">
-        A network for all tech folks in Indiana. Fostering community connections and celebrating
-        individual successes.
-      </p>
-      <div class="hero__ctas">
-        <a href="https://slack.indyhackers.org/" target="_blank" class="ih-btn-primary">
-          Slack it to me!
-        </a>
-        <RouterLink to="/calendar" class="ih-btn-outline">Upcoming Events</RouterLink>
+    <div class="ih-container hero__layout">
+      <div class="hero__copy">
+        <h1 class="hero__heading">Indiana's tech community<br />since 2017</h1>
+        <p class="hero__sub">
+          What started as a few devs meeting for coffee is now 3,000 members strong.
+          Come hang out.
+        </p>
+        <div class="hero__ctas">
+          <a href="https://slack.indyhackers.org/" target="_blank" rel="noopener noreferrer" class="ih-btn-primary">
+            Slack it to me!
+          </a>
+          <RouterLink to="/calendar" class="ih-btn-outline">Upcoming Events</RouterLink>
+        </div>
+      </div>
+      <div class="hero__photo">
+        <picture>
+          <source
+            srcset="/images/welcome-640.webp 640w, /images/welcome-1024.webp 1024w, /images/welcome.webp 2048w"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            type="image/webp"
+          />
+          <img
+            src="/images/welcome.jpg"
+            alt="IndyHackers community event"
+            fetchpriority="high"
+          />
+        </picture>
       </div>
     </div>
   </section>
 
-  <!-- What We Do -->
-  <section class="what-we-do">
+  <!-- Community Proof -->
+  <section class="proof">
     <div class="ih-container">
-      <h2 class="section-heading">What We Do</h2>
-      <div class="what-we-do__grid">
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <icon-carbon-user-multiple />
-          </div>
-          <h3>Mentorship</h3>
-          <p>Connecting experienced professionals with those growing their careers in tech.</p>
+      <div class="proof__strip">
+        <div class="proof__item">
+          <span class="proof__number">3,000+</span>
+          <span class="proof__label">members on Slack</span>
         </div>
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <icon-carbon-calendar />
-          </div>
-          <h3>Events</h3>
-          <p>From workshops to social meetups — something for every kind of hacker.</p>
+        <div class="proof__item">
+          <span class="proof__number">42+</span>
+          <span class="proof__label">meetups a year</span>
         </div>
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <icon-carbon-cafe />
-          </div>
-          <h3>Community</h3>
-          <p>A Slack community of thousands connecting Indiana's tech folks every day.</p>
+        <div class="proof__item">
+          <span class="proof__number">&gt;9,000</span>
+          <span class="proof__label">cups of coffee</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Upcoming Events -->
-  <section class="events-section">
+  <section class="events-section ih-full-bleed">
     <div class="ih-container">
-      <EventsView />
+      <EventsView :limit="3" />
     </div>
   </section>
 
 </template>
-<Cafe />
 <script>
 import EventsView from '../components/EventsView.vue'
-import IconCarbonUserMultiple from '~icons/carbon/user-multiple'
-import IconCarbonCalendar from '~icons/carbon/calendar'
-import IconCarbonCafe from '~icons/carbon/cafe'
 
 export default {
   name: 'HomeView',
   components: {
-    EventsView,
-    IconCarbonUserMultiple,
-    IconCarbonCalendar,
-    IconCarbonCafe
-  }
+    EventsView
+  },
 }
 </script>
 
 <style scoped>
 /* Hero */
 .hero {
-  padding: 7rem 1.25rem 5rem;
+  padding: 7rem 0 5rem;
+}
+
+.hero__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
 }
 
 .hero__heading {
@@ -84,13 +90,11 @@ export default {
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 1.25rem;
-  max-width: 40rem;
 }
 
 .hero__sub {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.125rem;
-  color: rgba(18, 18, 18, 0.7);
+  color: var(--text-secondary);
   line-height: 1.6;
   max-width: 32rem;
   margin-bottom: 2rem;
@@ -102,75 +106,71 @@ export default {
   flex-wrap: wrap;
 }
 
-/* What We Do */
-.what-we-do {
-  padding: 5rem 1.25rem;
+.hero__photo picture {
+  display: block;
+  width: 100%;
 }
 
-.section-heading {
-  margin-bottom: 3rem;
+.hero__photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in srgb, var(--border) 15%, transparent);
+  box-shadow: var(--shadow-lg);
 }
 
-.what-we-do__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+/* Community Proof */
+.proof {
+  padding: 3rem 0 4rem;
 }
 
-.feature-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 2rem;
-  transition: box-shadow 0.3s;
-}
-
-.feature-card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.feature-card__icon {
-  width: 48px;
-  height: 48px;
-  background: var(--background);
-  border-radius: 8px;
+.proof__strip {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
+  gap: 4rem;
 }
 
-.feature-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+.proof__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
-.feature-card p {
-  font-family: 'Space Grotesk', sans-serif;
-  color: rgba(18, 18, 18, 0.7);
-  line-height: 1.6;
-  font-size: 1rem;
-  margin: 0;
+.proof__number {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.proof__label {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
 }
 
 /* Events */
 .events-section {
-  padding: 5rem 0;
+  padding: 4rem 0 5rem;
+  background: var(--surface-2);
+  border-top: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
 }
-
 
 @media (max-width: 768px) {
   .hero {
     padding: 5rem 0 3rem;
   }
 
-  .what-we-do__grid {
+  .hero__layout {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
-  .slack-cta__card {
-    padding: 2.5rem 1.5rem;
+  .proof__strip {
+    flex-direction: column;
+    gap: 2rem;
   }
 }
 </style>

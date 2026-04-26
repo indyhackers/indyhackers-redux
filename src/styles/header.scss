@@ -8,7 +8,7 @@
 
 .logo {
   max-width: 50px;
-  fill: $text-color-black;
+  fill: var(--text-primary);
   margin-right: 16px;
 
   &-text {
@@ -53,7 +53,7 @@
 #admin-header {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 30%, var(--surface-1));
 
   div.left {
     padding: 20px;
@@ -67,12 +67,12 @@
   a {
     padding: 12px 24px;
     text-decoration: none;
-    background-color: white;
-    color: $text-color-black;
+    background-color: var(--surface-1);
+    color: var(--text-primary);
 
     &:hover {
       text-decoration: underline;
-      text-decoration-color: #FFC000;
+      text-decoration-color: var(--accent-brand);
     }
   }
 

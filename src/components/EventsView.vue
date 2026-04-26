@@ -2,7 +2,6 @@
   <div class="events-view">
     <div class="events-header">
       <h2>Upcoming Events</h2>
-      <p class="events-subtitle">Join us for exciting tech events and meetups in Indianapolis</p>
     </div>
 
     <!-- Loading State -->
@@ -41,6 +40,7 @@
       <a
         class="ih-btn-primary"
         target="_blank"
+        rel="noopener noreferrer"
         href="https://docs.google.com/forms/d/e/1FAIpQLSdlfIqF42uU8iyoYyqKDFPEYRsNCOCFYpFJwMTvdVOkK3otSg/viewform?usp=sf_link"
       >
         Recommend an Event
@@ -58,10 +58,17 @@
 <script setup>
 import { onMounted } from 'vue'
 import { BAlert, BSpinner } from 'bootstrap-vue-next'
-import { useCalendar } from '../composables/useCalendar'
-import EventListItem from './EventListItem.vue'
+import { useCalendar } from '@/composables/useCalendar'
+import EventListItem from '@/components/EventListItem.vue'
 
-const { events, loading, error, fetchEvents, visibleEvents, hasMore, loadMore } = useCalendar()
+const props = defineProps({
+  limit: {
+    type: Number,
+    default: 5
+  }
+})
+
+const { events, loading, error, fetchEvents, visibleEvents, hasMore, loadMore } = useCalendar({ initialCount: props.limit })
 
 onMounted(() => {
   fetchEvents()
@@ -77,34 +84,29 @@ onMounted(() => {
   margin-bottom: 2rem;
 }
 
-.events-subtitle {
-  font-family: 'Space Grotesk', sans-serif;
-  color: var(--foreground);
-  margin: 0.5rem 0 0;
-}
-
 .events-loading {
   text-align: center;
   padding: 3rem 0;
-  color: var(--muted-foreground);
+  color: var(--text-muted);
 }
 
 .events-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   margin-bottom: 2rem;
 }
 
 .load-more {
   text-align: center;
-  padding-top: 0.5rem;
+  padding-top: 1.5rem;
 }
 
 .events-actions {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-top: 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
 }
 </style>

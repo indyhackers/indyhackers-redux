@@ -1,96 +1,118 @@
 <template>
-  <div class="sponsors-page">
+  <!-- Intro -->
+  <section class="sponsors-hero">
     <div class="ih-container">
+      <h1 class="sponsors-hero__heading">Support Indy Hackers</h1>
+      <p class="sponsors-hero__sub">
+        Indy Hackers is volunteer-run. Donations and sponsorships pay for event
+        spaces, food, and the tools that keep the community running.
+      </p>
+    </div>
+  </section>
 
-      <!-- Page title -->
-      <div class="sponsors-title">
-        <h1>Our Sponsors</h1>
-        <p class="sponsors-title__sub">
-          The companies and people who make Indy Hackers possible.
-        </p>
-        <div class="sponsors-intro">
-          <p>Indy Hackers is built on the incredible spirit and generosity of our community. Whether you're helping a fellow hacker, sharing industry insights, or making that key introduction, your contributions have made a real impact. To keep building on this momentum, we're excited to partner with sponsors who share our vision of growing the tech scene in Indiana. Every sponsorship directly fuels better events, new opportunities, and more resources for our members.</p>
-          <p>Thank you for believing in this community and helping us grow—together, we're making a real difference.</p>
-        </div>
-      </div>
-
-      <!-- Sponsor sections -->
-      <div class="sponsors-main">
-
-        <!-- Annual Corporate Sponsors -->
-        <section class="sponsor-section">
-          <div class="sponsor-section__heading">
-            <icon-carbon-building class="section-icon" />
-            <h2>Annual Corporate Sponsors</h2>
-          </div>
-          <div class="sponsor-grid">
-            <a
-              v-for="sponsor in annualSponsors"
-              :key="sponsor.id"
-              :href="sponsor.link"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="sponsor-card"
-            >
-              <div class="sponsor-card__logo-box">
-                <img
-                  :src="sponsor.logo"
-                  :alt="sponsor.name"
-                  class="sponsor-card__img"
-                  @error="handleImageError"
-                />
-              </div>
-              <p class="sponsor-card__name">{{ sponsor.name }}</p>
-            </a>
-          </div>
-        </section>
-
-        <!-- Meetup Sponsors -->
-        <section class="sponsor-section">
-          <div class="sponsor-section__heading">
-            <icon-carbon-events class="section-icon" />
-            <h2>Meetup Sponsors</h2>
-          </div>
-          <div class="sponsor-grid">
-            <a
-              v-for="sponsor in meetupSponsors"
-              :key="sponsor.id"
-              :href="sponsor.link"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="sponsor-card"
-            >
-              <div class="sponsor-card__logo-box">
-                <img
-                  :src="sponsor.logo"
-                  :alt="sponsor.name"
-                  class="sponsor-card__img"
-                  @error="handleImageError"
-                />
-              </div>
-              <p class="sponsor-card__name">{{ sponsor.name }}</p>
-            </a>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- Full-width CTA -->
-      <div class="sponsors-cta">
-        <div class="sponsors-cta__copy">
-          <h3>Interested in sponsoring?</h3>
-          <p>If you or your company is interested in sponsoring Indy Hackers and showing your support for the builders, contact us at <a href="mailto:sponsors@indyhackers.org">sponsors@indyhackers.org</a>.</p>
-        </div>
-        <a href="mailto:sponsors@indyhackers.org" class="ih-btn-primary">LET'S TALK &rarr;</a>
+  <!-- Member donations -->
+  <section class="donate ih-full-bleed">
+    <div class="ih-container">
+      <h2 class="donate__heading">Chip in monthly</h2>
+      <p class="donate__sub">Pick an amount that works for you. Every dollar goes directly to community events and infrastructure.</p>
+      <div class="donate__options">
+        <a
+          href="https://donate.stripe.com/bJeeVcdEvcOpdnE0oQgrS01"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="donate__card"
+        >
+          <span class="donate__amount">$5</span>
+          <span class="donate__interval">/ month</span>
+        </a>
+        <a
+          href="https://donate.stripe.com/aFaeVcasj5lX4R80oQgrS02"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="donate__card"
+        >
+          <span class="donate__amount">$15</span>
+          <span class="donate__interval">/ month</span>
+        </a>
+        <a
+          href="https://donate.stripe.com/8x2bJ0cAr9CddnE9ZqgrS03"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="donate__card"
+        >
+          <span class="donate__amount">$25</span>
+          <span class="donate__interval">/ month</span>
+        </a>
+        <a
+          href="https://donate.stripe.com/bIY17XcYL77c0HSdQQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="donate__card donate__card--custom"
+        >
+          <span class="donate__amount">Custom</span>
+          <span class="donate__interval">one-time</span>
+        </a>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Corporate sponsorship -->
+  <section class="corporate">
+    <div class="ih-container">
+      <div class="corporate__layout">
+        <div class="corporate__copy">
+          <h2 class="corporate__heading">Become a corporate sponsor</h2>
+          <p class="corporate__text">
+            Annual corporate sponsors help Indy Hackers plan ahead and invest in
+            bigger, better events for the Indiana tech community.
+          </p>
+          <ul class="corporate__perks">
+            <li>Logo on the Indy Hackers website</li>
+            <li>Shoutout at community events</li>
+            <li>Mentioned in our newsletter</li>
+            <li>Discounted event sponsorship</li>
+          </ul>
+        </div>
+        <div class="corporate__cta">
+          <a href="mailto:sponsors@indyhackers.org" class="ih-btn-primary">
+            Get in touch
+          </a>
+          <span class="corporate__email">sponsors@indyhackers.org</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Current sponsors -->
+  <section class="sponsors-list ih-full-bleed">
+    <div class="ih-container">
+      <h2 class="sponsors-list__heading">Our sponsors</h2>
+      <div class="sponsors-list__grid">
+        <a
+          v-for="sponsor in sponsors"
+          :key="sponsor.id"
+          :href="sponsor.link"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="sponsor-logo"
+        >
+          <img
+            :src="sponsor.logo"
+            :alt="sponsor.name"
+            class="sponsor-logo__img"
+            @error="handleImageError"
+          />
+          <span class="sponsor-logo__name">{{ sponsor.name }}</span>
+        </a>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 
-const annualSponsors = ref([
+const sponsors = ref([
   {
     id: 1,
     name: 'Pure Insights',
@@ -102,10 +124,7 @@ const annualSponsors = ref([
     name: 'MadeLabs',
     link: 'https://www.madelabs.io/?utm_campaign=indy_hackers',
     logo: '/images/sponsors/madelabs.png'
-  }
-])
-
-const meetupSponsors = ref([
+  },
   {
     id: 3,
     name: 'Java House',
@@ -120,201 +139,210 @@ const handleImageError = (e) => {
 </script>
 
 <style scoped>
-.sponsors-page {
+/* Hero */
+.sponsors-hero {
   padding: 3rem 0;
 }
 
-/* Title */
-.sponsors-title {
-  margin-bottom: 2.5rem;
-}
-
-.sponsors-title h1 {
+.sponsors-hero__heading {
   font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 1rem;
-}
-
-.sponsors-title__sub {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.125rem;
-  color: rgba(18, 18, 18, 0.7);
-  line-height: 1.6;
-  margin: 0 0 1.5rem;
-}
-
-.sponsors-intro {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1rem;
-  color: var(--muted-foreground);
-  line-height: 1.7;
-
-  p {
-    margin: 0 0 1rem;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
-.sponsors-main {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.sponsor-section__heading {
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
   margin-bottom: 1.25rem;
 }
 
-.sponsor-section__heading h2 {
-  font-size: 1.25rem;
-  margin: 0;
+.sponsors-hero__sub {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 38rem;
 }
 
-.section-icon {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
+/* Donate */
+.donate {
+  padding: 3rem 0;
+  background: var(--surface-2);
+  border-top: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
 }
 
-/* Card grid — 2 columns */
-.sponsor-grid {
+.donate__heading {
+  margin-bottom: 0.5rem;
+}
+
+.donate__sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 0 0 1.5rem;
+  max-width: 32rem;
+}
+
+.donate__options {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 
-/* Sponsor card — logo box + name caption below */
-.sponsor-card {
+.donate__card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.625rem;
-  text-decoration: none;
-  color: inherit;
-}
-
-.sponsor-card:hover .sponsor-card__logo-box {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-}
-
-.sponsor-card--placeholder .sponsor-card__logo-box {
-  border-style: dashed;
-  border-width: 2px;
-  cursor: default;
-}
-
-.sponsor-card--placeholder:hover .sponsor-card__logo-box {
-  box-shadow: none;
-}
-
-.sponsor-card__logo-box {
-  width: 80%;
-  aspect-ratio: 3 / 2;
-  display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
-  background: #fff;
-  border: 1px solid var(--border);
-  overflow: hidden;
-  transition: box-shadow 0.2s;
-}
-
-.sponsor-card__logo-box--empty {
-  background: #fff;
-}
-
-.placeholder-icon {
-  width: 28px;
-  height: 28px;
-  color: rgba(18, 18, 18, 0.3);
-}
-
-.sponsor-card__img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 8px;
-}
-
-.sponsor-card__body {
-  display: flex;
-  flex-direction: column;
   gap: 0.25rem;
-  min-width: 0;
-}
-
-.sponsor-card__name {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.8125rem;
-  font-weight: bold;
-  color: var(--foreground);
-  text-align: center;
-  margin: 0;
-}
-
-.sponsor-card__tagline {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.8125rem;
-  color: rgba(18, 18, 18, 0.6);
-  margin: 0;
-  line-height: 1.5;
-}
-
-.placeholder-link {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  font-weight: bold;
-  color: var(--foreground);
+  padding: 1.5rem 1rem;
+  background: var(--surface-1);
+  border: 1px solid color-mix(in srgb, var(--border) 15%, transparent);
+  border-radius: var(--radius-lg);
   text-decoration: none;
-  margin-top: 0.25rem;
+  transition: box-shadow 0.2s ease;
 }
 
-.placeholder-link:hover {
-  text-decoration: underline;
+.donate__card:hover {
+  box-shadow: var(--shadow-md);
 }
 
-/* Full-width CTA bar */
-.sponsors-cta {
-  margin-top: 2.5rem;
-  border: 2px dashed var(--border);
-  border-radius: 12px;
-  padding: 1.5rem 2rem;
-  background: var(--card);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
+.donate__card:active {
+  transform: scale(0.98);
 }
 
-.sponsors-cta__copy {
+.donate__amount {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.donate__interval {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.donate__card--custom .donate__amount {
+  font-size: 1.25rem;
+}
+
+/* Corporate */
+.corporate {
+  padding: 3rem 0;
+}
+
+.corporate__layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: start;
+}
+
+.corporate__heading {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.corporate__text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 32rem;
+  margin: 0 0 1.25rem;
+}
+
+.corporate__perks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
 
-.sponsors-cta h3 {
-  font-size: 1.125rem;
-  margin: 0;
-}
-
-.sponsors-cta p {
-  font-family: 'Space Grotesk', sans-serif;
+.corporate__perks li {
   font-size: 0.9375rem;
-  color: rgba(18, 18, 18, 0.7);
-  line-height: 1.6;
-  margin: 0;
+  color: var(--text-secondary);
+  padding-left: 1.25rem;
+  position: relative;
 }
 
-@media (max-width: 560px) {
-  .sponsor-grid {
+.corporate__perks li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent-deep);
+  font-weight: bold;
+}
+
+.corporate__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.corporate__email {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Sponsors list */
+.sponsors-list {
+  padding: 3rem 0 4rem;
+  background: var(--surface-2);
+  border-top: 1px solid color-mix(in srgb, var(--border) 10%, transparent);
+}
+
+.sponsors-list__heading {
+  margin-bottom: 1.5rem;
+}
+
+.sponsors-list__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.sponsor-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  padding: 1.5rem;
+  background: var(--surface-1);
+  border: 1px solid color-mix(in srgb, var(--border) 15%, transparent);
+  border-radius: var(--radius-lg);
+  transition: box-shadow 0.2s ease;
+}
+
+.sponsor-logo:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.sponsor-logo__img {
+  height: 60px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.sponsor-logo__name {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .donate__options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .corporate__layout {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .corporate__cta {
+    align-items: flex-start;
   }
 }
+
 </style>

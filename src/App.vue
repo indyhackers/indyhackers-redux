@@ -1,7 +1,9 @@
 <template>
-  <div id="app" :class="{ 'inner-page': $route?.path !== '/' }" :style="{ backgroundColor: appBackground }">
-    <NavigationBar class="top" />
-    <RouterView class="content" />
+  <div id="app">
+    <NavigationBar />
+    <main>
+      <RouterView class="content" />
+    </main>
     <BottomLinkTree class="bottom" />
   </div>
 </template>
@@ -24,9 +26,6 @@ export default {
     },
     currentUser() {
       return this.pocketbase.authStore.model
-    },
-    appBackground() {
-      return this.$route?.path === '/' ? 'var(--background)' : 'var(--card)'
     }
   },
 }
@@ -35,45 +34,24 @@ export default {
 <style>
 @import '@/assets/base.scss';
 @import '@/styles/main.scss';
-
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Space Mono', monospace;
-  font-weight: bold;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: bold;
-  &:hover {
-    opacity: 0.7;
-  }
-}
 </style>
 
 <style lang="scss">
-:deep(body) {
+body {
   font-size: 1rem;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 400;
-  background-color: var(--background);
+  background-color: var(--surface-1);
 }
 
 #app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--background);
+  background-color: var(--surface-1);
 }
 
-.content {
+main {
   flex: 1;
 }
 

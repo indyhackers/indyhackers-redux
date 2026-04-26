@@ -19,7 +19,7 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: $text-font;
-  color: $text-color-black;
+  color: var(--text-primary);
 }
 
 h1,
@@ -32,23 +32,28 @@ h6 {
   font-weight: bold;
 }
 
-h1 { font-size: 36px; }
-h2 { font-size: 28px; }
-h3 { font-size: 24px; }
-h4 { font-size: 20px; }
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
 
 a {
   text-decoration-color: var(--background);
   color: inherit;
   font-weight: bold;
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
 }
 
 iframe {
   width: 100%;
 }
 
-.inner-page .card {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+.card {
+  box-shadow: var(--shadow-sm);
 }
 
 /******************************************************************************/
@@ -71,8 +76,13 @@ iframe {
   text-decoration: none;
 
   &:hover {
-    opacity: 0.9;
+    background: var(--btn-primary-hover);
     color: var(--primary-foreground);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
   }
 }
 
@@ -93,8 +103,14 @@ iframe {
   text-decoration: none;
 
   &:hover {
-    background: var(--foreground);
-    color: var(--background);
+    background: var(--btn-outline-hover-bg);
+    border-color: var(--btn-outline-hover-bg);
+    color: var(--btn-outline-hover-fg);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
   }
 }
 
@@ -168,4 +184,12 @@ iframe {
   width: 24px;
   height: 24px;
   margin-right: 0.5rem;
+}
+
+/* Full-bleed: break out of container to span full viewport width */
+.ih-full-bleed {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
 }
